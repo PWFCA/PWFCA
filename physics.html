@@ -10,6 +10,13 @@ body{font-family:Arial;margin:0;background:#eef3ff;color:#222}
 h2{color:#1e4bd8;margin-top:0}
 a.btn{display:block;background:#1e4bd8;color:white;padding:12px;text-align:center;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:10px}
 a.back{color:white;text-decoration:underline}
+
+/* Highlight important formulas: yellow background and bold */
+.formula{background:#ffeb3b;font-weight:bold;padding:4px 8px;border-radius:6px;display:inline-block}
+
+/* Highlight answers labeled "A:" with light yellow */
+.answer{background:#fff9c4;padding:4px 8px;border-radius:6px;display:inline-block}
+
 </style>
 </head>
 <body>
@@ -22,10 +29,10 @@ a.back{color:white;text-decoration:underline}
 <div class="box">
 <h2>1. Measurements</h2>
 <p><b>Fundamental quantities:</b> Length (m), Mass (kg), Time (s), Temperature (K)</p>
-<p><b>Density = Mass / Volume</b></p>
+<p><b><span class="formula">Density = Mass / Volume</span></b></p>
 <p>Unit: kg/m³ or g/cm³</p>
 <p><b>Example:</b> Mass 100g, Volume 50cm³<br>
-Density = 100/50 = <b>2 g/cm³</b></p>
+Density = 100/50 = <b><span class="formula">2 g/cm³</span></b></p>
 </div>
 
 <div class="box">
@@ -38,17 +45,28 @@ Density = 100/50 = <b>2 g/cm³</b></p>
 
 <div class="box">
 <h2>3. Forces</h2>
-<p>Force = Mass × Acceleration (F=ma)</p>
+<p>Force = Mass × Acceleration (<span class="formula">F = ma</span>)</p>
 <p>Unit: Newton (N)</p>
-<p>Weight = Mass × gravity (W=mg)</p>
+<p>Weight = Mass × gravity (<span class="formula">W = mg</span>)</p>
 </div>
 
 <div class="box">
 <h2>4. UNEB Past Question</h2>
 <p><b>Q:</b> Define density and state its SI unit.</p>
-<p><b>A:</b> Density is mass per unit volume. SI unit is kg/m³.</p>
+<p><b>A:</b> <span class="answer">Density is mass per unit volume. SI unit is kg/m³.</span></p>
 <p><b>Q:</b> A stone mass 120g has volume 40cm³. Find density.</p>
-<p><b>A:</b> 120/40 = 3 g/cm³</p>
+<p><b>A:</b> <span class="answer">120/40 = 3 g/cm³</span></p>
+</div>
+
+<div class="box">
+<h2>Examples</h2>
+<p>1) A 2 kg object accelerates at 3 m/s². What is the force?</p>
+<p><span class="formula">F = ma</span></p>
+<p><span class="answer">A: F = 2 × 3 = 6 N</span></p>
+
+<p>2) A mass of 5 kg on Earth. What is its weight?</p>
+<p><span class="formula">W = mg</span></p>
+<p><span class="answer">A: W = 5 × 9.8 ≈ 49 N</span></p>
 </div>
 
 <div class="box">
