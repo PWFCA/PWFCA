@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -8,37 +7,58 @@
 <style>
 body{background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:12px;margin:0}
 h1{color:#facc15;font-size:22px;margin:8px 0}
-.profile-pic{width:120px;height:120px;border-radius:50%;border:4px solid #facc15;object-fit:cover;margin:12px auto;display:block;background:#fff}
-.district-badge{background:#16a34a;color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:bold;display:inline-block;margin:6px}
-.card{background:#fff;color:#111;border-radius:16px;padding:18px;margin:16px auto;max-width:650px;text-align:left;box-shadow:0 6px 20px rgba(0,0,0,0.4)}
-.pricebox{background:#facc15;color:#000;padding:4px 10px;border-radius:8px;font-weight:bold;font-size:12px;float:right}
+.profile-pic{width:130px;height:130px;border-radius:50%;border:4px solid #facc15;object-fit:cover;margin:12px auto;display:block;background:#fff}
+.district-badge{background:#16a34a;color:#fff;padding:8px 18px;border-radius:20px;font-size:13px;font-weight:bold;display:inline-block;margin:6px}
+.card{background:#fff;color:#111;border-radius:20px;padding:18px;margin:16px auto;max-width:650px;text-align:left;box-shadow:0 6px 20px rgba(0,0,0,0.4)}
+.pricebox{background:#facc15;color:#000;padding:5px 12px;border-radius:8px;font-weight:bold;font-size:13px;float:right}
 .samplebox{background:#f0fdf4;border:2px solid #16a34a;border-radius:12px;padding:12px;margin:12px 0}
-.dlfree{background:#16a34a;color:#fff;padding:12px;border-radius:10px;display:block;text-align:center;text-decoration:none;margin:8px 0;font-weight:bold}
+.dlfree{background:#16a34a;color:#fff;padding:13px;border-radius:10px;display:block;text-align:center;text-decoration:none;margin:8px 0;font-weight:bold;font-size:14px}
 .lockbox{background:#fffbeb;border:2px solid #facc15;border-radius:12px;padding:12px;margin:12px 0;text-align:center}
-.momo{background:#ff0000;color:#fff;border:none;display:block;width:94%;margin:12px auto;padding:15px;text-align:center;border-radius:30px;cursor:pointer;font-weight:bold;font-size:15px}
-.admin{background:#1e293b;color:#facc15;border:2px solid #facc15;padding:12px 25px;border-radius:30px;font-weight:bold;display:inline-block;margin:10px;text-decoration:none}
-.wa{background:#25D366;color:#fff;padding:10px 20px;border-radius:30px;display:inline-block;text-decoration:none;font-weight:bold;margin:5px}
-.paybox{background:#f1f5f9;border:2px dashed #16a34a;border-radius:12px;padding:10px;margin:10px 0;text-align:center;color:#000;font-size:13px;font-weight:bold}
+.momo{background:#ff0000;color:#fff;border:none;display:block;width:95%;margin:12px auto;padding:15px;text-align:center;border-radius:30px;cursor:pointer;font-weight:bold;font-size:15px}
+.admin{background:#1e293b;color:#facc15;border:2px solid #facc15;padding:12px 25px;border-radius:30px;font-weight:bold;display:inline-block;margin:8px;text-decoration:none}
+.wa{background:#25D366;color:#fff;padding:12px 22px;border-radius:30px;display:inline-block;text-decoration:none;font-weight:bold;margin:8px}
+.paybox{background:#f1f5f9;border:2px dashed #94a3b8;border-radius:12px;padding:10px;margin:10px 0;text-align:center;color:#000;font-size:13px;font-weight:bold}
+.views{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:10px;margin:15px auto;max-width:650px;color:#94a3b8;font-size:12px}
 </style>
 <script>
+// VIEWS DASHBOARD - FIXED AND BACK
+let views = localStorage.getItem('pwfca_views');
+views = views ? parseInt(views) + 1 : 1;
+localStorage.setItem('pwfca_views', views);
+
+// Save visitor log
+let logs = JSON.parse(localStorage.getItem('pwfca_logs') || '[]');
+logs.push({time: new Date().toLocaleString(), page: 'Home'});
+localStorage.setItem('pwfca_logs', JSON.stringify(logs.slice(-100)));
+
 function pay(amount, subject){
-  let msg = "Hello Director, I want to pay " + amount + " UGX for " + subject + ". Airtel: 0747695485 - Tumuramye Mathias";
-  let inst = "💰 PAY " + amount + " UGX for " + subject + "\n\n📱 HOW TO PAY:\n1. Open Dialer\n2. Dial *185# MANUALLY\n3. Select 1 - Send Money\n4. Number: 0747695485\n5. Name: Tumuramye Mathias\n6. Amount: " + amount + "\n7. Enter PIN\n\nAfter paying send screenshot on WhatsApp.\nTap OK to open WhatsApp.";
+  let msg = "Hello Director Tumuramye Mathias,%0A%0AI want to pay " + amount + " UGX for " + subject + ".%0A%0AAirtel Money: 0747695485%0AName: Tumuramye Mathias%0AAmount: " + amount + " UGX";
+  let inst = "💰 PAY " + amount + " UGX for " + subject + "\n\n📱 HOW TO PAY:\n\n1. Open Phone Dialer\n2. Dial *185# MANUALLY\n3. Select 1 - Send Money\n4. Enter: 0747695485\n5. Name: Tumuramye Mathias\n6. Amount: " + amount + "\n7. Enter PIN to Confirm\n\n✅ After paying, you will send screenshot on WhatsApp.\n\nTap OK to open WhatsApp.";
   if(confirm(inst)){
-    window.open('https://wa.me/256747695485?text=' + encodeURIComponent(msg), '_blank');
+    window.open('https://wa.me/256747695485?text=' + msg, '_blank');
   }
+}
+
+window.onload = function(){
+  document.getElementById('viewCount').innerText = views;
 }
 </script>
 </head>
 <body>
 
-<img src="director.jpg" class="profile-pic" onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&color=000&size=120&bold=true'">
+<img src="director.jpg" class="profile-pic" onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&color=000&size=130&bold=true'">
 <h1>🎓 PWFCA - PASS WITH FLYING COLOURS ACADEMY</h1>
-<p style="font-weight:bold">Director Tumuramye Mathias - 0747695485</p>
+<p style="font-weight:bold;margin:4px">Director Tumuramye Mathias - 0747695485</p>
+<p style="color:#94a3b8;font-size:13px;margin:4px">Competency Based Learning | Uganda New Curriculum</p>
 <span class="district-badge">📍 MBARARA DISTRICT - UGANDA</span>
 <br>
 <a class="admin" href="admin.html">🔐 ADMIN</a>
 <a class="wa" href="https://wa.me/256747695485" target="_blank">💬 WhatsApp</a>
+
+<!-- VIEWS DASHBOARD - BACK! -->
+<div class="views">
+👁️ Total Views: <b id="viewCount" style="color:#facc15">0</b> | 📍 Mbarara | 🔐 Check ADMIN for details
+</div>
 
 <!-- BIOLOGY -->
 <div class="card">
@@ -53,37 +73,38 @@ function pay(amount, subject){
 <!-- CHEMISTRY -->
 <div class="card">
 <h2>⚗️ CHEMISTRY <span class="pricebox">3,000 UGX</span></h2>
-<a class="dlfree" href="chemistry.pdf" target="_blank">👁️ VIEW CHEMISTRY FREE</a>
+<a class="dlfree" href="chemistry.pdf" target="_blank">👁️ VIEW CHEMISTRY SAMPLE FREE</a>
 <button class="momo" onclick="pay(3000,'CHEMISTRY')">📱 PAY 3K - CHEMISTRY</button>
 </div>
 
 <!-- PHYSICS -->
 <div class="card">
 <h2>⚡ PHYSICS <span class="pricebox">3,000 UGX</span></h2>
-<a class="dlfree" href="Physics.pdf" target="_blank">👁️ VIEW PHYSICS FREE</a>
+<a class="dlfree" href="Physics.pdf" target="_blank">👁️ VIEW PHYSICS SAMPLE FREE</a>
 <button class="momo" onclick="pay(3000,'PHYSICS')">📱 PAY 3K - PHYSICS</button>
 </div>
 
-<!-- MATHEMATICS - USING YOUR FILE mathematics-.pdf -->
+<!-- MATHEMATICS - YOUR FILE mathematics-.pdf -->
 <div class="card">
 <h2>📐 MATHEMATICS S1-S4 <span class="pricebox">3,000 UGX</span></h2>
 <div class="paybox">💳 Airtel Money: 0747695485</div>
 <div class="samplebox">
-<p style="font-weight:bold;color:#166534;margin:0 0 8px 0">📄 MATHEMATICS - Using your uploaded file</p>
-<a class="dlfree" href="mathematics-.pdf" target="_blank">👁️ VIEW MATHEMATICS FREE - mathematics-.pdf</a>
+<p style="font-weight:bold;color:#166534;margin:0 0 8px 0">📄 MATHEMATICS FULL SAMPLE</p>
+<a class="dlfree" href="mathematics-.pdf" target="_blank">👁️ VIEW MATHEMATICS - mathematics-.pdf</a>
 </div>
-<div class="lockbox"><p style="font-weight:bold;color:#92400e">🔒 FULL MATH: 60+ Items + Worked Answers + Marking Guide</p></div>
+<div class="lockbox"><p style="font-weight:bold;color:#92400e">🔒 FULL MATH: 60+ Items + Answers + Marking Guide</p></div>
 <button class="momo" onclick="pay(3000,'MATHEMATICS')">📱 PAY 3K - MATHEMATICS</button>
 </div>
 
 <!-- ALL SUBJECTS -->
 <div class="card" style="background:linear-gradient(135deg,#facc15,#eab308);text-align:center">
-<h2 style="color:#000;text-align:center">🔥 ALL 4 SUBJECTS - 7,000 UGX</h2>
+<h2 style="color:#000;text-align:center">🔥 ALL 4 SUBJECTS - 7,000 UGX ONLY</h2>
 <p style="color:#000;font-weight:bold">Biology + Chemistry + Physics + Mathematics</p>
 <button class="momo" onclick="pay(7000,'ALL_SUBJECTS')" style="background:#000;color:#facc15">💰 PAY 7K - GET ALL</button>
 </div>
 
-<p style="color:#64748b;font-size:12px;margin:20px">© 2026 PWFCA - Mbarara | Director Mathias | 0747695485</p>
+<p style="color:#64748b;font-size:12px;margin:20px">© 2026 PWFCA - Pass With Flying Colours Academy<br>📍 Mbarara District | Director Tumuramye Mathias | 0747695485<br>👁️ Views: <span id="viewCount2"></span></p>
+<script>document.addEventListener('DOMContentLoaded',()=>{let v=localStorage.getItem('pwfca_views')||1; let el=document.getElementById('viewCount2'); if(el) el.innerText=v;});</script>
 
 </body>
 </html>
