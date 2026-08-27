@@ -3,79 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PWFCA - Perfect Way Future Centre Academy</title>
+<title>PWFCA</title>
 <style>
 body{background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:12px;margin:0}
-h1{color:#facc15;font-size:22px;margin:10px 0}
-.card{background:#fff;color:#111;border-radius:14px;padding:16px;margin:14px auto;max-width:600px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
-.btn{display:inline-block;margin:5px;padding:10px 18px;border-radius:25px;background:#1e293b;color:#fff;text-decoration:none;border:2px solid #facc15;font-weight:bold;font-size:13px}
-.momo{background:#ff0000;border-color:#ff0000;display:block;width:92%;margin:10px auto;padding:14px;text-align:center;border-radius:25px;color:#fff;font-weight:bold;font-size:14px;cursor:pointer}
-.dlfree{background:#16a34a;color:#fff;padding:10px;border-radius:8px;display:block;text-align:center;text-decoration:none;margin:8px 0;font-weight:bold;border:2px solid #16a34a}
-.dlpaid{background:#2563eb;color:#fff;padding:10px;border-radius:8px;display:block;text-align:center;text-decoration:none;margin:8px 0;font-weight:bold}
+.card{background:#fff;color:#111;border-radius:14px;padding:16px;margin:14px auto;max-width:600px;text-align:left}
+.btn{display:inline-block;margin:5px;padding:10px 18px;border-radius:25px;background:#1e293b;color:#fff;text-decoration:none;border:2px solid #facc15;font-weight:bold}
+.momo{background:#ff0000;border-color:#ff0000;display:block;width:92%;margin:10px auto;padding:14px;text-align:center;border-radius:25px;color:#fff;font-weight:bold;cursor:pointer}
+.dlfree{background:#16a34a;color:#fff;padding:10px;border-radius:8px;display:block;text-align:center;text-decoration:none;margin:8px 0;font-weight:bold}
 .pricebox{background:#facc15;color:#000;padding:3px 8px;border-radius:6px;font-weight:bold;font-size:12px;float:right}
-.logo{font-size:40px}
 </style>
 <script>
-function pay(amount, subject){
- if(confirm('Pay '+amount+' UGX for '+subject+'?\n\nAirtel: 0747695485\nName: Tumuramye Mathias\n\nTap OK to dial *185#')){
-   window.location.href='tel:*185*1*2*0747695485*'+amount+'%23';
-   setTimeout(()=>{
-     window.location.href='https://wa.me/256747695485?text=Director, I have paid '+amount+' UGX for '+subject+'. Here is my proof.';
-   },3000);
- }
-}
+function pay(a,s){if(confirm('Pay '+a+' UGX for '+s+'?\nAirtel: 0747695485\nName: Tumuramye Mathias')){window.location.href='tel:*185*1*2*0747695485*'+a+'%23';setTimeout(()=>{window.location.href='https://wa.me/256747695485?text=Paid '+a+' for '+s},3000)}}
 </script>
 </head>
 <body>
-
-<div class="logo">🎓</div>
-<h1>PWFCA - PERFECT WAY FUTURE CENTRE ACADEMY</h1>
-<p style="color:#94a3b8">By Director Tumuramye Mathias<br>Bushenyi - Uganda | 0747695485</p>
-
-<a class="btn" href="https://wa.me/256747695485" style="background:#25D366;border-color:#25D366">💬 WhatsApp</a>
-<a class="btn" href="tel:0747695485">📞 Call</a>
+<h1 style="color:#facc15">🎓 PWFCA ACADEMY</h1>
+<p>Director Tumuramye Mathias - 0747695485</p>
 
 <div class="card">
 <h2>🧬 BIOLOGY S1-S4 <span class="pricebox">3,000 UGX</span></h2>
-<p><b>Competency Based - All Topics with Marking Guides</b></p>
-<a class="dlfree" href="S.4_Biology_Paper_1_KEBB_2024.pdf" target="_blank">👁️ FREE Preview - Biology Sample</a>
-<p>✓ 50+ Items + Answers<br>✓ UNEB Format<br>✓ Marking Guides</p>
-<button class="btn momo" onclick="pay(3000,'BIOLOGY_S1-S4')">📱 TAP TO PAY 3K - BIOLOGY</button>
+<p><b>Biology Sample Items FREE</b></p>
+<div style="background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:10px;margin:8px 0">
+<p style="font-weight:bold;color:#166534">📄 SAMPLE 1</p>
+<a class="dlfree" href="biology-items.pdf" target="_blank">👁️ VIEW BIOLOGY ITEMS FREE</a>
+</div>
+<div style="background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:10px;margin:8px 0">
+<p style="font-weight:bold;color:#166534">📄 SAMPLE 2</p>
+<a class="dlfree" href="biology.pdf" target="_blank">👁️ VIEW BIOLOGY PDF FREE</a>
+</div>
+<div style="background:#fffbeb;border:2px solid #facc15;border-radius:10px;padding:10px;margin:8px 0">
+<p style="font-weight:bold;color:#92400e">🔒 50+ MORE ITEMS + ANSWERS - PAID</p>
+</div>
+<button class="btn momo" onclick="pay(3000,'BIOLOGY')">📱 PAY 3K - GET ALL BIOLOGY ANSWERS</button>
 </div>
 
 <div class="card">
-<h2>⚗️ CHEMISTRY S1-S4 <span class="pricebox">3,000 UGX</span></h2>
-<p><b>Competency Based - Experiments, Equations</b></p>
-<a class="dlfree" href="S.4_Chemistry_Paper_1_KEBB_2024.pdf" target="_blank">👁️ FREE Preview - Chemistry Sample</a>
-<p>✓ 50+ Items + Answers<br>✓ Practical & Theory</p>
-<button class="btn momo" onclick="pay(3000,'CHEMISTRY_S1-S4')">📱 TAP TO PAY 3K - CHEMISTRY</button>
+<h2>⚗️ CHEMISTRY <span class="pricebox">3,000 UGX</span></h2>
+<a class="dlfree" href="chemistry.pdf" target="_blank">👁️ VIEW CHEMISTRY FREE</a>
+<button class="btn momo" onclick="pay(3000,'CHEMISTRY')">📱 PAY 3K - CHEMISTRY</button>
 </div>
 
 <div class="card">
-<h2>⚡ PHYSICS S1-S4 <span class="pricebox">3,000 UGX</span></h2>
-<p><b>Competency Based - Calculations & Scenarios</b></p>
-<a class="dlfree" href="S.4_PHYSICS_EEB_PRE_2024.pdf" target="_blank">👁️ FREE Preview - Physics Sample</a>
-<a class="dlfree" href="S.4_Physics_Seminar_2024.pdf" target="_blank">👁️ FREE Preview - Physics Seminar</a>
-<p>✓ 50+ Items + Answers<br>✓ Numerical + Theory</p>
-<button class="btn momo" onclick="pay(3000,'PHYSICS_S1-S4')">📱 TAP TO PAY 3K - PHYSICS</button>
+<h2>⚡ PHYSICS <span class="pricebox">3,000 UGX</span></h2>
+<a class="dlfree" href="Physics.pdf" target="_blank">👁️ VIEW PHYSICS FREE</a>
+<button class="btn momo" onclick="pay(3000,'PHYSICS')">📱 PAY 3K - PHYSICS</button>
 </div>
 
-<div class="card">
-<h2>📚 HISTORY S1-S4 <span class="pricebox">2,000 UGX</span></h2>
-<p><b>Political Education & History</b></p>
-<a class="dlfree" href="S.4_History__UCE__KEEB_2024.pdf" target="_blank">👁️ FREE Preview - History Sample</a>
-<button class="btn momo" onclick="pay(2000,'HISTORY_S1-S4')" style="background:#000;border-color:#000;color:#facc15">📱 TAP TO PAY 2K - HISTORY</button>
+<div class="card" style="background:#facc15;text-align:center">
+<h2 style="color:#000">🔥 ALL SUBJECTS 7K</h2>
+<button class="btn momo" onclick="pay(7000,'ALL')" style="background:#000;color:#facc15">💰 PAY 7K - ALL SUBJECTS</button>
 </div>
-
-<div class="card" style="background:linear-gradient(135deg,#facc15,#eab308);text-align:center">
-<h2 style="color:#000">🔥 FULL PACKAGE OFFER</h2>
-<p style="color:#000;font-weight:bold">Biology + Chemistry + Physics<br>All marking guides included<br><br>Normal Price: 9,000 UGX<br><b style="font-size:20px">TODAY: 7,000 UGX ONLY!</b></p>
-<button class="btn momo" onclick="pay(7000,'ALL_SUBJECTS_PACKAGE')" style="background:#000;color:#facc15;border-color:#000;font-size:18px">💰 PAY 7K - GET ALL 3 SUBJECTS</button>
-<p style="color:#000;font-size:12px;margin-top:10px">Airtel Money: 0747695485<br>Name: Tumuramye Mathias<br>After payment, send proof on WhatsApp!</p>
-<a class="btn" href="https://wa.me/256747695485?text=Director, I want all subjects" style="background:#000;color:#fff;border-color:#000">📲 WhatsApp Proof</a>
-</div>
-
-<p style="margin:30px 0;color:#64748b;font-size:12px">© 2024-2026 PWFCA - Perfect Way Future Centre Academy<br>Bushenyi, Uganda<br>Views counter increasing daily!</p>
 
 </body>
 </html>
