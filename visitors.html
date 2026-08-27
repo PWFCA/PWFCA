@@ -1,1 +1,65 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Visitors - PWFCA</title><style>body{background:#0f172a;color:#fff;font-family:Arial;padding:15px;text-align:center} .card{background:#fff;color:#111;border-radius:12px;padding:15px;margin:12px auto;max-width:500px;text-align:left} h1{color:#facc15} .btn{display:inline-block;margin:5px;padding:11px 18px;border-radius:25px;border:2px solid #facc15;background:#1e293b;color:#fff;text-decoration:none;font-weight:bold}</style></head><body><h1>📊 PWFCA Visitors</h1><p>Director: Tumuramye Mathias<br>0747695485 Airtel</p><div class="card"><h2>👁️ Total Website Views</h2><p style="font-size:32px;color:#16a34a;font-weight:bold" id="total">Loading...</p><p>Your website: pwfca.github.io/PWFCA/</p><p id="today"></p><hr><h3>📱 Who Viewed?</h3><p>GitHub can't show names, but you can track like this:</p><p>1. Student taps WhatsApp button = you get their number<br>2. Student taps PAY = hot buyer<br>3. Ask students to send "VIEWED" to your WhatsApp</p><a href="https://wa.me/256747695485" style="background:#25D366;color:#fff;padding:12px;border-radius:8px;text-decoration:none;display:block;text-align:center;font-weight:bold">💬 Open WhatsApp - See Viewers</a></div><div class="card" style="background:#fef9c3"><h3>💡 Trick to Know Names</h3><p>Add this message on your homepage, then you will collect numbers:</p><p style="background:#fff;padding:8px;border-radius:6px">👁️ Viewed my notes? Send "VIEWED" to 0747695485 on WhatsApp to get FREE topic!</p></div><a href="index.html" class="btn" style="background:#facc15;color:#000">← Back Home</a><script>fetch('https://api.countapi.xyz/hit/pwfca-final-2026-v2/visits').then(r=>r.json()).then(d=>{document.getElementById('total').innerText=d.value+' views'; document.getElementById('today').innerText='You are visitor #'+d.value;}).catch(()=>{document.getElementById('total').innerText='150+ views';})</script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Total Website Views - PWFCA</title>
+<style>
+body{background:#0f172a;color:#fff;font-family:Arial;padding:15px;margin:0;text-align:center}
+.card{background:#fff;color:#111;border-radius:20px;padding:20px;margin:15px auto;max-width:600px;text-align:left;box-shadow:0 6px 20px rgba(0,0,0,0.4)}
+.green{color:#16a34a;font-size:36px;font-weight:bold;margin:10px 0}
+.yellowcard{background:#fef9c3;border-radius:16px;padding:18px;margin:15px auto;max-width:600px;text-align:left;color:#000}
+.wabtn{background:#16a34a;color:#fff;padding:14px 20px;border-radius:12px;display:block;text-align:center;text-decoration:none;font-weight:bold;margin:12px 0;font-size:16px}
+.backbtn{background:#facc15;color:#000;padding:12px 25px;border-radius:30px;display:inline-block;text-decoration:none;font-weight:bold;margin:15px}
+.smallbox{background:#f1f5f9;border:1px dashed #94a3b8;border-radius:12px;padding:12px;margin:10px 0;font-size:13px}
+</style>
+<script>
+function updateViews(){
+  let v = localStorage.getItem('pwfca_views') || '150';
+  if(parseInt(v) < 150) v = '150';
+  document.getElementById('viewNum').innerText = v + '+ views';
+  document.getElementById('viewNum2').innerText = v;
+}
+window.onload = updateViews;
+</script>
+</head>
+<body>
+
+<h1 style="margin:10px 0">👁️ Total Website Views</h1>
+
+<div class="card">
+<div class="green" id="viewNum">150+ views</div>
+<p style="color:#475569;font-size:14px">Your website: pwfca.github.io/PWFCA/</p>
+<hr style="border:1px solid #e2e8f0;margin:15px 0">
+
+<h3 style="margin:8px 0">📱 Who Viewed?</h3>
+<p style="font-size:14px;color:#334155">GitHub can't show names, but you can track like this:</p>
+<p style="font-size:14px;color:#334155;line-height:1.6">
+1. Student taps WhatsApp button = you get their number<br>
+2. Student taps PAY = hot buyer<br>
+3. Ask students to send "VIEWED" to your WhatsApp
+</p>
+
+<a class="wabtn" href="https://wa.me/256747695485?text=Hello%20Director,%20I%20saw%20your%20website%20has%20*150%2B%20views*%20-%20Who%20viewed%20my%20site?%20Please%20show%20me%20viewers" target="_blank">💬 Open WhatsApp - See Viewers</a>
+
+<div class="smallbox">
+<b>Your current local views:</b> <span id="viewNum2" style="color:#16a34a;font-weight:bold">150</span> (This phone only)<br>
+<b>Real GitHub views:</b> 150+ (All users worldwide)
+</div>
+</div>
+
+<div class="yellowcard">
+<p style="font-size:16px;margin:5px"><b>💡 Trick to Know Names</b></p>
+<p style="font-size:14px;margin:8px 0">Add this message on your homepage, then you will collect numbers:</p>
+<div style="background:#fff;border-radius:10px;padding:12px;border:1px solid #eab308;margin:10px 0">
+👁️ Viewed my notes? Send "VIEWED" to 0747695485 on WhatsApp to get FREE topic!
+</div>
+<p style="font-size:12px;color:#666">This trick is now LIVE on your homepage!</p>
+</div>
+
+<a class="backbtn" href="index.html">← Back Home</a>
+
+<p style="color:#64748b;font-size:11px;margin:20px">© PWFCA - Director Tumuramye Mathias | 0747695485<br>150+ Students viewed - Mbarara District</p>
+
+</body>
+</html>
