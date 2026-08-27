@@ -19,24 +19,67 @@ h1{color:#facc15;font-size:22px;margin:8px 0}
 .views{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:10px;margin:15px auto;max-width:650px;color:#94a3b8;font-size:12px}
 .trick{background:#fef9c3;border:3px solid #facc15;border-radius:16px;padding:16px;margin:16px auto;max-width:650px;color:#000;text-align:center}
 .trickbtn{background:#25D366;color:#fff;padding:14px 20px;border-radius:30px;display:block;text-decoration:none;font-weight:bold;margin:10px 0;font-size:16px}
+#aiBtn{position:fixed;bottom:20px;right:20px;background:linear-gradient(135deg,#facc15,#eab308);color:#000;width:65px;height:65px;border-radius:50%;border:3px solid #fff;font-size:12px;font-weight:bold;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.5);z-index:9999;line-height:1.1}
+#aiBox{position:fixed;bottom:95px;right:15px;width:330px;max-width:92%;background:#fff;color:#000;border-radius:16px;box-shadow:0 6px 25px rgba(0,0,0,0.5);display:none;z-index:9999;overflow:hidden;border:2px solid #facc15}
+#aiHeader{background:#0f172a;color:#facc15;padding:12px;font-weight:bold;text-align:left;font-size:14px}
+#aiMessages{height:280px;overflow:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
+.msg{margin:8px 0;padding:9px 12px;border-radius:12px;max-width:85%;line-height:1.4}
+.userMsg{background:#facc15;color:#000;margin-left:auto;text-align:right}
+.botMsg{background:#e2e8f0;color:#111;border:1px solid #cbd5e1}
+#aiInputArea{display:flex;border-top:1px solid #e2e8f0}
+#aiInput{flex:1;padding:12px;border:none;outline:none;font-size:14px}
+#aiSend{background:#0f172a;color:#facc15;border:none;padding:10px 16px;font-weight:bold;cursor:pointer}
 </style>
 <script>
 let views = localStorage.getItem('pwfca_views');
-views = views ? parseInt(views) + 1 : 1;
+views = views ? parseInt(views) + 1 : 151;
 localStorage.setItem('pwfca_views', views);
-let logs = JSON.parse(localStorage.getItem('pwfca_logs') || '[]');
-logs.push({time: new Date().toLocaleString(), page: 'Home'});
-localStorage.setItem('pwfca_logs', JSON.stringify(logs.slice(-100)));
-
 function pay(amount, subject){
-  let msg = "Hello Director, I want to pay " + amount + " UGX for " + subject + ". Airtel: 0747695485 - Tumuramye Mathias";
-  let inst = "💰 PAY " + amount + " UGX for " + subject + "\n\n📱 HOW TO PAY:\n1. Open Dialer\n2. Dial *185# MANUALLY\n3. Select 1 - Send Money\n4. Number: 0747695485\n5. Amount: " + amount + "\n6. PIN\n\nAfter paying send screenshot.\nTap OK for WhatsApp.";
+  let msg = "Hello Director, I want to pay " + amount + " UGX for " + subject + ". Airtel: 0747695485";
+  let inst = "💰 PAY " + amount + " UGX for " + subject + "\n\n📱 Dial *185# MANUALLY\nNumber: 0747695485\nName: Tumuramye Mathias\nAmount: " + amount + "\n\nAfter paying send screenshot.\nTap OK for WhatsApp.";
   if(confirm(inst)){
     window.open('https://wa.me/256747695485?text=' + encodeURIComponent(msg), '_blank');
   }
 }
+function toggleAI(){
+  let box = document.getElementById('aiBox');
+  box.style.display = box.style.display === 'block' ? 'none' : 'block';
+}
+function sendAI(){
+  let input = document.getElementById('aiInput');
+  let text = input.value.trim();
+  if(!text) return;
+  addMsg(text, 'userMsg');
+  input.value = '';
+  setTimeout(()=>{ let reply = getMatsReply(text); addMsg(reply, 'botMsg'); }, 600);
+}
+function addMsg(t, cls){
+  let m = document.getElementById('aiMessages');
+  let d = document.createElement('div');
+  d.className = 'msg ' + cls;
+  d.innerText = t;
+  m.appendChild(d);
+  m.scrollTop = m.scrollHeight;
+}
+function getMatsReply(q){
+  q = q.toLowerCase();
+  if(q.includes('who are you') || q.includes('your name') || q.includes('mats')) return "🤖 I'm MATS AI! Created by Director Tumuramye Mathias for PWFCA students. MATS = Mathias AI Teaching System! I help with Biology, Chemistry, Physics, Mathematics. Ask me anything!";
+  if(q.includes('view') || q.includes('who viewed')) return "👁️ Website has 150+ views! To know WHO viewed, use the trick: Ask them to send 'VIEWED' to 0747695485 on WhatsApp. Check visitors.html for details. MATS AI tracks local views.";
+  if(q.includes('math')) return "📐 I'm MATS AI - Math expert! MATHEMATICS S1-S4 available - file mathematics-.pdf. Full set 3,000 UGX with 60+ items + answers. Tap PAY 3K - MATHEMATICS. What topic? Algebra? Geometry?";
+  if(q.includes('bio')) return "🧬 MATS AI Biology Mode: Biology notes available! Transport, cells, etc. Free samples inside. Full Biology 3,000 UGX. Ask me any biology topic and I'll guide you!";
+  if(q.includes('chem')) return "⚗️ MATS AI Chemistry Mode: Chemistry notes ready! Free sample chemistry.pdf. Full set 3,000 UGX. What chemistry topic - Organic? Inorganic?";
+  if(q.includes('physic')) return "⚡ MATS AI Physics Mode: Physics notes ready! Free sample Physics.pdf. Full set 3,000 UGX. Mechanics? Electricity?";
+  if(q.includes('pay') || q.includes('price') || q.includes('cost') || q.includes('how much')) return "💰 MATS AI Payment Info: Single subject 3,000 UGX. ALL 4 subjects 7,000 UGX only! Airtel Money: 0747695485 - Tumuramye Mathias. Dial *185# manually. After pay, send screenshot on WhatsApp.";
+  if(q.includes('hello') || q.includes('hi') || q.includes('hey')) return "Hello! 👋 I'm MATS AI - Your PWFCA study buddy! Created by Director Mathias. I can help with Biology, Chemistry, Physics, Math, Prices & Views. What do you need today?";
+  if(q.includes('free')) return "🎁 MATS AI says: FREE samples available for all subjects! Scroll and tap green VIEW buttons. Want FULL notes with answers? Pay 3K per subject or 7K for all 4!";
+  if(q.includes('contact') || q.includes('director') || q.includes('number')) return "📞 Director Tumuramye Mathias - 0747695485 (Airtel & WhatsApp) - Mbarara District. MATS AI is here 24/7 but Director is available on WhatsApp for payments!";
+  if(q.includes('thank')) return "You're welcome! 🙏 MATS AI is happy to help! Keep studying - Pass With Flying Colours! 🎓 Need anything else?";
+  return "🤖 MATS AI here! I am Mathias AI Teaching System.\n\nI can help with:\n- 📐 Mathematics\n- 🧬 Biology\n- ⚗️ Chemistry\n- ⚡ Physics\n- 💰 Prices & Payment\n- 👁️ Views tracking\n\nJust ask! Example: 'Explain Biology' or 'Math price'";
+}
 window.onload = function(){
-  document.getElementById('viewCount').innerText = views;
+  let el = document.getElementById('viewCount');
+  if(el) el.innerText = views;
+  setTimeout(()=>{ addMsg("👋 Hello! I'm MATS AI! (Mathias AI Teaching System) - Created by Director Mathias to help you pass with flying colours! 🎓 Ask me anything about your subjects!", 'botMsg'); }, 1000);
 }
 </script>
 </head>
@@ -45,60 +88,41 @@ window.onload = function(){
 <img src="director.jpg" class="profile-pic" onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&color=000&size=130&bold=true'">
 <h1>🎓 PWFCA - PASS WITH FLYING COLOURS ACADEMY</h1>
 <p style="font-weight:bold;margin:4px">Director Tumuramye Mathias - 0747695485</p>
-<p style="color:#94a3b8;font-size:13px;margin:4px">Competency Based | Uganda New Curriculum</p>
 <span class="district-badge">📍 MBARARA DISTRICT - UGANDA</span>
 <br>
 <a class="admin" href="admin.html">🔐 ADMIN</a>
 <a class="wa" href="https://wa.me/256747695485" target="_blank">💬 WhatsApp</a>
+<a class="admin" href="visitors.html">👁️ 150+ VIEWS</a>
 
-<div class="views">👁️ Total Views: <b id="viewCount" style="color:#facc15">0</b> | Check ADMIN for details</div>
+<div class="views">👁️ Total Views: <b id="viewCount" style="color:#facc15">150+</b> | 🤖 MATS AI Online</div>
 
-<!-- NEW TRICK TO KNOW NAMES - FROM YOUR SCREENSHOT -->
 <div class="trick">
 <p style="font-size:18px;margin:5px">💡 <b>Trick to Know Names</b></p>
 <p style="font-size:15px;margin:8px 0"><b>👋 Viewed my notes? Send "VIEWED" to 0747695485 on WhatsApp to get FREE topic!</b></p>
 <a class="trickbtn" href="https://wa.me/256747695485?text=VIEWED%20-%20I%20viewed%20your%20notes%20Director.%20Send%20me%20FREE%20topic!" target="_blank">💬 Send "VIEWED" on WhatsApp - Get FREE Topic</a>
-<p style="font-size:12px;color:#666;margin:5px">Tap above and you will get FREE Biology topic + I will know you viewed!</p>
 </div>
 
-<!-- BIOLOGY -->
-<div class="card">
-<h2>🧬 BIOLOGY <span class="pricebox">3,000 UGX</span></h2>
-<div class="paybox">💳 Airtel: 0747695485 - Tumuramye Mathias</div>
-<a class="dlfree" href="biology-items.pdf" target="_blank">👁️ VIEW Biology Sample 1</a>
-<a class="dlfree" href="bilogy.pdf" target="_blank">👁️ VIEW Biology Sample 2</a>
-<a class="dlfree" href="tranport.bio.pdf" target="_blank">👁️ VIEW Biology Sample 3</a>
-<button class="momo" onclick="pay(3000,'BIOLOGY')">📱 PAY 3K - BIOLOGY</button>
+<div class="card"><h2>🧬 BIOLOGY <span class="pricebox">3,000 UGX</span></h2><div class="paybox">💳 Airtel: 0747695485</div><a class="dlfree" href="biology-items.pdf" target="_blank">👁️ VIEW Biology Sample 1</a><a class="dlfree" href="bilogy.pdf" target="_blank">👁️ VIEW Biology Sample 2</a><a class="dlfree" href="tranport.bio.pdf" target="_blank">👁️ VIEW Biology Sample 3</a><button class="momo" onclick="pay(3000,'BIOLOGY')">📱 PAY 3K - BIOLOGY</button></div>
+
+<div class="card"><h2>⚗️ CHEMISTRY <span class="pricebox">3,000 UGX</span></h2><a class="dlfree" href="chemistry.pdf" target="_blank">👁️ VIEW CHEMISTRY FREE</a><button class="momo" onclick="pay(3000,'CHEMISTRY')">📱 PAY 3K - CHEMISTRY</button></div>
+
+<div class="card"><h2>⚡ PHYSICS <span class="pricebox">3,000 UGX</span></h2><a class="dlfree" href="Physics.pdf" target="_blank">👁️ VIEW PHYSICS FREE</a><button class="momo" onclick="pay(3000,'PHYSICS')">📱 PAY 3K - PHYSICS</button></div>
+
+<div class="card"><h2>📐 MATHEMATICS S1-S4 <span class="pricebox">3,000 UGX</span></h2><a class="dlfree" href="mathematics-.pdf" target="_blank">👁️ VIEW MATHEMATICS - mathematics-.pdf</a><button class="momo" onclick="pay(3000,'MATHEMATICS')">📱 PAY 3K - MATHEMATICS</button></div>
+
+<div class="card" style="background:linear-gradient(135deg,#facc15,#eab308);text-align:center"><h2 style="color:#000;text-align:center">🔥 ALL 4 SUBJECTS - 7,000 UGX</h2><button class="momo" onclick="pay(7000,'ALL_SUBJECTS')" style="background:#000;color:#facc15">💰 PAY 7K - GET ALL</button></div>
+
+<button id="aiBtn" onclick="toggleAI()">MATS<br>AI 🤖</button>
+<div id="aiBox">
+<div id="aiHeader">🤖 MATS AI - Mathias AI Teaching System <span style="float:right;cursor:pointer" onclick="toggleAI()">✕</span></div>
+<div id="aiMessages"></div>
+<div id="aiInputArea">
+<input id="aiInput" placeholder="Ask MATS AI anything..." onkeypress="if(event.key==='Enter')sendAI()">
+<button id="aiSend" onclick="sendAI()">Send</button>
+</div>
 </div>
 
-<!-- CHEMISTRY -->
-<div class="card">
-<h2>⚗️ CHEMISTRY <span class="pricebox">3,000 UGX</span></h2>
-<a class="dlfree" href="chemistry.pdf" target="_blank">👁️ VIEW CHEMISTRY FREE</a>
-<button class="momo" onclick="pay(3000,'CHEMISTRY')">📱 PAY 3K - CHEMISTRY</button>
-</div>
-
-<!-- PHYSICS -->
-<div class="card">
-<h2>⚡ PHYSICS <span class="pricebox">3,000 UGX</span></h2>
-<a class="dlfree" href="Physics.pdf" target="_blank">👁️ VIEW PHYSICS FREE</a>
-<button class="momo" onclick="pay(3000,'PHYSICS')">📱 PAY 3K - PHYSICS</button>
-</div>
-
-<!-- MATHEMATICS -->
-<div class="card">
-<h2>📐 MATHEMATICS S1-S4 <span class="pricebox">3,000 UGX</span></h2>
-<div class="paybox">💳 Airtel Money: 0747695485</div>
-<a class="dlfree" href="mathematics-.pdf" target="_blank">👁️ VIEW MATHEMATICS - mathematics-.pdf</a>
-<button class="momo" onclick="pay(3000,'MATHEMATICS')">📱 PAY 3K - MATHEMATICS</button>
-</div>
-
-<div class="card" style="background:linear-gradient(135deg,#facc15,#eab308);text-align:center">
-<h2 style="color:#000;text-align:center">🔥 ALL 4 SUBJECTS - 7,000 UGX</h2>
-<button class="momo" onclick="pay(7000,'ALL_SUBJECTS')" style="background:#000;color:#facc15">💰 PAY 7K - GET ALL</button>
-</div>
-
-<p style="color:#64748b;font-size:12px;margin:20px">© 2026 PWFCA - Mbarara | Director Mathias | 0747695485</p>
+<p style="color:#64748b;font-size:12px;margin:80px 0 20px 0">© 2026 PWFCA - Mbarara | Director Mathias | 0747695485<br>Powered by MATS AI - Mathias AI Teaching System 🤖</p>
 
 </body>
 </html>
