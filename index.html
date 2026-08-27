@@ -15,52 +15,67 @@ h1{color:#facc15;font-size:22px;margin:8px 0;line-height:1.3}
 .dlfree{background:#16a34a;color:#fff;padding:12px;border-radius:10px;display:block;text-align:center;text-decoration:none;margin:8px 0;font-weight:bold}
 .lockbox{background:#fffbeb;border:2px solid #facc15;border-radius:12px;padding:12px;margin:12px 0;text-align:center}
 .btn{display:inline-block;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:bold;margin:5px}
-.momo{background:#ff0000;color:#fff;border:2px solid #ff0000;display:block;width:94%;margin:12px auto;padding:15px;text-align:center;border-radius:30px;cursor:pointer;font-weight:bold}
+.momo{background:#ff0000;color:#fff;border:2px solid #ff0000;display:block;width:94%;margin:12px auto;padding:15px;text-align:center;border-radius:30px;cursor:pointer;font-weight:bold;font-size:15px}
 .admin{background:#1e293b;color:#facc15;border:2px solid #facc15;padding:12px 25px;border-radius:30px;font-weight:bold;display:inline-block;margin:10px;text-decoration:none}
+.wa{background:#25D366;color:#fff;border:2px solid #25D366;padding:10px 20px;border-radius:30px;display:inline-block;text-decoration:none;font-weight:bold}
 </style>
 <script>
-function pay(a,s){if(confirm('PAY '+a+' UGX for '+s+'?\nAirtel: 0747695485\nName: Tumuramye Mathias\nOK to dial *185#')){window.location.href='tel:*185*1*2*0747695485*'+a+'%23';setTimeout(()=>{window.location.href='https://wa.me/256747695485?text=Director, Paid '+a+' for '+s},3000)}}
+function pay(amount, subject){
+  let num = "0747695485";
+  if(navigator.clipboard){navigator.clipboard.writeText(num);}
+  let msg = "DIRECTOR, I want to pay " + amount + " UGX for " + subject + ".\n\nAirtel Money: 0747695485 - Tumuramye Mathias\nAmount: " + amount + " UGX\n\nI will dial *185# and send money.\nAfter paying I will send screenshot.";
+  if(confirm("💰 PAY " + amount + " UGX for " + subject + "?\n\n📱 Airtel: 0747695485\n👤 Tumuramye Mathias\n💰 Amount: " + amount + " UGX\n\n✅ STEPS:\n1. Tap OK - will dial *185#\n2. Select 1 - Send Money\n3. Number: 0747695485 (Copied!)\n4. Amount: " + amount + "\n5. Enter PIN\n\nTap OK to dial *185#")){
+    window.location.href='tel:*185%23';
+    setTimeout(()=>{
+      if(confirm("After paying " + amount + " UGX to 0747695485, tap OK to send screenshot on WhatsApp?")){
+        window.location.href='https://wa.me/256747695485?text=' + encodeURIComponent(msg);
+      }
+    }, 2500);
+  }
+}
 </script>
 </head>
 <body>
 
-<img src="director.jpg" alt="Director" class="profile-pic" onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&color=000&size=120&bold=true'">
+<img src="director.jpg" alt="Director Mathias" class="profile-pic" onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&color=000&size=120&bold=true'">
 <h1>🎓 PWFCA - PASS WITH FLYING COLOURS ACADEMY</h1>
 <p style="margin:2px;font-weight:bold;font-size:16px">Director Tumuramye Mathias - 0747695485</p>
 <p style="margin:2px;color:#94a3b8;font-size:13px">Competency Based Learning | Uganda New Curriculum</p>
 <span class="district-badge">📍 MBARARA DISTRICT - UGANDA</span>
 <br>
 <a class="admin" href="admin.html">🔐 ADMIN DASHBOARD</a>
+<a class="wa" href="https://wa.me/256747695485" target="_blank">💬 WhatsApp</a>
 
+<!-- BIOLOGY -->
 <div class="card">
 <h2>🧬 BIOLOGY S1-S4 <span class="pricebox">3,000 UGX</span></h2>
 <p><b>Uganda New Curriculum - Competency Based Items</b></p>
 <div class="samplebox">
-<p style="font-weight:bold;color:#166534;margin:0 0 8px 0">📄 SAMPLE 1: Biology Items (Full Set Preview)</p>
-<p style="font-size:13px;color:#334155;margin:5px 0">Contains sample competency based questions</p>
-<a class="dlfree" href="biology-items.pdf" target="_blank">👁️ VIEW SAMPLE 1 FREE - biology-items.pdf</a>
+<p style="font-weight:bold;color:#166534;margin:0 0 8px 0">📄 SAMPLE 1: Biology Items</p>
+<a class="dlfree" href="biology-items.pdf" target="_blank">👁️ VIEW SAMPLE 1 FREE</a>
 </div>
 <div class="samplebox">
-<p style="font-weight:bold;color:#166534;margin:0 0 8px 0">📄 SAMPLE 2: Respiration & Gaseous Exchange (578KB)</p>
-<p style="font-size:13px;color:#334155;margin:5px 0">Tissue Respiration, ATP, Glycolysis, Krebs Cycle</p>
-<a class="dlfree" href="bilogy.pdf" target="_blank">👁️ VIEW SAMPLE 2 FREE - Respiration Notes</a>
+<p style="font-weight:bold;color:#166534;margin:0 0 8px 0">📄 SAMPLE 2: Respiration Notes (bilogy.pdf)</p>
+<a class="dlfree" href="bilogy.pdf" target="_blank">👁️ VIEW SAMPLE 2 FREE</a>
 </div>
 <div class="samplebox">
-<p style="font-weight:bold;color:#166534;margin:0 0 8px 0">📄 SAMPLE 3: Transport in Plants & Animals</p>
-<a class="dlfree" href="tranport.bio.pdf" target="_blank">👁️ VIEW SAMPLE 3 FREE - Transport</a>
+<p style="font-weight:bold;color:#166534;margin:0 0 8px 0">📄 SAMPLE 3: Transport</p>
+<a class="dlfree" href="tranport.bio.pdf" target="_blank">👁️ VIEW SAMPLE 3 FREE</a>
 </div>
 <div class="lockbox">
-<p style="font-weight:bold;color:#92400e">🔒 FULL PACKAGE: 50+ Items + Answers + Marking Guide</p>
+<p style="font-weight:bold;color:#92400e">🔒 FULL PACKAGE: 50+ Items + Answers + Marking Guides</p>
 </div>
-<button class="btn momo" onclick="pay(3000,'BIOLOGY_S1-S4')">📱 TAP TO PAY 3,000 UGX - GET FULL BIOLOGY</button>
+<button class="btn momo" onclick="pay(3000,'BIOLOGY_S1-S4')">📱 PAY 3,000 UGX - FULL BIOLOGY</button>
 </div>
 
+<!-- CHEMISTRY -->
 <div class="card">
 <h2>⚗️ CHEMISTRY S1-S4 <span class="pricebox">3,000 UGX</span></h2>
 <a class="dlfree" href="chemistry.pdf" target="_blank">👁️ VIEW CHEMISTRY SAMPLE FREE</a>
 <button class="btn momo" onclick="pay(3000,'CHEMISTRY')">📱 PAY 3K - CHEMISTRY</button>
 </div>
 
+<!-- PHYSICS -->
 <div class="card">
 <h2>⚡ PHYSICS S1-S4 <span class="pricebox">3,000 UGX</span></h2>
 <a class="dlfree" href="Physics.pdf" target="_blank">👁️ VIEW PHYSICS SAMPLE FREE</a>
@@ -69,7 +84,8 @@ function pay(a,s){if(confirm('PAY '+a+' UGX for '+s+'?\nAirtel: 0747695485\nName
 
 <div class="card" style="background:linear-gradient(135deg,#facc15,#eab308);text-align:center">
 <h2 style="color:#000;text-align:center">🔥 ALL SUBJECTS - 7,000 UGX</h2>
-<button class="btn momo" onclick="pay(7000,'ALL_SUBJECTS')" style="background:#000;color:#facc15">💰 PAY 7K - ALL SUBJECTS</button>
+<p style="color:#000;font-weight:bold">Biology + Chemistry + Physics</p>
+<button class="btn momo" onclick="pay(7000,'ALL_SUBJECTS')" style="background:#000;color:#facc15;border-color:#000">💰 PAY 7K - GET ALL</button>
 </div>
 
 <p style="color:#64748b;font-size:12px;margin:20px">© 2026 PWFCA - Pass With Flying Colours Academy<br>📍 Mbarara District | Director Tumuramye Mathias | 0747695485</p>
