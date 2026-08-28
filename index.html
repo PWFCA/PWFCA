@@ -2,69 +2,95 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PWFCA - Pass With Flying Colours Academy</title>
 <style>
-body{background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:12px;margin:0;padding-bottom:100px;}
-h1{color:#facc15;font-size:22px;margin:8px 0}
-.profile-pic{width:140px;height:140px;border-radius:50%;border:4px solid #facc15;object-fit:cover;margin:12px auto;display:block;background:#fff}
-.district-badge{background:#16a34a;color:#fff;padding:8px 18px;border-radius:20px;font-size:13px;font-weight:bold;display:inline-block;margin:6px}
-.card{background:#fff;color:#111;border-radius:20px;padding:18px;margin:16px auto;max-width:650px;text-align:left;box-shadow:0 6px 20px rgba(0,0,0,0.4)}
-.pricebox{background:#facc15;color:#000;padding:5px 12px;border-radius:8px;font-weight:bold;font-size:13px;float:right}
-.dlfree{background:#16a34a;color:#fff;padding:13px;border-radius:10px;display:block;text-align:center;text-decoration:none;margin:8px 0;font-weight:bold;font-size:14px}
-.momo{background:#ff0000;color:#fff;border:none;display:block;width:95%;margin:12px auto;padding:15px;text-align:center;border-radius:30px;cursor:pointer;font-weight:bold;font-size:15px}
-.admin{background:#1e293b;color:#facc15;border:2px solid #facc15;padding:10px 18px;border-radius:30px;font-weight:bold;display:inline-block;margin:4px;text-decoration:none;font-size:12px}
-.wa{background:#25D366;color:#fff;padding:10px 18px;border-radius:30px;display:inline-block;text-decoration:none;font-weight:bold;margin:4px;font-size:12px}
-.views{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:10px;margin:15px auto;max-width:650px;color:#94a3b8;font-size:12px}
-.trick{background:#fef9c3;border:3px solid #facc15;border-radius:16px;padding:16px;margin:16px auto;max-width:650px;color:#000;text-align:center}
-.trickbtn{background:#25D366;color:#fff;padding:14px 20px;border-radius:30px;display:block;text-decoration:none;font-weight:bold;margin:10px 0;font-size:16px}
-.topmenu{background:#fff;border-radius:30px;padding:8px;max-width:650px;margin:10px auto;display:flex;gap:6px;}
-.topmenu a{flex:1;background:#0f172a;color:#fff;padding:10px 5px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px;text-align:center}
-.topmenu a.sign{background:#facc15;color:#000}
-/* AI - ALWAYS VISIBLE */
-#aiBtn{position:fixed;bottom:25px;right:25px;background:#facc15;color:#000;width:65px;height:65px;border-radius:50%;border:4px solid #fff;font-size:30px;cursor:pointer;box-shadow:0 5px 20px rgba(250,204,21,0.6);z-index:99999;display:flex;align-items:center;justify-content:center;animation: pulse 2s infinite;}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(250,204,21,0.7);}70%{box-shadow:0 0 0 15px rgba(250,204,21,0);}100%{box-shadow:0 0 0 0 rgba(250,204,21,0);}}
-#aiBox{position:fixed;bottom:100px;right:15px;width:330px;max-width:92%;background:#fff;color:#000;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.6);display:none;z-index:99999;overflow:hidden;border:3px solid #facc15;}
-#aiHeader{background:#0f172a;color:#facc15;padding:14px;font-weight:bold;text-align:left;font-size:14px;}
-#aiMessages{height:280px;overflow:auto;padding:12px;text-align:left;font-size:13px;background:#f8fafc}
-.msg{margin:8px 0;padding:10px 12px;border-radius:14px;max-width:85%;line-height:1.4}
-.userMsg{background:#facc15;color:#000;margin-left:auto;text-align:right}
-.botMsg{background:#e2e8f0;color:#111}
-#aiInputArea{display:flex;border-top:2px solid #facc15;background:#fff}
-#aiInput{flex:1;padding:12px;border:none;outline:none;font-size:14px}
-#aiSend{background:#16a34a;color:#fff;border:none;padding:12px 18px;font-weight:bold;cursor:pointer}
+body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:12px}
+img.pic{width:130px;height:130px;border-radius:50%;border:4px solid #facc15;margin:10px auto;display:block;background:#fff;object-fit:cover}
+.badge{background:#16a34a;color:#fff;padding:7px 15px;border-radius:20px;font-size:12px;font-weight:bold;display:inline-block}
+.card{background:#fff;color:#111;border-radius:16px;padding:15px;margin:14px auto;max-width:600px;text-align:left}
+.green{background:#16a34a;color:#fff;padding:12px;border-radius:10px;display:block;text-align:center;text-decoration:none;margin:8px 0;font-weight:bold}
+.red{background:#ff0000;color:#fff;border:none;width:100%;padding:14px;border-radius:30px;font-weight:bold;margin:8px 0}
+.menu{display:flex;gap:6px;background:#fff;padding:6px;border-radius:30px;max-width:600px;margin:10px auto}
+.menu a{flex:1;background:#0f172a;color:#fff;padding:10px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:12px}
+.menu a.pay{background:#ff0000}
+.menu a.sign{background:#facc15;color:#000}
+#aiBtn{position:fixed;bottom:20px;right:20px;background:#facc15;width:60px;height:60px;border-radius:50%;border:3px solid #fff;font-size:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999}
+#aiBox{position:fixed;bottom:90px;right:10px;width:300px;background:#fff;color:#000;border-radius:12px;display:none;z-index:999;border:2px solid #facc15;overflow:hidden}
+#aiHead{background:#0f172a;color:#facc15;padding:10px;font-weight:bold;text-align:left}
+#aiMsgs{height:220px;overflow:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
 </style>
-<script>
-let views = localStorage.getItem('pwfca_views');
-views = views? parseInt(views) + 1 : 68;
-localStorage.setItem('pwfca_views', views);
-function pay(amount, subject){
-  let msg = "Hello Director, I want to pay " + amount + " UGX for " + subject + ". Airtel: 0747695485";
-  let inst = "💰 PAY " + amount + " UGX for " + subject + "\n\n📱 Dial *185# MANUALLY\nNumber: 0747695485\nName: Tumuramye Mathias\nAmount: " + amount + "\n\nAfter paying send screenshot.\nTap OK for WhatsApp.";
-  if(confirm(inst)){ window.open('https://wa.me/256747695485?text=' + encodeURIComponent(msg), '_blank'); }
-}
-function toggleAI(){
-  let box = document.getElementById('aiBox');
-  box.style.display = (box.style.display === 'block') ? 'none' : 'block';
-}
-function sendAI(){
-  let input = document.getElementById('aiInput');
-  let text = input.value.trim();
-  if(!text) return;
-  addMsg(text, 'userMsg');
-  input.value = '';
-  setTimeout(()=>{ addMsg(getAIReply(text), 'botMsg'); }, 700);
-}
-function addMsg(t, cls){
-  let m = document.getElementById('aiMessages');
-  let d = document.createElement('div');
-  d.className = 'msg ' + cls;
-  d.innerText = t;
-  m.appendChild(d);
-  m.scrollTop = m.scrollHeight;
-}
-function getAIReply(q){
-  let l = q.toLowerCase();
-  if(l.includes('sign')) return "✅ Sign In is OPTIONAL! Link: https://forms.gle/WG9Mk4i4K3EJfXwB7 - Get free updates on WhatsApp. Notes are free to view without signing!";
-  if(l.includes('bio')) return "🧬 BIOLOGY notes: Transport, Reproduction, Genetics, Ecology + past papers. Free samples: biology-items.pdf. Full Biology = 3,000 UGX. Tap PAY button!";
-  if(l.includes('chem')) return "⚗️ CHEMISTRY: Atomic structure, Acids, Organic etc. Free sample chemistry.pdf. Full set 3,000 UGX. Need
+</head>
+<body>
+
+<img src="director.jpg" class="pic" onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&color=000&size=130'">
+<h1 style="color:#facc15;font-size:20px;margin:5px">🎓 PWFCA - PASS WITH FLYING COLOURS ACADEMY</h1>
+<p style="font-size:13px;font-weight:bold">Director Tumuramye Mathias - 0747695485</p>
+<span class="badge">📍 MBARARA DISTRICT - UGANDA</span>
+
+<div style="margin-top:12px">
+<a href="admin.html" style="background:#1e293b;color:#facc15;border:2px solid #facc15;padding:8px 12px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px;margin:3px">🔐 ADMIN</a>
+<a href="https://wa.me/256747695485" target="_blank" style="background:#25D366;color:#fff;padding:8px 12px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px;margin:3px">💬 WhatsApp</a>
+<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" style="background:#facc15;color:#000;padding:8px 12px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px;margin:3px">✅ Sign In</a>
+</div>
+
+<p style="color:#94a3b8;font-size:12px;margin-top:12px">👁️ Total Views: 68+ | 🤖 AI Ready - Tap yellow button | <a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" style="color:#facc15">Sign In Optional</a></p>
+
+<div class="menu">
+<a href="#notes">📚 Notes</a>
+<a href="#paytab" class="pay">💰 Pay Tab</a>
+<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" class="sign">✅ Sign In</a>
+<a href="#" onclick="openAI();return false;">🤖 AI</a>
+</div>
+
+<div style="background:#fef9c3;color:#000;border:3px solid #facc15;border-radius:14px;padding:12px;max-width:600px;margin:12px auto">
+<b>💡 Trick to know names:</b> Send "VIEWED" to 0747695485<br>
+<a href="https://wa.me/256747695485?text=VIEWED" target="_blank" style="background:#25D366;color:#fff;padding:10px 15px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:8px">💬 Send VIEWED on WhatsApp</a>
+</div>
+
+<div id="notes">
+<div class="card">
+<h3>🧬 BIOLOGY - 3,000 UGX</h3>
+<p style="font-size:12px">💳 Airtel: 0747695485 - Tumuramye Mathias</p>
+<a class="green" href="biology-items.pdf" target="_blank">👁️ VIEW Biology Sample 1</a>
+<a class="green" href="bilogy.pdf" target="_blank">👁️ VIEW Biology Sample 2</a>
+<a class="green" href="tranport.bio.pdf" target="_blank">👁️ VIEW Biology Sample 3</a>
+<button class="red" onclick="alert('PAY 3000 UGX FOR BIOLOGY\n\nDial *185#\nNumber: 0747695485\nName: Tumuramye Mathias\n\nThen send screenshot to WhatsApp');window.open('https://wa.me/256747695485?text=Hello%20Director%20I%20want%20to%20pay%203000%20for%20BIOLOGY')">📱 PAY 3K - BIOLOGY</button>
+</div>
+
+<div class="card">
+<h3>⚗️ CHEMISTRY - 3,000 UGX</h3>
+<a class="green" href="chemistry.pdf" target="_blank">👁️ VIEW CHEMISTRY FREE</a>
+<button class="red" onclick="alert('PAY 3000 FOR CHEMISTRY\nDial *185# Number: 0747695485');window.open('https://wa.me/256747695485?text=PAY%20CHEMISTRY%203000')">📱 PAY 3K - CHEMISTRY</button>
+</div>
+
+<div class="card">
+<h3>⚡ PHYSICS - 3,000 UGX</h3>
+<a class="green" href="Physics.pdf" target="_blank">👁️ VIEW PHYSICS FREE</a>
+<button class="red" onclick="alert('PAY 3000 FOR PHYSICS\nDial *185# Number: 0747695485');window.open('https://wa.me/256747695485?text=PAY%20PHYSICS%203000')">📱 PAY 3K - PHYSICS</button>
+</div>
+
+<div class="card">
+<h3>📐 MATHEMATICS S1-S4 - 3,000 UGX</h3>
+<a class="green" href="mathematics-.pdf" target="_blank">👁️ VIEW MATHEMATICS PDF</a>
+<button class="red" onclick="alert('PAY 3000 FOR MATH\nDial *185# Number: 0747695485');window.open('https://wa.me/256747695485?text=PAY%20MATH%203000')">📱 PAY 3K - MATH</button>
+</div>
+</div>
+
+<div class="card" id="paytab" style="background:linear-gradient(135deg,#facc15,#eab308);border:4px solid #ff0000;text-align:center">
+<h2 style="text-align:center;color:#000;margin:5px">💰 PAY TAB - ALL SUBJECTS</h2>
+<p style="color:#000;font-size:12px;text-align:center">Airtel Money: 0747695485 - Tumuramye Mathias - Dial *185#</p>
+<div style="background:#fff;border-radius:10px;padding:10px;margin:8px 0">
+<b>Single Subject - 3,000 UGX</b><br>
+<button class="red" onclick="alert('PAY 3000\nDial *185# 0747695485');window.open('https://wa.me/256747695485?text=PAY%203K%20SINGLE')">📱 PAY 3K NOW</button>
+</div>
+<div style="background:#000;color:#facc15;border-radius:10px;padding:10px;margin:8px 0">
+<b style="color:#facc15">🔥 BEST DEAL - ALL 4 SUBJECTS - 7,000 UGX</b><br>
+<span style="font-size:11px;color:#fff">Save 5,000 UGX!</span><br>
+<button style="background:#facc15;color:#000;border:none;width:100%;padding:14px;border-radius:30px;font-weight:bold;margin-top:6px" onclick="alert('PAY 7000 FOR ALL\nDial *185# 0747695485');window.open('https://wa.me/256747695485?text=PAY%207000%20ALL%20SUBJECTS')">💰 PAY 7K - GET ALL</button>
+</div>
+</div>
+
+<div class="card" style="text-align:center">
+<h3 style="text-align:center">✅ Sign In For Updates (Optional)</h3>
+<p style="font-size:12px;text-align:center">No sign in needed to view notes.
