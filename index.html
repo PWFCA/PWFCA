@@ -3,77 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PWFCA - Pass With Flying Colors Academy</title>
+<title>Pass With Flying Colors Academy</title>
 <style>
-body{font-family:Arial,sans-serif;margin:0;background:#f0f4f8;color:#333;}
-.header{background:linear-gradient(135deg,#0a3d62,#1e8449);color:white;padding:30px 20px;text-align:center;}
-.container{max-width:900px;margin:20px auto;background:white;padding:25px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-.btn{ display:inline-block; padding:14px 28px; margin:8px; border-radius:10px; text-decoration:none; font-weight:bold; font-size:17px; color:white; }
-.btn-green{background:#27ae60;}
-.btn-blue{background:#0a3d62;}
-.btn-wa{background:#25D366;}
-.form-box{border:2px solid #27ae60;border-radius:12px;padding:10px;margin-top:20px;background:#f9fff9;}
-.optional-box{background:#e8f5e9;border-left:5px solid #27ae60;padding:12px;margin:15px 0;border-radius:5px;}
-.notes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin-top:15px;}
-.note-card{border:1px solid #ddd;padding:15px;border-radius:8px;background:#fafafa;}
-.note-card a{color:#0a3d62;font-weight:bold;text-decoration:none;}
+body{font-family:Arial,sans-serif;margin:0;background:#f4f4f9;}
+.header{background:linear-gradient(135deg,#0a3d62,#1e8449);color:white;padding:25px 15px;text-align:center;}
+.header h1{margin:0;font-size:26px;line-height:1.2;}
+/* TABS */
+.tabs{display:flex;overflow-x:auto;background:white;box-shadow:0 2px 5px rgba(0,0,0,0.1);position:sticky;top:0;z-index:10;}
+.tab-btn{flex:1;min-width:90px;padding:14px 10px;border:none;background:white;font-weight:bold;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;}
+.tab-btn.active{border-bottom:3px solid #27ae60;color:#27ae60;background:#f0fff0;}
+.tab-content{display:none;padding:20px;max-width:900px;margin:auto;}
+.tab-content.active{display:block;}
+.container{background:white;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);margin-bottom:15px;}
+.note-card{border:1px solid #e0e0e0;padding:15px;border-radius:10px;margin-bottom:12px;background:white;}
+.note-card h3{margin:0 0 8px 0;}
+.btn{display:inline-block;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:bold;color:white;margin:5px 0;}
+.btn-green{background:#27ae60;}.btn-wa{background:#25D366;}.btn-blue{background:#0a3d62;}
+.optional-box{background:#e8f5e9;border-left:5px solid #27ae60;padding:12px;border-radius:6px;margin-bottom:15px;}
 </style>
 </head>
 <body>
 
 <div class="header">
-<h1>PWFCA</h1>
-<h2 style="color:white;margin:5px;">Pass With Flying Colors Academy</h2>
-<p>Director Tumuramye Mathias | 0747695485 | Mbarara, Uganda</p>
+<h1>Pass With Flying Colors Academy</h1>
+<p>Director Tumuramye Mathias | 0747695485 |<br>Mbarara, Uganda</p>
+</div>
+
+<!-- TABS MENU -->
+<div class="tabs">
+<button class="tab-btn active" onclick="openTab('home')">🏠 Home</button>
+<button class="tab-btn" onclick="openTab('s1s4')">S1-S4</button>
+<button class="tab-btn" onclick="openTab('s5s6')">S5-S6</button>
+<button class="tab-btn" onclick="openTab('papers')">Papers</button>
+<button class="tab-btn" onclick="openTab('signin')" style="color:#0a3d62;">✅ Sign In</button>
+</div>
+
+<!-- HOME TAB -->
+<div id="home" class="tab-content active">
+<div class="optional-box">
+🔔 <b>Want FREE Updates?</b> <a href="#" onclick="openTab('signin')" style="color:#27ae60;font-weight:bold;">Sign In Here (Optional)</a> - Or continue browsing.
 </div>
 
 <div class="container">
-
-<div class="optional-box">
-<b>🔔 Want FREE Updates?</b> Optional: Sign in to get new notes on WhatsApp automatically! 
-<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" style="color:#27ae60;font-weight:bold;">Sign In Here (Optional)</a> - Or continue browsing below.
-</div>
-
 <h2>📚 Access Your Notes Directly - No Sign In Required</h2>
+<p>Choose your level below:</p>
 
-<div class="notes-grid">
 <div class="note-card">
 <h3>S1-S4 Notes</h3>
 <p>All subjects PDF</p>
-<a href="#">📥 Download S1-S4</a>
+<a href="#" class="btn btn-blue" onclick="openTab('s1s4')">📥 Download S1-S4</a>
 </div>
+
 <div class="note-card">
 <h3>S5-S6 Notes</h3>
 <p>A-Level Top Notes</p>
-<a href="#">📥 Download S5-S6</a>
+<a href="#" class="btn btn-blue" onclick="openTab('s5s6')">📥 Download S5-S6</a>
 </div>
+
 <div class="note-card">
-<h3>P7 & UNEB Papers</h3>
+<h3>P7 & UNEB Past Papers</h3>
 <p>Past Papers with Answers</p>
-<a href="#">📥 Download Papers</a>
+<a href="#" class="btn btn-blue" onclick="openTab('papers')">📥 View Papers</a>
 </div>
-<div class="note-card">
-<h3>Video Lessons</h3>
-<p>By Director Mathias</p>
-<a href="#">▶️ Watch Videos</a>
+
+<div style="text-align:center;margin-top:20px;">
+<a href="https://wa.me/256747695485?text=Hello%20Director" target="_blank" class="btn btn-wa">📱 WhatsApp Director</a>
+</div>
 </div>
 </div>
 
-<div style="text-align:center;margin:25px 0;">
-<a href="https://wa.me/256747695485?text=Hello%20Director%20Mathias%2C%20I%20need%20PWFCA%20notes" target="_blank" class="btn btn-wa">📱 WhatsApp Director</a>
+<!-- S1-S4 TAB -->
+<div id="s1s4" class="tab-content">
+<div class="container">
+<h2>S1-S4 Notes</h2>
+<p>All subjects available:</p>
+<div class="note-card"><h3>Mathematics</h3><a href="#">Download PDF</a></div>
+<div class="note-card"><h3>Biology</h3><a href="#">Download PDF</a></div>
+<div class="note-card"><h3>Chemistry, Physics, History...</h3><a href="#">Download All</a></div>
+</div>
 </div>
 
-<hr>
-
-<div class="form-box">
-<h3 style="text-align:center;">📝 Optional: Register For Updates</h3>
-<p style="text-align:center;font-size:14px;color:#666;">Enter your name & WhatsApp to receive new materials. You can skip this and still use notes above.</p>
-<iframe src="https://forms.gle/WG9Mk4i4K3EJfXwB7" width="100%" height="700" frameborder="0">Loading...</iframe>
-<p style="text-align:center;"><a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" class="btn btn-green">Open Sign In In New Page</a></p>
+<!-- S5-S6 TAB -->
+<div id="s5s6" class="tab-content">
+<div class="container">
+<h2>S5-S6 Notes</h2>
+<p>A-Level Top Notes:</p>
+<div class="note-card"><h3>S5 Notes</h3><a href="#">Download</a></div>
+<div class="note-card"><h3>S6 Notes</h3><a href="#">Download</a></div>
+</div>
 </div>
 
-<p style="text-align:center;margin-top:30px;"><b>Contact:</b> 0747695485 - Director Tumuramye Mathias<br>© 2026 PWFCA</p>
-
+<!-- PAPERS TAB -->
+<div id="papers" class="tab-content">
+<div class="container">
+<h2>UNEB Past Papers</h2>
+<div class="note-card"><h3>P7 PLE Papers</h3><a href="#">Download</a></div>
+<div class="note-card"><h3>S4 UCE Papers</h3><a href="#">Download</a></div>
+<div class="note-card"><h3>S6 UACE Papers</h3><a href="#">Download</a></div>
 </div>
+</div>
+
+<!-- SIGN IN TAB -->
+<div id="signin" class="tab-content">
+<div class="container">
+<h2 style="text-align:center;">✅ Student Sign In (Optional)</h2>
+<p style="text-align:center;color:#666;">Sign in to get new notes automatically on WhatsApp. You can still use notes without signing.</p>
+
+<div style="text-align:center;">
+<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" class="btn btn-green">Open Form In New Page</a>
+</div>
+
+<div style="border:2px solid #27ae60;border-radius:12px;padding:5px;margin-top:15px;">
+<iframe src="https://forms.gle/WG9Mk4i4K3EJfXwB7" width="100%" height="850" frameborder="0">Loading…</iframe>
+</div>
+
+<p style="text-align:center;margin-top:15px;">After signing, send <b>VIEWED</b> to 0747695485</p>
+</div>
+</div>
+
+<script>
+function openTab(tabName){
+  var tabs = document.getElementsByClassName("tab-content");
+  for(var i=0;i<tabs.length;i++){ tabs[i].classList.remove("active"); }
+  var btns = document.getElementsByClassName("tab-btn");
+  for(var i=0;i<btns.length;i++){ btns[i].classList.remove("active"); }
+  document.getElementById(tabName).classList.add("active");
+  event.currentTarget.classList.add("active");
+  window.scrollTo(0,0);
+}
+</script>
+
+<footer style="text-align:center;padding:20px;color:#888;">
+© 2026 PWFCA - Director Tumuramye Mathias - 0747695485
+</footer>
+
 </body>
 </html>
