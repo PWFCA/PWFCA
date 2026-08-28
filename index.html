@@ -3,34 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PWFCA - MATS AI Activated</title>
+<title>PWFCA - MATS AI Working</title>
 <style>
-body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:10px;padding-bottom:100px}
+body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:10px;padding-bottom:120px}
 .pic{width:135px;height:135px;border-radius:50%;border:4px solid #facc15;margin:12px auto;display:block;background:#fff;object-fit:cover}
 .badge{background:#16a34a;color:#fff;padding:7px 15px;border-radius:20px;font-size:12px;font-weight:bold;display:inline-block}
 .card{background:#fff;color:#111;border-radius:16px;padding:14px;margin:12px auto;max-width:600px;text-align:left}
 .green{background:#16a34a;color:#fff;padding:12px;border-radius:10px;display:block;text-align:center;text-decoration:none;margin:7px 0;font-weight:bold}
 .red{background:#ff0000;color:#fff;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin:7px 0;cursor:pointer}
-.menu{display:flex;gap:5px;background:#fff;padding:6px;border-radius:30px;max-width:600px;margin:10px auto;position:sticky;top:5px;z-index:100}
+.menu{display:flex;gap:5px;background:#fff;padding:6px;border-radius:30px;max-width:600px;margin:10px auto}
 .menu a{flex:1;background:#0f172a;color:#fff;padding:10px 4px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px;text-align:center}
-.menu a.pay{background:#ff0000;animation:blink 1s infinite}
+.menu a.pay{background:#ff0000}
 .menu a.sign{background:#facc15;color:#000}
 .menu a.ai{background:#0f172a;color:#facc15;border:2px solid #facc15}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.7}}
-/* MATS AI - FIXED VISIBLE */
-#aiBtn{position:fixed;bottom:85px;right:18px;background:#facc15;width:68px;height:68px;border-radius:50%;border:4px solid #fff;font-size:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:99999;box-shadow:0 0 20px #facc15;animation: pulse 1.5s infinite}
-@keyframes pulse{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(250,204,21,0.8)}50%{transform:scale(1.05);box-shadow:0 0 0 15px rgba(250,204,21,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(250,204,21,0)}}
-#aiBox{position:fixed;bottom:160px;right:10px;width:360px;max-width:95%;background:#fff;color:#000;border-radius:18px;display:none;z-index:99999;border:3px solid #facc15;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.7)}
+/* MATS AI - WORKING - ON TOP */
+#aiBtn{position:fixed;bottom:95px;right:20px;background:#facc15;width:70px;height:70px;border-radius:50%;border:4px solid #fff;font-size:35px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999999;box-shadow:0 4px 20px rgba(0,0,0,0.5)}
+#aiBox{position:fixed;bottom:170px;right:8px;left:8px;margin:auto;max-width:380px;background:#fff;color:#000;border-radius:18px;display:none;z-index:999998;border:3px solid #facc15;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.7)}
 #aiHead{background:#0f172a;color:#facc15;padding:12px;font-weight:bold;text-align:left;font-size:14px}
-#aiHead small{display:block;color:#94a3b8;font-size:10px;font-weight:normal;margin-top:2px}
-#aiMsgs{height:340px;overflow:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
-.msg{margin:8px 0;padding:11px 12px;border-radius:14px;max-width:90%;line-height:1.5;white-space:pre-wrap;font-size:13px}
+#aiMsgs{height:320px;overflow-y:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
+.msg{margin:8px 0;padding:11px 12px;border-radius:14px;max-width:92%;line-height:1.5;white-space:pre-wrap;word-wrap:break-word}
 .userMsg{background:#facc15;color:#000;margin-left:auto;text-align:right}
-.botMsg{background:#fff;color:#111;border:1px solid #e2e8f0;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
+.botMsg{background:#fff;color:#111;border:1px solid #ddd}
 #aiInputRow{display:flex;border-top:3px solid #facc15;background:#fff}
 #aiInput{flex:1;padding:13px;border:none;outline:none;font-size:14px}
-#aiSend{background:#0f172a;color:#facc15;border:none;padding:13px 18px;font-weight:bold;cursor:pointer;font-size:14px}
-.quick{display:inline-block;background:#f1f5f9;color:#0f172a;padding:6px 10px;border-radius:15px;font-size:10px;margin:3px;cursor:pointer;border:1px solid #cbd5e1;font-weight:bold}
+#aiSend{background:#0f172a;color:#facc15;border:none;padding:13px 18px;font-weight:bold;cursor:pointer}
+.quick{display:inline-block;background:#e2e8f0;color:#0f172a;padding:6px 10px;border-radius:15px;font-size:10px;margin:3px;cursor:pointer;border:1px solid #cbd5e1;font-weight:bold}
 </style>
 </head>
 <body>
@@ -46,7 +43,7 @@ body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;
 <a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" style="background:#facc15;color:#000;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">✅ Sign In</a>
 </div>
 
-<p style="color:#94a3b8;font-size:11px">👁️ Total Views: 68+ | 🤖 MATS AI Activated | <a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" style="color:#facc15">Sign In Optional</a></p>
+<p style="color:#94a3b8;font-size:11px">👁️ Total Views: 68+ | 🤖 MATS AI Activated Working</p>
 
 <div class="menu">
 <a href="#notes">📚 Notes</a>
@@ -56,59 +53,99 @@ body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;
 </div>
 
 <div style="background:#fef9c3;color:#000;border:3px solid #facc15;border-radius:14px;padding:12px;max-width:600px;margin:12px auto">
-<b>💡 Trick to know names:</b> Send "VIEWED" to 0747695485<br>
+<b>💡 Trick:</b> Send "VIEWED" to 0747695485<br>
 <a href="https://wa.me/256747695485?text=VIEWED" target="_blank" style="background:#25D366;color:#fff;padding:10px 15px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:8px">💬 Send VIEWED on WhatsApp</a>
 </div>
 
 <div id="notes">
-<div class="card"><h3>🧬 BIOLOGY - 3,000 UGX</h3><p style="font-size:11px">💳 Airtel: 0747695485 - Tumuramye Mathias</p><a class="green" href="biology-items.pdf" target="_blank">👁️ VIEW Biology Sample 1</a><a class="green" href="bilogy.pdf" target="_blank">👁️ VIEW Biology Sample 2</a><a class="green" href="tranport.bio.pdf" target="_blank">👁️ VIEW Biology Transport</a><button class="red" onclick="payNow(3000,'BIOLOGY')">📱 PAY 3K - BIOLOGY</button></div>
+<div class="card"><h3>🧬 BIOLOGY - 3,000 UGX</h3><a class="green" href="biology-items.pdf" target="_blank">👁️ VIEW Biology Sample 1</a><a class="green" href="bilogy.pdf" target="_blank">👁️ VIEW Biology Sample 2</a><a class="green" href="tranport.bio.pdf" target="_blank">👁️ VIEW Biology Transport</a><button class="red" onclick="payNow(3000,'BIOLOGY')">📱 PAY 3K - BIOLOGY</button></div>
 <div class="card"><h3>⚗️ CHEMISTRY - 3,000 UGX</h3><a class="green" href="chemistry.pdf" target="_blank">👁️ VIEW CHEMISTRY FREE</a><button class="red" onclick="payNow(3000,'CHEMISTRY')">📱 PAY 3K - CHEMISTRY</button></div>
 <div class="card"><h3>⚡ PHYSICS - 3,000 UGX</h3><a class="green" href="Physics.pdf" target="_blank">👁️ VIEW PHYSICS FREE</a><button class="red" onclick="payNow(3000,'PHYSICS')">📱 PAY 3K - PHYSICS</button></div>
-<div class="card"><h3>📐 MATHEMATICS S1-S4 - 3,000 UGX</h3><a class="green" href="mathematics-.pdf" target="_blank">👁️ VIEW MATHEMATICS PDF</a><button class="red" onclick="payNow(3000,'MATHEMATICS')">📱 PAY 3K - MATH</button></div>
+<div class="card"><h3>📐 MATH S1-S4 - 3,000 UGX</h3><a class="green" href="mathematics-.pdf" target="_blank">👁️ VIEW MATHEMATICS PDF</a><button class="red" onclick="payNow(3000,'MATHEMATICS')">📱 PAY 3K - MATH</button></div>
 </div>
 
 <div class="card" id="paytab" style="background:linear-gradient(135deg,#facc15,#eab308);border:4px solid #ff0000;text-align:center">
 <h2 style="text-align:center;color:#000;margin:5px">💰 PAY TAB - CHOOSE PLAN</h2>
-<p style="color:#000;font-size:11px;text-align:center">Airtel Money: 0747695485 - Dial *185#</p>
+<p style="color:#000;font-size:11px;text-align:center">Airtel: 0747695485 - Dial *185#</p>
 <div style="background:#fff;border-radius:10px;padding:10px;margin:8px 0;color:#000"><b>Single - 3,000 UGX</b><button class="red" onclick="payNow(3000,'SINGLE')">📱 PAY 3K</button></div>
-<div style="background:#000;color:#facc15;border-radius:10px;padding:10px;margin:8px 0"><b>🔥 ALL 4 SUBJECTS - 7,000 UGX - Save 5K!</b><button style="background:#facc15;color:#000;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin-top:6px" onclick="payNow(7000,'ALL 4 SUBJECTS')">💰 PAY 7K - GET ALL</button></div>
+<div style="background:#000;color:#facc15;border-radius:10px;padding:10px;margin:8px 0"><b>🔥 ALL 4 SUBJECTS - 7,000 UGX!</b><button style="background:#facc15;color:#000;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin-top:6px" onclick="payNow(7000,'ALL 4')">💰 PAY 7K - GET ALL</button></div>
 </div>
 
-<!-- NO SIGN IN FORM DOWN - REMOVED AS YOU ASKED -->
-
-<!-- MATS AI BUTTON - ALWAYS VISIBLE ABOVE NAV -->
-<div id="aiBtn" onclick="openAI()">🤖</div>
+<div id="aiBtn" onclick="toggleAI()">🤖</div>
 
 <div id="aiBox">
-<div id="aiHead">🤖 MATS AI - ACTIVATED<small>By Director Mathias - Answers like a teacher | S1-S4</small><span style="float:right;cursor:pointer;background:#facc15;color:#000;padding:3px 9px;border-radius:12px;font-size:12px" onclick="closeAI()">✕ Close</span></div>
+<div id="aiHead">🤖 MATS AI - PWFCA Teacher <span style="float:right;cursor:pointer;background:#facc15;color:#000;padding:3px 10px;border-radius:12px" onclick="closeAI()">X</span><br><small style="color:#94a3b8;font-size:10px">Tap Send to ask - Working 100%</small></div>
 <div id="aiMsgs"></div>
-<div style="padding:7px;background:#fff;border-top:1px solid #e2e8f0;max-height:70px;overflow:auto">
-<span class="quick" onclick="askQuick('What is photosynthesis?')">Photosynthesis</span>
-<span class="quick" onclick="askQuick('Principle of transmission of pressure')">Pressure Principle</span>
-<span class="quick" onclick="askQuick('Manufacture of oxygen')">Oxygen Manufacture</span>
-<span class="quick" onclick="askQuick('What is an acid?')">Acids</span>
-<span class="quick" onclick="askQuick('How to pay?')">Pay</span>
+<div style="padding:6px;background:#fff;border-top:1px solid #eee;text-align:left">
+<span class="quick" onclick="quickAsk('What is photosynthesis?')">Photosynthesis</span>
+<span class="quick" onclick="quickAsk('Principle of transmission of pressure')">Pressure Principle</span>
+<span class="quick" onclick="quickAsk('How is oxygen manufactured?')">Oxygen</span>
 </div>
 <div id="aiInputRow">
-<input id="aiInput" placeholder="Ask MATS AI anything..." onkeypress="if(event.key==='Enter')sendAI()">
-<button id="aiSend" onclick="sendAI()">Send</button>
+<input id="aiInput" type="text" placeholder="Ask: photosynthesis? pressure? oxygen?" autocomplete="off">
+<button id="aiSend" onclick="doSend()">Send</button>
 </div>
 </div>
 
 <script>
-function payNow(a,s){alert('💰 PAY '+a+' UGX FOR '+s+'\n\nDial *185# MANUALLY\nNumber: 0747695485\nName: Tumuramye Mathias\nAmount: '+a+'\n\nAfter pay send screenshot to WhatsApp');window.open('https://wa.me/256747695485?text=Hello%20Director%20I%20want%20to%20pay%20'+a+'%20UGX%20for%20'+s,'_blank');}
-function openAI(){document.getElementById('aiBox').style.display='block';document.getElementById('aiInput').focus();}
-function closeAI(){document.getElementById('aiBox').style.display='none';}
-function askQuick(t){document.getElementById('aiInput').value=t;sendAI();}
-function sendAI(){
-  var inp=document.getElementById('aiInput');var txt=inp.value.trim();if(!txt)return;
-  var box=document.getElementById('aiMsgs');
-  box.innerHTML+='<div class="msg userMsg">'+txt+'</div>';
-  inp.value='';box.scrollTop=box.scrollHeight;
-  setTimeout(function(){var ans=getMATSAnswer(txt);box.innerHTML+='<div class="msg botMsg">'+ans+'</div>';box.scrollTop=box.scrollHeight;},700);
-}
-function getMATSAnswer(q){
-  var l=q.toLowerCase();
+// SIMPLE WORKING CODE
+var aiOpen = false;
+function payNow(a,s){ alert('PAY '+a+' FOR '+s+'\nDial *185#\nNumber:0747695485\nName:Tumuramye Mathias'); window.open('https://wa.me/256747695485?text=PAY '+a+' FOR '+s,'_blank'); }
+function openAI(){ document.getElementById('aiBox').style.display='block'; aiOpen=true; }
+function closeAI(){ document.getElementById('aiBox').style.display='none'; aiOpen=false; }
+function toggleAI(){ if(aiOpen){closeAI();}else{openAI();} }
+function quickAsk(t){ document.getElementById('aiInput').value=t; doSend(); }
 
-  if(l.includes('photosynthesis')){
-    return '🧬 WHAT IS PHOTOSYNTHESIS? - MATS AI\n\nDEFINITION: Process by which green plants make their own food using sunlight, carbon dioxide, water and chlorophyll.\n\nEQUATION:\n6CO2 + 6H2O --[Sunlight + Chlorophyll]--> C6H12O6 + 6O2\nCarbon dioxide + Water → Glucose + Oxygen\n\nWHERE: In chloroplast, mainly in mesophyll cells of leaf. Chlorophyll in grana.\n\nREQUIREMENTS:\n1. CO2 from air via stomata\n2. Water from soil via roots/xylem\n3. Sunlight (energy)\n4. Chlorophyll (green pigment)\n\nTWO STAGES:\n• Light stage (in grana): Light splits water → H+ + O2. ATP made.\n• Dark stage (Cal
+function doSend(){
+  var inp = document.getElementById('aiInput');
+  var txt = inp.value.trim();
+  if(!txt) return;
+  var box = document.getElementById('aiMsgs');
+  var u = document.createElement('div');
+  u.className='msg userMsg'; u.textContent=txt;
+  box.appendChild(u);
+  inp.value='';
+  box.scrollTop=box.scrollHeight;
+  setTimeout(function(){
+    var b = document.createElement('div');
+    b.className='msg botMsg';
+    b.textContent = getAnswer(txt);
+    box.appendChild(b);
+    box.scrollTop=box.scrollHeight;
+  },600);
+}
+
+function getAnswer(q){
+  var l = q.toLowerCase();
+  if(l.indexOf('photosynthesis')!==-1){
+    return "PHOTOSYNTHESIS - MATS AI:\n\nDefinition: Process where green plants make food using sunlight, CO2, water and chlorophyll.\n\nEquation:\n6CO2 + 6H2O + sunlight/chlorophyll -> C6H12O6 + 6O2\n\nWhere: Chloroplast in mesophyll cells. Chlorophyll in grana.\n\n2 Stages:\n1. Light stage in grana: Water split -> O2 + H + ATP\n2. Dark stage (Calvin cycle) in stroma: CO2 + H + ATP -> Glucose\n\nNeeds: CO2 via stomata, water via xylem, light, chlorophyll.\n\nImportance: Makes food, gives O2, removes CO2, basis of food chains.\n\nFactors: Light, CO2, temperature, water.";
+  }
+  if(l.indexOf('pressure')!==-1 || l.indexOf('pascal')!==-1 || l.indexOf('transmission')!==-1){
+    return "PRINCIPLE OF TRANSMISSION OF PRESSURE - PASCAL'S PRINCIPLE - MATS AI:\n\nStatement: Pressure applied to enclosed fluid is transmitted equally to all parts of fluid and walls of container.\n\nBy Blaise Pascal 1653.\n\nFormula: P = F/A. Pressure = Force/Area. Unit Pascal (Pa).\n\nMeaning: If you press water in balloon at one point, it bulges everywhere equally.\n\nApplications (S4 important):\n1. Hydraulic Jack: Small force small piston -> large force large piston. F1/A1 = F2/A2. Example A1=2cm2 A2=100cm2 F1=50N -> F2=2500N lifts car!\n2. Hydraulic Brake: Foot pressure to 4 wheels equally.\n3. Hydraulic Press: Make car parts.\n4. Syringe: Pressure through liquid.\n\nCalculation: F1=20N A1=5cm2 Find F2 on A2=100cm2? P1=P2 so 20/5=F2/100 -> F2=400N\n\nFull notes in Physics PDF!";
+  }
+  if(l.indexOf('oxygen')!==-1){
+    return "MANUFACTURE OF OXYGEN - MATS AI:\n\nLAB METHODS:\n1. From Hydrogen Peroxide (common):\n2H2O2 -> MnO2 catalyst -> 2H2O + O2\nPut MnO2 black powder in flask, add H2O2 dropwise, O2 bubbles, collect over water. Test: glowing splint relights.\n\n2. From Potassium Chlorate:\n2KClO3 -> heat + MnO2 -> 2KCl + 3O2\nHeat in test tube, O2 out.\n\n3. From Sodium Peroxide:\n2Na2O2 + 2H2O -> 4NaOH + O2\n\nINDUSTRIAL: Fractional distillation of liquid air:\n1. Filter air remove dust CO2 water\n2. Compress to 200 atm, cool to -200C -> liquid air\n3. N2 boils at -196C, O2 at -183C\n4. Distill: N2 boils first, leaves O2 liquid\n5. Store in steel cylinders black white top, 99.5% pure\n\nOther: Electrolysis of water 2H2O -> 2H2 + O2\n\nUses: Hospitals respiration, welding oxy-acetylene 3000C, steel making, rockets, climbing.\n\nTest: glowing splint.\n\nFull Chemistry notes 3K!";
+  }
+  if(l.indexOf('pay')!==-1){ return "PAY TAB: Single 3K, ALL 4 subjects 7K Save 5K! Airtel Money 0747695485 Name Tumuramye Mathias Dial *185# MANUALLY Then send screenshot to WhatsApp"; }
+  if(l.indexOf('hello')!==-1 || l.indexOf('hi')!==-1 || q.length<4){ return "Hello! I am MATS AI WORKING! Ask me:\n- What is photosynthesis?\n- Principle of transmission of pressure?\n- How is oxygen manufactured?\nI will answer like a teacher!"; }
+  return "MATS AI: You asked '"+q+"'\n\nI can now teach:\n- What is photosynthesis? (equation, stages)\n- Pascal principle - transmission of pressure (F1/A1=F2/A2)\n- Manufacture of oxygen (lab H2O2/MnO2 and industrial liquid air)\n\nJust type exact question or tap quick buttons above!\nFor full notes VIEW PDFs or PAY 3K/7K via Pay Tab.";
+}
+
+// Auto welcome
+window.addEventListener('load', function(){
+  var box=document.getElementById('aiMsgs');
+  var d=document.createElement('div');
+  d.className='msg botMsg';
+  d.textContent="Hello! MATS AI is now WORKING! Tap quick buttons or ask:\n- What is photosynthesis?\n- Principle of transmission of pressure?\n- How is oxygen manufactured?\n\nI will explain like a teacher!";
+  box.appendChild(d);
+  // Ensure button visible
+  document.getElementById('aiBtn').style.display='flex';
+});
+
+document.getElementById('aiInput').addEventListener('keypress', function(e){ if(e.key==='Enter'){doSend();} });
+</script>
+
+<p style="color:#64748b;font-size:11px;margin-top:25px">© 2026 PWFCA - Mbarara | MATS AI Working ✅</p>
+
+</body>
+</html>
