@@ -16,18 +16,17 @@ body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;
 .menu a.pay{background:#ff0000}
 .menu a.sign{background:#facc15;color:#000}
 .menu a.ai{background:#0f172a;color:#facc15;border:2px solid #facc15}
-/* MATS AI - WORKING - ON TOP */
 #aiBtn{position:fixed;bottom:95px;right:20px;background:#facc15;width:70px;height:70px;border-radius:50%;border:4px solid #fff;font-size:35px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999999;box-shadow:0 4px 20px rgba(0,0,0,0.5)}
 #aiBox{position:fixed;bottom:170px;right:8px;left:8px;margin:auto;max-width:380px;background:#fff;color:#000;border-radius:18px;display:none;z-index:999998;border:3px solid #facc15;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.7)}
 #aiHead{background:#0f172a;color:#facc15;padding:12px;font-weight:bold;text-align:left;font-size:14px}
-#aiMsgs{height:320px;overflow-y:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
+#aiMsgs{height:340px;overflow-y:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
 .msg{margin:8px 0;padding:11px 12px;border-radius:14px;max-width:92%;line-height:1.5;white-space:pre-wrap;word-wrap:break-word}
 .userMsg{background:#facc15;color:#000;margin-left:auto;text-align:right}
 .botMsg{background:#fff;color:#111;border:1px solid #ddd}
 #aiInputRow{display:flex;border-top:3px solid #facc15;background:#fff}
 #aiInput{flex:1;padding:13px;border:none;outline:none;font-size:14px}
 #aiSend{background:#0f172a;color:#facc15;border:none;padding:13px 18px;font-weight:bold;cursor:pointer}
-.quick{display:inline-block;background:#e2e8f0;color:#0f172a;padding:6px 10px;border-radius:15px;font-size:10px;margin:3px;cursor:pointer;border:1px solid #cbd5e1;font-weight:bold}
+.quick{display:inline-block;background:#e2e8f0;color:#0f172a;padding:6px 10px;border-radius:15px;font-size:9px;margin:2px;cursor:pointer;border:1px solid #cbd5e1;font-weight:bold}
 </style>
 </head>
 <body>
@@ -74,21 +73,23 @@ body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;
 <div id="aiBtn" onclick="toggleAI()">🤖</div>
 
 <div id="aiBox">
-<div id="aiHead">🤖 MATS AI - PWFCA Teacher <span style="float:right;cursor:pointer;background:#facc15;color:#000;padding:3px 10px;border-radius:12px" onclick="closeAI()">X</span><br><small style="color:#94a3b8;font-size:10px">Tap Send to ask - Working 100%</small></div>
+<div id="aiHead">🤖 MATS AI - PWFCA Teacher <span style="float:right;cursor:pointer;background:#facc15;color:#000;padding:3px 10px;border-radius:12px" onclick="closeAI()">X</span><br><small style="color:#94a3b8;font-size:10px">Working 100% - Ask anything</small></div>
 <div id="aiMsgs"></div>
-<div style="padding:6px;background:#fff;border-top:1px solid #eee;text-align:left">
+<div style="padding:6px;background:#fff;border-top:1px solid #eee;text-align:left;max-height:85px;overflow:auto">
+<span class="quick" onclick="quickAsk('Who is the director?')">Director</span>
 <span class="quick" onclick="quickAsk('What is photosynthesis?')">Photosynthesis</span>
-<span class="quick" onclick="quickAsk('Principle of transmission of pressure')">Pressure Principle</span>
+<span class="quick" onclick="quickAsk('Principle of transmission of pressure')">Pressure</span>
 <span class="quick" onclick="quickAsk('How is oxygen manufactured?')">Oxygen</span>
+<span class="quick" onclick="quickAsk('How is carbon dioxide manufactured?')">CO2</span>
+<span class="quick" onclick="quickAsk('How is ammonium nitrate fertilizer manufactured?')">Fertilizer</span>
 </div>
 <div id="aiInputRow">
-<input id="aiInput" type="text" placeholder="Ask: photosynthesis? pressure? oxygen?" autocomplete="off">
+<input id="aiInput" type="text" placeholder="Ask director, CO2, fertilizer..." autocomplete="off">
 <button id="aiSend" onclick="doSend()">Send</button>
 </div>
 </div>
 
 <script>
-// SIMPLE WORKING CODE
 var aiOpen = false;
 function payNow(a,s){ alert('PAY '+a+' FOR '+s+'\nDial *185#\nNumber:0747695485\nName:Tumuramye Mathias'); window.open('https://wa.me/256747695485?text=PAY '+a+' FOR '+s,'_blank'); }
 function openAI(){ document.getElementById('aiBox').style.display='block'; aiOpen=true; }
@@ -117,35 +118,10 @@ function doSend(){
 
 function getAnswer(q){
   var l = q.toLowerCase();
+
+  if(l.indexOf('director')!==-1 || l.indexOf('who are you')!==-1 || l.indexOf('mathias')!==-1 || l.indexOf('name of director')!==-1 || l.indexOf('tumuramye')!==-1){
+    return "🎓 DIRECTOR OF PWFCA - MATS AI:\n\nName: Tumuramye Mathias\nPhone: 0747695485\nLocation: Mbarara District, Uganda\nAcademy: Pass With Flying Colours Academy (PWFCA)\n\nABOUT HIM:\nMathias is a young innovator who does well in sciences and he inspires young students to get technological skills to build something like mine (this website, MATS AI, digital notes) and he also inspires young youth to start small online ventures to earn and learn.\n\nHe believes science + technology + hard work = success. He built PWFCA to help S1-S4 students pass with flying colours using affordable digital notes (3K per subject, 7K all).\n\nContact him on WhatsApp 0747695485 for notes or business advice!";
+  }
+
   if(l.indexOf('photosynthesis')!==-1){
-    return "PHOTOSYNTHESIS - MATS AI:\n\nDefinition: Process where green plants make food using sunlight, CO2, water and chlorophyll.\n\nEquation:\n6CO2 + 6H2O + sunlight/chlorophyll -> C6H12O6 + 6O2\n\nWhere: Chloroplast in mesophyll cells. Chlorophyll in grana.\n\n2 Stages:\n1. Light stage in grana: Water split -> O2 + H + ATP\n2. Dark stage (Calvin cycle) in stroma: CO2 + H + ATP -> Glucose\n\nNeeds: CO2 via stomata, water via xylem, light, chlorophyll.\n\nImportance: Makes food, gives O2, removes CO2, basis of food chains.\n\nFactors: Light, CO2, temperature, water.";
-  }
-  if(l.indexOf('pressure')!==-1 || l.indexOf('pascal')!==-1 || l.indexOf('transmission')!==-1){
-    return "PRINCIPLE OF TRANSMISSION OF PRESSURE - PASCAL'S PRINCIPLE - MATS AI:\n\nStatement: Pressure applied to enclosed fluid is transmitted equally to all parts of fluid and walls of container.\n\nBy Blaise Pascal 1653.\n\nFormula: P = F/A. Pressure = Force/Area. Unit Pascal (Pa).\n\nMeaning: If you press water in balloon at one point, it bulges everywhere equally.\n\nApplications (S4 important):\n1. Hydraulic Jack: Small force small piston -> large force large piston. F1/A1 = F2/A2. Example A1=2cm2 A2=100cm2 F1=50N -> F2=2500N lifts car!\n2. Hydraulic Brake: Foot pressure to 4 wheels equally.\n3. Hydraulic Press: Make car parts.\n4. Syringe: Pressure through liquid.\n\nCalculation: F1=20N A1=5cm2 Find F2 on A2=100cm2? P1=P2 so 20/5=F2/100 -> F2=400N\n\nFull notes in Physics PDF!";
-  }
-  if(l.indexOf('oxygen')!==-1){
-    return "MANUFACTURE OF OXYGEN - MATS AI:\n\nLAB METHODS:\n1. From Hydrogen Peroxide (common):\n2H2O2 -> MnO2 catalyst -> 2H2O + O2\nPut MnO2 black powder in flask, add H2O2 dropwise, O2 bubbles, collect over water. Test: glowing splint relights.\n\n2. From Potassium Chlorate:\n2KClO3 -> heat + MnO2 -> 2KCl + 3O2\nHeat in test tube, O2 out.\n\n3. From Sodium Peroxide:\n2Na2O2 + 2H2O -> 4NaOH + O2\n\nINDUSTRIAL: Fractional distillation of liquid air:\n1. Filter air remove dust CO2 water\n2. Compress to 200 atm, cool to -200C -> liquid air\n3. N2 boils at -196C, O2 at -183C\n4. Distill: N2 boils first, leaves O2 liquid\n5. Store in steel cylinders black white top, 99.5% pure\n\nOther: Electrolysis of water 2H2O -> 2H2 + O2\n\nUses: Hospitals respiration, welding oxy-acetylene 3000C, steel making, rockets, climbing.\n\nTest: glowing splint.\n\nFull Chemistry notes 3K!";
-  }
-  if(l.indexOf('pay')!==-1){ return "PAY TAB: Single 3K, ALL 4 subjects 7K Save 5K! Airtel Money 0747695485 Name Tumuramye Mathias Dial *185# MANUALLY Then send screenshot to WhatsApp"; }
-  if(l.indexOf('hello')!==-1 || l.indexOf('hi')!==-1 || q.length<4){ return "Hello! I am MATS AI WORKING! Ask me:\n- What is photosynthesis?\n- Principle of transmission of pressure?\n- How is oxygen manufactured?\nI will answer like a teacher!"; }
-  return "MATS AI: You asked '"+q+"'\n\nI can now teach:\n- What is photosynthesis? (equation, stages)\n- Pascal principle - transmission of pressure (F1/A1=F2/A2)\n- Manufacture of oxygen (lab H2O2/MnO2 and industrial liquid air)\n\nJust type exact question or tap quick buttons above!\nFor full notes VIEW PDFs or PAY 3K/7K via Pay Tab.";
-}
-
-// Auto welcome
-window.addEventListener('load', function(){
-  var box=document.getElementById('aiMsgs');
-  var d=document.createElement('div');
-  d.className='msg botMsg';
-  d.textContent="Hello! MATS AI is now WORKING! Tap quick buttons or ask:\n- What is photosynthesis?\n- Principle of transmission of pressure?\n- How is oxygen manufactured?\n\nI will explain like a teacher!";
-  box.appendChild(d);
-  // Ensure button visible
-  document.getElementById('aiBtn').style.display='flex';
-});
-
-document.getElementById('aiInput').addEventListener('keypress', function(e){ if(e.key==='Enter'){doSend();} });
-</script>
-
-<p style="color:#64748b;font-size:11px;margin-top:25px">© 2026 PWFCA - Mbarara | MATS AI Working ✅</p>
-
-</body>
-</html>
+    return "PHOTOSYNTHESIS:\
