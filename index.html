@@ -3,22 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PWFCA - Pass With Flying Colours Academy</title>
+<title>PWFCA - PASS WITH FLYING COLOURS ACADEMY - MATS AI Activated</title>
 <style>
-body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:12px}
-img.pic{width:130px;height:130px;border-radius:50%;border:4px solid #facc15;margin:10px auto;display:block;background:#fff;object-fit:cover}
+body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:10px;padding-bottom:90px}
+.pic{width:130px;height:130px;border-radius:50%;border:4px solid #facc15;margin:10px auto;display:block;background:#fff;object-fit:cover}
 .badge{background:#16a34a;color:#fff;padding:7px 15px;border-radius:20px;font-size:12px;font-weight:bold;display:inline-block}
-.card{background:#fff;color:#111;border-radius:16px;padding:15px;margin:14px auto;max-width:600px;text-align:left}
-.green{background:#16a34a;color:#fff;padding:12px;border-radius:10px;display:block;text-align:center;text-decoration:none;margin:8px 0;font-weight:bold}
-.red{background:#ff0000;color:#fff;border:none;width:100%;padding:14px;border-radius:30px;font-weight:bold;margin:8px 0}
-.menu{display:flex;gap:6px;background:#fff;padding:6px;border-radius:30px;max-width:600px;margin:10px auto}
-.menu a{flex:1;background:#0f172a;color:#fff;padding:10px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:12px}
-.menu a.pay{background:#ff0000}
+.card{background:#fff;color:#111;border-radius:16px;padding:14px;margin:12px auto;max-width:600px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+.green{background:#16a34a;color:#fff;padding:12px;border-radius:10px;display:block;text-align:center;text-decoration:none;margin:7px 0;font-weight:bold}
+.red{background:#ff0000;color:#fff;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin:7px 0;cursor:pointer}
+.menu{display:flex;gap:5px;background:#fff;padding:6px;border-radius:30px;max-width:600px;margin:10px auto}
+.menu a{flex:1;background:#0f172a;color:#fff;padding:10px 4px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px;text-align:center}
+.menu a.pay{background:#ff0000;animation:blink 1s infinite}
 .menu a.sign{background:#facc15;color:#000}
-#aiBtn{position:fixed;bottom:20px;right:20px;background:#facc15;width:60px;height:60px;border-radius:50%;border:3px solid #fff;font-size:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999}
-#aiBox{position:fixed;bottom:90px;right:10px;width:300px;background:#fff;color:#000;border-radius:12px;display:none;z-index:999;border:2px solid #facc15;overflow:hidden}
-#aiHead{background:#0f172a;color:#facc15;padding:10px;font-weight:bold;text-align:left}
-#aiMsgs{height:220px;overflow:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.6}}
+/* MATS AI - ACTIVATED */
+#aiBtn{position:fixed;bottom:20px;right:20px;background:#facc15;width:64px;height:64px;border-radius:50%;border:3px solid #fff;font-size:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:99999;box-shadow:0 0 15px #facc15;animation: pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(250,204,21,0.7)}70%{box-shadow:0 0 0 15px rgba(250,204,21,0)}100%{box-shadow:0 0 0 0 rgba(250,204,21,0)}}
+#aiBox{position:fixed;bottom:95px;right:10px;width:340px;max-width:94%;background:#fff;color:#000;border-radius:16px;display:none;z-index:99999;border:3px solid #facc15;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+#aiHead{background:linear-gradient(135deg,#0f172a,#1e293b);color:#facc15;padding:12px;font-weight:bold;text-align:left;font-size:14px}
+#aiHead small{display:block;color:#94a3b8;font-size:10px;font-weight:normal}
+#aiMsgs{height:320px;overflow:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
+.msg{margin:7px 0;padding:10px 12px;border-radius:14px;max-width:88%;line-height:1.4;white-space:pre-wrap}
+.userMsg{background:#facc15;color:#000;margin-left:auto;text-align:right}
+.botMsg{background:#e2e8f0;color:#111;border:1px solid #cbd5e1}
+#aiInputRow{display:flex;border-top:3px solid #facc15;background:#fff}
+#aiInput{flex:1;padding:12px;border:none;outline:none;font-size:14px}
+#aiSend{background:#0f172a;color:#facc15;border:none;padding:12px 16px;font-weight:bold;cursor:pointer}
+.quick{ display:inline-block;background:#0f172a;color:#facc15;padding:5px 10px;border-radius:15px;font-size:10px;margin:3px;cursor:pointer;border:1px solid #334155}
 </style>
 </head>
 <body>
@@ -28,69 +39,119 @@ img.pic{width:130px;height:130px;border-radius:50%;border:4px solid #facc15;marg
 <p style="font-size:13px;font-weight:bold">Director Tumuramye Mathias - 0747695485</p>
 <span class="badge">📍 MBARARA DISTRICT - UGANDA</span>
 
-<div style="margin-top:12px">
-<a href="admin.html" style="background:#1e293b;color:#facc15;border:2px solid #facc15;padding:8px 12px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px;margin:3px">🔐 ADMIN</a>
-<a href="https://wa.me/256747695485" target="_blank" style="background:#25D366;color:#fff;padding:8px 12px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px;margin:3px">💬 WhatsApp</a>
-<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" style="background:#facc15;color:#000;padding:8px 12px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px;margin:3px">✅ Sign In</a>
+<div style="margin:10px">
+<a href="admin.html" style="background:#1e293b;color:#facc15;border:2px solid #facc15;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">🔐 ADMIN</a>
+<a href="https://wa.me/256747695485" target="_blank" style="background:#25D366;color:#fff;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">💬 WhatsApp</a>
+<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" style="background:#facc15;color:#000;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">✅ Sign In</a>
 </div>
 
-<p style="color:#94a3b8;font-size:12px;margin-top:12px">👁️ Total Views: 68+ | 🤖 AI Ready - Tap yellow button | <a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" style="color:#facc15">Sign In Optional</a></p>
+<p style="color:#94a3b8;font-size:11px">👁️ Total Views: 68+ | 🤖 MATS AI Activated - Tap yellow button | <a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" style="color:#facc15">Sign In Optional</a></p>
 
 <div class="menu">
 <a href="#notes">📚 Notes</a>
 <a href="#paytab" class="pay">💰 Pay Tab</a>
 <a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" class="sign">✅ Sign In</a>
-<a href="#" onclick="openAI();return false;">🤖 AI</a>
+<a href="#" onclick="openAI();return false;">🤖 MATS AI</a>
 </div>
 
 <div style="background:#fef9c3;color:#000;border:3px solid #facc15;border-radius:14px;padding:12px;max-width:600px;margin:12px auto">
 <b>💡 Trick to know names:</b> Send "VIEWED" to 0747695485<br>
-<a href="https://wa.me/256747695485?text=VIEWED" target="_blank" style="background:#25D366;color:#fff;padding:10px 15px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:8px">💬 Send VIEWED on WhatsApp</a>
+<a href="https://wa.me/256747695485?text=VIEWED%20-%20I%20viewed%20your%20notes" target="_blank" style="background:#25D366;color:#fff;padding:10px 15px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:8px">💬 Send VIEWED on WhatsApp</a>
 </div>
 
 <div id="notes">
-<div class="card">
-<h3>🧬 BIOLOGY - 3,000 UGX</h3>
-<p style="font-size:12px">💳 Airtel: 0747695485 - Tumuramye Mathias</p>
-<a class="green" href="biology-items.pdf" target="_blank">👁️ VIEW Biology Sample 1</a>
-<a class="green" href="bilogy.pdf" target="_blank">👁️ VIEW Biology Sample 2</a>
-<a class="green" href="tranport.bio.pdf" target="_blank">👁️ VIEW Biology Sample 3</a>
-<button class="red" onclick="alert('PAY 3000 UGX FOR BIOLOGY\n\nDial *185#\nNumber: 0747695485\nName: Tumuramye Mathias\n\nThen send screenshot to WhatsApp');window.open('https://wa.me/256747695485?text=Hello%20Director%20I%20want%20to%20pay%203000%20for%20BIOLOGY')">📱 PAY 3K - BIOLOGY</button>
-</div>
-
-<div class="card">
-<h3>⚗️ CHEMISTRY - 3,000 UGX</h3>
-<a class="green" href="chemistry.pdf" target="_blank">👁️ VIEW CHEMISTRY FREE</a>
-<button class="red" onclick="alert('PAY 3000 FOR CHEMISTRY\nDial *185# Number: 0747695485');window.open('https://wa.me/256747695485?text=PAY%20CHEMISTRY%203000')">📱 PAY 3K - CHEMISTRY</button>
-</div>
-
-<div class="card">
-<h3>⚡ PHYSICS - 3,000 UGX</h3>
-<a class="green" href="Physics.pdf" target="_blank">👁️ VIEW PHYSICS FREE</a>
-<button class="red" onclick="alert('PAY 3000 FOR PHYSICS\nDial *185# Number: 0747695485');window.open('https://wa.me/256747695485?text=PAY%20PHYSICS%203000')">📱 PAY 3K - PHYSICS</button>
-</div>
-
-<div class="card">
-<h3>📐 MATHEMATICS S1-S4 - 3,000 UGX</h3>
-<a class="green" href="mathematics-.pdf" target="_blank">👁️ VIEW MATHEMATICS PDF</a>
-<button class="red" onclick="alert('PAY 3000 FOR MATH\nDial *185# Number: 0747695485');window.open('https://wa.me/256747695485?text=PAY%20MATH%203000')">📱 PAY 3K - MATH</button>
-</div>
+<div class="card"><h3>🧬 BIOLOGY - 3,000 UGX</h3><p style="font-size:11px">💳 Airtel: 0747695485 - Tumuramye Mathias</p><a class="green" href="biology-items.pdf" target="_blank">👁️ VIEW Biology Sample 1</a><a class="green" href="bilogy.pdf" target="_blank">👁️ VIEW Biology Sample 2</a><a class="green" href="tranport.bio.pdf" target="_blank">👁️ VIEW Biology Transport</a><button class="red" onclick="payNow(3000,'BIOLOGY')">📱 PAY 3K - BIOLOGY</button></div>
+<div class="card"><h3>⚗️ CHEMISTRY - 3,000 UGX</h3><a class="green" href="chemistry.pdf" target="_blank">👁️ VIEW CHEMISTRY FREE</a><button class="red" onclick="payNow(3000,'CHEMISTRY')">📱 PAY 3K - CHEMISTRY</button></div>
+<div class="card"><h3>⚡ PHYSICS - 3,000 UGX</h3><a class="green" href="Physics.pdf" target="_blank">👁️ VIEW PHYSICS FREE</a><button class="red" onclick="payNow(3000,'PHYSICS')">📱 PAY 3K - PHYSICS</button></div>
+<div class="card"><h3>📐 MATHEMATICS S1-S4 - 3,000 UGX</h3><a class="green" href="mathematics-.pdf" target="_blank">👁️ VIEW MATHEMATICS PDF</a><button class="red" onclick="payNow(3000,'MATHEMATICS')">📱 PAY 3K - MATH</button></div>
 </div>
 
 <div class="card" id="paytab" style="background:linear-gradient(135deg,#facc15,#eab308);border:4px solid #ff0000;text-align:center">
-<h2 style="text-align:center;color:#000;margin:5px">💰 PAY TAB - ALL SUBJECTS</h2>
-<p style="color:#000;font-size:12px;text-align:center">Airtel Money: 0747695485 - Tumuramye Mathias - Dial *185#</p>
-<div style="background:#fff;border-radius:10px;padding:10px;margin:8px 0">
-<b>Single Subject - 3,000 UGX</b><br>
-<button class="red" onclick="alert('PAY 3000\nDial *185# 0747695485');window.open('https://wa.me/256747695485?text=PAY%203K%20SINGLE')">📱 PAY 3K NOW</button>
-</div>
-<div style="background:#000;color:#facc15;border-radius:10px;padding:10px;margin:8px 0">
-<b style="color:#facc15">🔥 BEST DEAL - ALL 4 SUBJECTS - 7,000 UGX</b><br>
-<span style="font-size:11px;color:#fff">Save 5,000 UGX!</span><br>
-<button style="background:#facc15;color:#000;border:none;width:100%;padding:14px;border-radius:30px;font-weight:bold;margin-top:6px" onclick="alert('PAY 7000 FOR ALL\nDial *185# 0747695485');window.open('https://wa.me/256747695485?text=PAY%207000%20ALL%20SUBJECTS')">💰 PAY 7K - GET ALL</button>
-</div>
+<h2 style="text-align:center;color:#000;margin:5px">💰 PAY TAB - CHOOSE PLAN</h2>
+<p style="color:#000;font-size:11px;text-align:center">Airtel Money: 0747695485 - Tumuramye Mathias - *185#</p>
+<div style="background:#fff;border-radius:10px;padding:10px;margin:8px 0;color:#000"><b>Single - 3,000 UGX</b><button class="red" onclick="payNow(3000,'SINGLE')">📱 PAY 3K</button></div>
+<div style="background:#000;color:#facc15;border-radius:10px;padding:10px;margin:8px 0"><b>🔥 ALL 4 SUBJECTS - 7,000 UGX - Save 5K!</b><button style="background:#facc15;color:#000;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin-top:6px" onclick="payNow(7000,'ALL 4 SUBJECTS')">💰 PAY 7K - GET ALL</button></div>
 </div>
 
 <div class="card" style="text-align:center">
 <h3 style="text-align:center">✅ Sign In For Updates (Optional)</h3>
-<p style="font-size:12px;text-align:center">No sign in needed to view notes.
+<a class="green" href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank">✅ Open Sign In Form</a>
+<iframe src="https://forms.gle/WG9Mk4i4K3EJfXwB7" width="100%" height="500" frameborder="0" style="border-radius:10px"></iframe>
+</div>
+
+<!-- MATS AI ACTIVATED -->
+<div id="aiBtn" onclick="openAI()">🤖</div>
+<div id="aiBox">
+<div id="aiHead">🤖 MATS AI - PWFCA Teacher<small>Activated by Director Mathias - Ask any question</small><span style="float:right;cursor:pointer;background:#facc15;color:#000;padding:2px 8px;border-radius:10px;font-size:12px" onclick="closeAI()">✕</span></div>
+<div id="aiMsgs"></div>
+<div style="padding:6px;background:#fff;border-top:1px solid #e2e8f0">
+<span class="quick" onclick="askQuick('What is photosynthesis?')">Photosynthesis</span>
+<span class="quick" onclick="askQuick('Explain algebra')">Algebra</span>
+<span class="quick" onclick="askQuick('What is an acid?')">Acids</span>
+<span class="quick" onclick="askQuick('What is force?')">Force</span>
+<span class="quick" onclick="askQuick('How to pay?')">Pay</span>
+</div>
+<div id="aiInputRow">
+<input id="aiInput" placeholder="Ask MATS AI: What is...?" onkeypress="if(event.key==='Enter')sendAI()">
+<button id="aiSend" onclick="sendAI()">Send</button>
+</div>
+</div>
+
+<script>
+function payNow(a,s){alert('💰 PAY '+a+' UGX FOR '+s+'\n\nDial *185# MANUALLY\nNumber: 0747695485\nName: Tumuramye Mathias\nAmount: '+a+'\n\nAfter pay send screenshot to WhatsApp');window.open('https://wa.me/256747695485?text=Hello%20Director%20I%20want%20to%20pay%20'+a+'%20UGX%20for%20'+s,'_blank');}
+function openAI(){document.getElementById('aiBox').style.display='block';document.getElementById('aiInput').focus();}
+function closeAI(){document.getElementById('aiBox').style.display='none';}
+function askQuick(t){document.getElementById('aiInput').value=t;sendAI();}
+function sendAI(){
+  var inp=document.getElementById('aiInput');var txt=inp.value.trim();if(!txt)return;
+  var box=document.getElementById('aiMsgs');
+  box.innerHTML+='<div class="msg userMsg">'+txt+'</div>';
+  inp.value='';box.scrollTop=box.scrollHeight;
+  setTimeout(function(){
+    var ans=getMATSAnswer(txt);
+    box.innerHTML+='<div class="msg botMsg">'+ans+'</div>';
+    box.scrollTop=box.scrollHeight;
+  },600);
+}
+function getMATSAnswer(q){
+  var l=q.toLowerCase();
+  // BIOLOGY
+  if(l.includes('photosynthesis')) return '🧬 PHOTOSYNTHESIS:\n\nPhotosynthesis is process where green plants make food using sunlight.\n\nEquation: 6CO2 + 6H2O --(sunlight/chlorophyll)--> C6H12O6 + 6O2\n\n- Takes place in chloroplast (mesophyll cells)\n- Needs: CO2, Water, Sunlight, Chlorophyll\n- Products: Glucose + Oxygen\n- Importance: Food for plant, Oxygen for animals\n\nWant notes? Tap Biology VIEW buttons or Pay 3K!';
+  if(l.includes('cell') || l.includes('mitosis') || l.includes('meiosis')) return '🧬 CELL DIVISION:\n\nMitosis: 1 cell → 2 identical cells. For growth & repair. 4 stages: Prophase, Metaphase, Anaphase, Telophase.\n\nMeiosis: 1 cell → 4 different cells. For gametes (sex cells). Reduces chromosome number by half (46→23).\n\nFull notes in Biology PDFs!';
+  if(l.includes('transport') || l.includes('xylem') || l.includes('phloem')) return '🧬 TRANSPORT IN PLANTS:\n\nXylem: Carries water + minerals from roots → leaves (upwards). Dead tissue.\nPhloem: Carries food (sugar) from leaves → all parts (both directions). Living tissue.\n\nTranspiration = loss of water from leaves.\n\nSee tranport.bio.pdf sample!';
+  if(l.includes('respiration')) return '🧬 RESPIRATION:\n\nBreaking glucose to release energy.\n\nAerobic: With oxygen: C6H12O6 + 6O2 → 6CO2 + 6H2O + Energy (38 ATP)\nAnaerobic: Without oxygen: Glucose → Lactic acid + little energy (2 ATP)\n\nOccurs in mitochondria - powerhouse of cell!';
+  // CHEMISTRY
+  if(l.includes('acid') || l.includes('base') || l.includes('ph')) return '⚗️ ACIDS & BASES:\n\nAcid: Releases H+ ions. pH <7. Sour, turns blue litmus red. Eg: HCl, H2SO4\nBase: Releases OH- ions. pH >7. Bitter, soapy, turns red litmus blue. Eg: NaOH\n\npH scale 0-14: 0-6 acid, 7 neutral, 8-14 base.\nNeutralization: Acid + Base → Salt + Water\n\nNeed full Chemistry notes? Pay 3K!';
+  if(l.includes('atom') || l.includes('element') || l.includes('periodic')) return '⚗️ ATOMIC STRUCTURE:\n\nAtom = smallest particle. Has: Protons (+), Neutrons (0) in nucleus, Electrons (-) in shells.\n\nAtomic number = protons. Mass number = protons+neutrons.\n\nPeriodic table: 118 elements arranged by atomic number. Groups (vertical) = same valence electrons. Periods (horizontal) = same shells.\n\nExample: Sodium Na = 2,8,1 → Group 1, Period 3';
+  if(l.includes('mole') || l.includes('molarity')) return '⚗️ MOLES:\n\n1 mole = 6.02x10^23 particles (Avogadro).\nMoles = mass / molar mass\n\nExample: How many moles in 10g NaOH? Molar mass NaOH=40g → 10/40=0.25 moles';
+  // PHYSICS
+  if(l.includes('force') || l.includes('newton')) return '⚡ FORCE - Newton Laws:\n\n1st Law: Object stays at rest/motion unless force applied (Inertia)\n2nd Law: F = ma (Force = mass x acceleration) Unit: Newton N\n3rd Law: Action = -Reaction\n\nTypes: Gravitational, Frictional, Tension, Magnetic\n\nWeight = mg (mass x gravity 10m/s²)';
+  if(l.includes('energy') || l.includes('work') || l.includes('power')) return '⚡ WORK, ENERGY, POWER:\n\nWork = Force x distance (Joules)\nEnergy = ability to do work. Types: KE=½mv², PE=mgh\nPower = Work/time = Energy/time (Watts)\n\nConservation: Energy cannot be created/destroyed, only changed!\n\nExample: 50kg boy climbs 10m in 20s: Work=50*10*10=5000J, Power=5000/20=250W';
+  if(l.includes('electric') || l.includes('current') || l.includes('ohm')) return '⚡ ELECTRICITY:\n\nCurrent I = flow of electrons (Amperes A)\nVoltage V = push (Volts)\nResistance R = opposition (Ohms Ω)\n\nOhm Law: V = IR\nSeries: R total = R1+R2, Current same\nParallel: 1/R total = 1/R1+1/R2, Voltage same\n\nPower = VI = I²R';
+  if(l.includes('wave') || l.includes('sound') || l.includes('light')) return '⚡ WAVES:\n\nWave = disturbance carrying energy. v = fλ (speed = frequency x wavelength)\n\nSound: Needs medium, longitudinal, speed ~340m/s in air\nLight: No medium needed, transverse, speed 3x10^8 m/s\n\nReflection: angle i = angle r. Refraction: bending due to speed change.';
+  // MATH
+  if(l.includes('algebra') || l.includes('equation') || l.includes('solve')) return '📐 ALGEBRA:\n\nSolve: 2x+5=15 → 2x=10 → x=5\n\nQuadratic: ax²+bx+c=0 → x = [-b ± √(b²-4ac)]/2a\n\nExample: x²-5x+6=0 → (x-2)(x-3)=0 → x=2 or 3\n\nSimultaneous: Use substitution or elimination.\n\nNeed full Math notes? Tap Math VIEW - mathematics-.pdf';
+  if(l.includes('geometry') || l.includes('triangle') || l.includes('circle')) return '📐 GEOMETRY:\n\nTriangle: Sum angles =180°. Area=½ base*height. Pythagoras: a²+b²=c² (right triangle)\nCircle: Circumference=2πr, Area=πr²\nRectangle: Area=LxW, Perimeter=2(L+W)\n\nFull formulas in Math PDF - 3,000 UGX only!';
+  if(l.includes('trigo') || l.includes('sin') || l.includes('cos')) return '📐 TRIGONOMETRY:\n\nSOH CAH TOA:\nSinθ = Opposite/Hypotenuse\nCosθ = Adjacent/Hypotenuse\nTanθ = Opposite/Adjacent\n\nExample: Opposite=3, Hyp=5 → Sinθ=3/5=0.6 → θ=36.9°\n\nUse for height, distance problems!';
+  if(l.includes('statistics') || l.includes('mean') || l.includes('median')) return '📐 STATISTICS:\n\nMean = sum/number\nMedian = middle value when arranged\nMode = most frequent\n\nExample: Marks 2,3,3,5,7 → Mean=4, Median=3, Mode=3';
+  // GENERAL
+  if(l.includes('pay') || l.includes('price') || l.includes('cost') || l.includes('how much')) return '💰 PAY TAB - MATS AI:\n\nSingle subject (Bio/Chem/Phys/Math) = 3,000 UGX\nALL 4 SUBJECTS = 7,000 UGX (Save 5,000!)\n\nHow to pay:\n1. Dial *185# MANUALLY (dont use shortcut)\n2. Send to 0747695485\n3. Name: Tumuramye Mathias\n4. Send screenshot to WhatsApp 0747695485\n\nTap PAY TAB button above!';
+  if(l.includes('sign') || l.includes('register')) return '✅ SIGN IN - Optional:\n\nLink: https://forms.gle/WG9Mk4i4K3EJfXwB7\n\nSign in to get FREE updates on WhatsApp when new notes come. You can still VIEW notes without signing! Tap Sign In tab.';
+  if(l.includes('viewed') || l.includes('who viewed')) return '👁️ Views: 68+ students viewed!\nTo know WHO viewed, tell them to send "VIEWED" to 0747695485 on WhatsApp. You will get their names! Trick is in yellow box.';
+  if(l.includes('contact') || l.includes('director') || l.includes('mathias')) return '📞 Director Tumuramye Mathias\nPhone/WhatsApp/Airtel Money: 0747695485\nLocation: Mbarara District, Uganda\nAcademy: Pass With Flying Colours Academy (PWFCA)\n\nTap WhatsApp button to chat directly!';
+  if(l.includes('hello') || l.includes('hi') || l.includes('hey') || l.length<5) return '👋 Hello! I am MATS AI - Your PWFCA Teacher! 🤖\n\nI am ACTIVATED and ready!\nI can answer:\n🧬 Biology - photosynthesis, cells, transport, respiration\n⚗️ Chemistry - acids, atoms, moles\n⚡ Physics - force, energy, electricity, waves\n📐 Math - algebra, geometry, trigonometry\n💰 Pay Tab & Sign In info\n\nJust ask: "What is photosynthesis?" or "Solve 2x+5=15"';
+  
+  return '🤖 MATS AI - I am here to teach you!\n\nYou asked: "'+q+'"\n\nI can explain:\n• Biology: photosynthesis, cell, transport, respiration, genetics\n• Chemistry: acid/base, atom, periodic, mole\n• Physics: force, energy, electricity, waves\n• Math: algebra, geometry, trig, statistics\n\nTry asking:\n"What is photosynthesis?"\n"What is an acid?"\n"Explain F=ma"\n"Solve x²-5x+6=0"\n"How to pay?"\n\nOr tap quick buttons above! For full notes, VIEW PDFs or PAY 3K/7K via Pay Tab!';
+}
+
+// Auto open greeting once
+window.onload=function(){
+  var box=document.getElementById('aiMsgs');
+  box.innerHTML='<div class="msg botMsg">👋 Hello! I am MATS AI 🤖 - Fully ACTIVATED by Director Mathias!\n\n✅ I can now answer your questions like a teacher!\n\nAsk me:\n• What is photosynthesis?\n• What is force?\n• Solve algebra\n• What is an acid?\n\nTap yellow button anytime!\n\n📚 Notes below - FREE to view!</div>';
+}
+</script>
+
+<p style="color:#64748b;font-size:11px;margin-top:20px">© 2026 PWFCA - Mbarara | 0747695485 | MATS AI Activated ✅</p>
+
+</body>
+</html>
