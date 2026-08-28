@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PWFCA - MATS AI Working</title>
+<title>PWFCA - MATS AI Fully Activated</title>
 <style>
-body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:10px;padding-bottom:120px}
+body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:10px;padding-bottom:130px}
 .pic{width:135px;height:135px;border-radius:50%;border:4px solid #facc15;margin:12px auto;display:block;background:#fff;object-fit:cover}
 .badge{background:#16a34a;color:#fff;padding:7px 15px;border-radius:20px;font-size:12px;font-weight:bold;display:inline-block}
 .card{background:#fff;color:#111;border-radius:16px;padding:14px;margin:12px auto;max-width:600px;text-align:left}
@@ -13,20 +13,22 @@ body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;
 .red{background:#ff0000;color:#fff;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin:7px 0;cursor:pointer}
 .menu{display:flex;gap:5px;background:#fff;padding:6px;border-radius:30px;max-width:600px;margin:10px auto}
 .menu a{flex:1;background:#0f172a;color:#fff;padding:10px 4px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px;text-align:center}
-.menu a.pay{background:#ff0000}
+.menu a.pay{background:#ff0000;animation:blink 1s infinite}
 .menu a.sign{background:#facc15;color:#000}
 .menu a.ai{background:#0f172a;color:#facc15;border:2px solid #facc15}
-#aiBtn{position:fixed;bottom:95px;right:20px;background:#facc15;width:70px;height:70px;border-radius:50%;border:4px solid #fff;font-size:35px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999999;box-shadow:0 4px 20px rgba(0,0,0,0.5)}
-#aiBox{position:fixed;bottom:170px;right:8px;left:8px;margin:auto;max-width:380px;background:#fff;color:#000;border-radius:18px;display:none;z-index:999998;border:3px solid #facc15;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.7)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.6}}
+#aiBtn{position:fixed;bottom:100px;right:20px;background:#facc15;width:72px;height:72px;border-radius:50%;border:4px solid #fff;font-size:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999999;box-shadow:0 4px 20px rgba(0,0,0,0.6);animation:pulse 1.5s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(250,204,21,0.8)}70%{box-shadow:0 0 0 18px rgba(250,204,21,0)}100%{box-shadow:0 0 0 0 rgba(250,204,21,0)}}
+#aiBox{position:fixed;bottom:175px;right:8px;left:8px;margin:auto;max-width:400px;background:#fff;color:#000;border-radius:18px;display:none;z-index:999998;border:3px solid #facc15;overflow:hidden;box-shadow:0 15px 45px rgba(0,0,0,0.8)}
 #aiHead{background:#0f172a;color:#facc15;padding:12px;font-weight:bold;text-align:left;font-size:14px}
-#aiMsgs{height:340px;overflow-y:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
-.msg{margin:8px 0;padding:11px 12px;border-radius:14px;max-width:92%;line-height:1.5;white-space:pre-wrap;word-wrap:break-word}
+#aiMsgs{height:380px;overflow-y:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
+.msg{margin:8px 0;padding:11px 12px;border-radius:14px;max-width:93%;line-height:1.5;white-space:pre-wrap;word-wrap:break-word}
 .userMsg{background:#facc15;color:#000;margin-left:auto;text-align:right}
 .botMsg{background:#fff;color:#111;border:1px solid #ddd}
 #aiInputRow{display:flex;border-top:3px solid #facc15;background:#fff}
 #aiInput{flex:1;padding:13px;border:none;outline:none;font-size:14px}
 #aiSend{background:#0f172a;color:#facc15;border:none;padding:13px 18px;font-weight:bold;cursor:pointer}
-.quick{display:inline-block;background:#e2e8f0;color:#0f172a;padding:6px 10px;border-radius:15px;font-size:9px;margin:2px;cursor:pointer;border:1px solid #cbd5e1;font-weight:bold}
+.quick{display:inline-block;background:#e2e8f0;color:#0f172a;padding:5px 9px;border-radius:15px;font-size:9px;margin:2px;cursor:pointer;border:1px solid #cbd5e1;font-weight:bold}
 </style>
 </head>
 <body>
@@ -52,7 +54,7 @@ body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;
 </div>
 
 <div style="background:#fef9c3;color:#000;border:3px solid #facc15;border-radius:14px;padding:12px;max-width:600px;margin:12px auto">
-<b>💡 Trick:</b> Send "VIEWED" to 0747695485<br>
+<b>💡 Trick: Send "VIEWED" to 0747695485</b><br>
 <a href="https://wa.me/256747695485?text=VIEWED" target="_blank" style="background:#25D366;color:#fff;padding:10px 15px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:8px">💬 Send VIEWED on WhatsApp</a>
 </div>
 
@@ -64,64 +66,46 @@ body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;
 </div>
 
 <div class="card" id="paytab" style="background:linear-gradient(135deg,#facc15,#eab308);border:4px solid #ff0000;text-align:center">
-<h2 style="text-align:center;color:#000;margin:5px">💰 PAY TAB - CHOOSE PLAN</h2>
-<p style="color:#000;font-size:11px;text-align:center">Airtel: 0747695485 - Dial *185#</p>
+<h2 style="text-align:center;color:#000;margin:5px">💰 PAY TAB</h2>
+<p style="color:#000;font-size:11px">Airtel: 0747695485 - *185#</p>
 <div style="background:#fff;border-radius:10px;padding:10px;margin:8px 0;color:#000"><b>Single - 3,000 UGX</b><button class="red" onclick="payNow(3000,'SINGLE')">📱 PAY 3K</button></div>
-<div style="background:#000;color:#facc15;border-radius:10px;padding:10px;margin:8px 0"><b>🔥 ALL 4 SUBJECTS - 7,000 UGX!</b><button style="background:#facc15;color:#000;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin-top:6px" onclick="payNow(7000,'ALL 4')">💰 PAY 7K - GET ALL</button></div>
+<div style="background:#000;color:#facc15;border-radius:10px;padding:10px;margin:8px 0"><b>🔥 ALL 4 - 7,000 UGX Save 5K!</b><button style="background:#facc15;color:#000;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin-top:6px" onclick="payNow(7000,'ALL 4')">💰 PAY 7K - GET ALL</button></div>
 </div>
 
 <div id="aiBtn" onclick="toggleAI()">🤖</div>
-
 <div id="aiBox">
-<div id="aiHead">🤖 MATS AI - PWFCA Teacher <span style="float:right;cursor:pointer;background:#facc15;color:#000;padding:3px 10px;border-radius:12px" onclick="closeAI()">X</span><br><small style="color:#94a3b8;font-size:10px">Working 100% - Ask anything</small></div>
+<div id="aiHead">🤖 MATS AI - ACTIVATED<span style="float:right;cursor:pointer;background:#facc15;color:#000;padding:3px 10px;border-radius:12px" onclick="closeAI()">X</span><br><small style="color:#22c55e">● Online - All topics added</small></div>
 <div id="aiMsgs"></div>
-<div style="padding:6px;background:#fff;border-top:1px solid #eee;text-align:left;max-height:85px;overflow:auto">
-<span class="quick" onclick="quickAsk('Who is the director?')">Director</span>
+<div style="padding:6px;background:#fff;border-top:1px solid #eee;text-align:left;max-height:95px;overflow:auto">
+<span class="quick" onclick="quickAsk('What is the name of the director?')">Director</span>
 <span class="quick" onclick="quickAsk('What is photosynthesis?')">Photosynthesis</span>
-<span class="quick" onclick="quickAsk('Principle of transmission of pressure')">Pressure</span>
-<span class="quick" onclick="quickAsk('How is oxygen manufactured?')">Oxygen</span>
+<span class="quick" onclick="quickAsk('What is the principle of transmission of pressure?')">Pressure Principle</span>
+<span class="quick" onclick="quickAsk('What is the process of manufacturing oxygen?')">Oxygen Manufacture</span>
 <span class="quick" onclick="quickAsk('How is carbon dioxide manufactured?')">CO2</span>
 <span class="quick" onclick="quickAsk('How is ammonium nitrate fertilizer manufactured?')">Fertilizer</span>
 </div>
 <div id="aiInputRow">
-<input id="aiInput" type="text" placeholder="Ask director, CO2, fertilizer..." autocomplete="off">
+<input id="aiInput" type="text" placeholder="Ask: photosynthesis, oxygen, pressure..." autocomplete="off">
 <button id="aiSend" onclick="doSend()">Send</button>
 </div>
 </div>
 
 <script>
-var aiOpen = false;
-function payNow(a,s){ alert('PAY '+a+' FOR '+s+'\nDial *185#\nNumber:0747695485\nName:Tumuramye Mathias'); window.open('https://wa.me/256747695485?text=PAY '+a+' FOR '+s,'_blank'); }
-function openAI(){ document.getElementById('aiBox').style.display='block'; aiOpen=true; }
-function closeAI(){ document.getElementById('aiBox').style.display='none'; aiOpen=false; }
-function toggleAI(){ if(aiOpen){closeAI();}else{openAI();} }
-function quickAsk(t){ document.getElementById('aiInput').value=t; doSend(); }
-
+var aiOpen=false;
+function payNow(a,s){alert('PAY '+a+' FOR '+s+'\nDial *185#\nNumber:0747695485\nName:Tumuramye Mathias');window.open('https://wa.me/256747695485?text=PAY '+a+' FOR '+s,'_blank');}
+function openAI(){document.getElementById('aiBox').style.display='block';aiOpen=true;}
+function closeAI(){document.getElementById('aiBox').style.display='none';aiOpen=false;}
+function toggleAI(){if(aiOpen)closeAI();else openAI();}
+function quickAsk(t){document.getElementById('aiInput').value=t;doSend();}
 function doSend(){
-  var inp = document.getElementById('aiInput');
-  var txt = inp.value.trim();
-  if(!txt) return;
-  var box = document.getElementById('aiMsgs');
-  var u = document.createElement('div');
-  u.className='msg userMsg'; u.textContent=txt;
-  box.appendChild(u);
-  inp.value='';
-  box.scrollTop=box.scrollHeight;
-  setTimeout(function(){
-    var b = document.createElement('div');
-    b.className='msg botMsg';
-    b.textContent = getAnswer(txt);
-    box.appendChild(b);
-    box.scrollTop=box.scrollHeight;
-  },600);
+  var inp=document.getElementById('aiInput');var txt=inp.value.trim();if(!txt)return;
+  var box=document.getElementById('aiMsgs');var u=document.createElement('div');u.className='msg userMsg';u.textContent=txt;box.appendChild(u);inp.value='';box.scrollTop=box.scrollHeight;
+  setTimeout(function(){var b=document.createElement('div');b.className='msg botMsg';b.textContent=getAnswer(txt);box.appendChild(b);box.scrollTop=box.scrollHeight;},500);
 }
-
 function getAnswer(q){
-  var l = q.toLowerCase();
-
-  if(l.indexOf('director')!==-1 || l.indexOf('who are you')!==-1 || l.indexOf('mathias')!==-1 || l.indexOf('name of director')!==-1 || l.indexOf('tumuramye')!==-1){
-    return "🎓 DIRECTOR OF PWFCA - MATS AI:\n\nName: Tumuramye Mathias\nPhone: 0747695485\nLocation: Mbarara District, Uganda\nAcademy: Pass With Flying Colours Academy (PWFCA)\n\nABOUT HIM:\nMathias is a young innovator who does well in sciences and he inspires young students to get technological skills to build something like mine (this website, MATS AI, digital notes) and he also inspires young youth to start small online ventures to earn and learn.\n\nHe believes science + technology + hard work = success. He built PWFCA to help S1-S4 students pass with flying colours using affordable digital notes (3K per subject, 7K all).\n\nContact him on WhatsApp 0747695485 for notes or business advice!";
+  var l=q.toLowerCase();
+  if(l.includes('director')||l.includes('name of')||l.includes('tumuramye')||l.includes('mathias')){
+    return "DIRECTOR - PWFCA:\nName: Tumuramye Mathias\nPhone: 0747695485 - Mbarara District, Uganda\n\nAbout: A young innovator who does well in sciences and I inspire young students to get technological skills to build something like mine and I also inspire young youth to start small online ventures.\n\nHe built this website, MATS AI, and digital notes to help S1-S4 pass with flying colours. Science + technology + hard work = success. Contact WhatsApp 0747695485!";
   }
-
-  if(l.indexOf('photosynthesis')!==-1){
-    return "PHOTOSYNTHESIS:\
+  if(l.includes('photosynthesis')){
+    return "WHAT IS PHOTOSYN
