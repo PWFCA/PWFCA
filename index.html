@@ -3,37 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PWFCA - PASS WITH FLYING COLOURS ACADEMY</title>
+<title>PWFCA - MATS AI Activated</title>
 <style>
-body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:10px;padding-bottom:90px}
-.pic{width:130px;height:130px;border-radius:50%;border:4px solid #facc15;margin:10px auto;display:block;background:#fff;object-fit:cover}
+body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:10px;padding-bottom:100px}
+.pic{width:135px;height:135px;border-radius:50%;border:4px solid #facc15;margin:12px auto;display:block;background:#fff;object-fit:cover}
 .badge{background:#16a34a;color:#fff;padding:7px 15px;border-radius:20px;font-size:12px;font-weight:bold;display:inline-block}
-.card{background:#fff;color:#111;border-radius:16px;padding:14px;margin:12px auto;max-width:600px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+.card{background:#fff;color:#111;border-radius:16px;padding:14px;margin:12px auto;max-width:600px;text-align:left}
 .green{background:#16a34a;color:#fff;padding:12px;border-radius:10px;display:block;text-align:center;text-decoration:none;margin:7px 0;font-weight:bold}
 .red{background:#ff0000;color:#fff;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin:7px 0;cursor:pointer}
-.menu{display:flex;gap:5px;background:#fff;padding:6px;border-radius:30px;max-width:600px;margin:10px auto}
+.menu{display:flex;gap:5px;background:#fff;padding:6px;border-radius:30px;max-width:600px;margin:10px auto;position:sticky;top:5px;z-index:100}
 .menu a{flex:1;background:#0f172a;color:#fff;padding:10px 4px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px;text-align:center}
 .menu a.pay{background:#ff0000;animation:blink 1s infinite}
 .menu a.sign{background:#facc15;color:#000}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.6}}
-#aiBtn{position:fixed;bottom:20px;right:20px;background:#facc15;width:64px;height:64px;border-radius:50%;border:3px solid #fff;font-size:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:99999;box-shadow:0 0 15px #facc15;animation: pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(250,204,21,0.7)}70%{box-shadow:0 0 0 15px rgba(250,204,21,0)}100%{box-shadow:0 0 0 0 rgba(250,204,21,0)}}
-#aiBox{position:fixed;bottom:95px;right:10px;width:340px;max-width:94%;background:#fff;color:#000;border-radius:16px;display:none;z-index:99999;border:3px solid #facc15;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
-#aiHead{background:linear-gradient(135deg,#0f172a,#1e293b);color:#facc15;padding:12px;font-weight:bold;text-align:left;font-size:14px}
-#aiHead small{display:block;color:#94a3b8;font-size:10px;font-weight:normal}
-#aiMsgs{height:320px;overflow:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
-.msg{margin:7px 0;padding:10px 12px;border-radius:14px;max-width:88%;line-height:1.4;white-space:pre-wrap}
+.menu a.ai{background:#0f172a;color:#facc15;border:2px solid #facc15}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.7}}
+/* MATS AI - FIXED VISIBLE */
+#aiBtn{position:fixed;bottom:85px;right:18px;background:#facc15;width:68px;height:68px;border-radius:50%;border:4px solid #fff;font-size:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:99999;box-shadow:0 0 20px #facc15;animation: pulse 1.5s infinite}
+@keyframes pulse{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(250,204,21,0.8)}50%{transform:scale(1.05);box-shadow:0 0 0 15px rgba(250,204,21,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(250,204,21,0)}}
+#aiBox{position:fixed;bottom:160px;right:10px;width:360px;max-width:95%;background:#fff;color:#000;border-radius:18px;display:none;z-index:99999;border:3px solid #facc15;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.7)}
+#aiHead{background:#0f172a;color:#facc15;padding:12px;font-weight:bold;text-align:left;font-size:14px}
+#aiHead small{display:block;color:#94a3b8;font-size:10px;font-weight:normal;margin-top:2px}
+#aiMsgs{height:340px;overflow:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
+.msg{margin:8px 0;padding:11px 12px;border-radius:14px;max-width:90%;line-height:1.5;white-space:pre-wrap;font-size:13px}
 .userMsg{background:#facc15;color:#000;margin-left:auto;text-align:right}
-.botMsg{background:#e2e8f0;color:#111;border:1px solid #cbd5e1}
+.botMsg{background:#fff;color:#111;border:1px solid #e2e8f0;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
 #aiInputRow{display:flex;border-top:3px solid #facc15;background:#fff}
-#aiInput{flex:1;padding:12px;border:none;outline:none;font-size:14px}
-#aiSend{background:#0f172a;color:#facc15;border:none;padding:12px 16px;font-weight:bold;cursor:pointer}
-.quick{display:inline-block;background:#0f172a;color:#facc15;padding:5px 10px;border-radius:15px;font-size:10px;margin:3px;cursor:pointer;border:1px solid #334155}
+#aiInput{flex:1;padding:13px;border:none;outline:none;font-size:14px}
+#aiSend{background:#0f172a;color:#facc15;border:none;padding:13px 18px;font-weight:bold;cursor:pointer;font-size:14px}
+.quick{display:inline-block;background:#f1f5f9;color:#0f172a;padding:6px 10px;border-radius:15px;font-size:10px;margin:3px;cursor:pointer;border:1px solid #cbd5e1;font-weight:bold}
 </style>
 </head>
 <body>
 
-<img src="director.jpg" class="pic" onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&color=000&size=130'">
+<img src="director.jpg" class="pic" onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&color=000&size=135'">
 <h1 style="color:#facc15;font-size:20px;margin:5px">🎓 PWFCA - PASS WITH FLYING COLOURS ACADEMY</h1>
 <p style="font-size:13px;font-weight:bold">Director Tumuramye Mathias - 0747695485</p>
 <span class="badge">📍 MBARARA DISTRICT - UGANDA</span>
@@ -50,12 +52,12 @@ body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;
 <a href="#notes">📚 Notes</a>
 <a href="#paytab" class="pay">💰 Pay Tab</a>
 <a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" class="sign">✅ Sign In</a>
-<a href="#" onclick="openAI();return false;">🤖 MATS AI</a>
+<a href="#" class="ai" onclick="openAI();return false;">🤖 MATS AI</a>
 </div>
 
 <div style="background:#fef9c3;color:#000;border:3px solid #facc15;border-radius:14px;padding:12px;max-width:600px;margin:12px auto">
 <b>💡 Trick to know names:</b> Send "VIEWED" to 0747695485<br>
-<a href="https://wa.me/256747695485?text=VIEWED%20-%20I%20viewed%20your%20notes" target="_blank" style="background:#25D366;color:#fff;padding:10px 15px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:8px">💬 Send VIEWED on WhatsApp</a>
+<a href="https://wa.me/256747695485?text=VIEWED" target="_blank" style="background:#25D366;color:#fff;padding:10px 15px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:8px">💬 Send VIEWED on WhatsApp</a>
 </div>
 
 <div id="notes">
@@ -65,4 +67,48 @@ body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;
 <div class="card"><h3>📐 MATHEMATICS S1-S4 - 3,000 UGX</h3><a class="green" href="mathematics-.pdf" target="_blank">👁️ VIEW MATHEMATICS PDF</a><button class="red" onclick="payNow(3000,'MATHEMATICS')">📱 PAY 3K - MATH</button></div>
 </div>
 
-<div class="card" id="paytab" style="background:linear
+<div class="card" id="paytab" style="background:linear-gradient(135deg,#facc15,#eab308);border:4px solid #ff0000;text-align:center">
+<h2 style="text-align:center;color:#000;margin:5px">💰 PAY TAB - CHOOSE PLAN</h2>
+<p style="color:#000;font-size:11px;text-align:center">Airtel Money: 0747695485 - Dial *185#</p>
+<div style="background:#fff;border-radius:10px;padding:10px;margin:8px 0;color:#000"><b>Single - 3,000 UGX</b><button class="red" onclick="payNow(3000,'SINGLE')">📱 PAY 3K</button></div>
+<div style="background:#000;color:#facc15;border-radius:10px;padding:10px;margin:8px 0"><b>🔥 ALL 4 SUBJECTS - 7,000 UGX - Save 5K!</b><button style="background:#facc15;color:#000;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin-top:6px" onclick="payNow(7000,'ALL 4 SUBJECTS')">💰 PAY 7K - GET ALL</button></div>
+</div>
+
+<!-- NO SIGN IN FORM DOWN - REMOVED AS YOU ASKED -->
+
+<!-- MATS AI BUTTON - ALWAYS VISIBLE ABOVE NAV -->
+<div id="aiBtn" onclick="openAI()">🤖</div>
+
+<div id="aiBox">
+<div id="aiHead">🤖 MATS AI - ACTIVATED<small>By Director Mathias - Answers like a teacher | S1-S4</small><span style="float:right;cursor:pointer;background:#facc15;color:#000;padding:3px 9px;border-radius:12px;font-size:12px" onclick="closeAI()">✕ Close</span></div>
+<div id="aiMsgs"></div>
+<div style="padding:7px;background:#fff;border-top:1px solid #e2e8f0;max-height:70px;overflow:auto">
+<span class="quick" onclick="askQuick('What is photosynthesis?')">Photosynthesis</span>
+<span class="quick" onclick="askQuick('Principle of transmission of pressure')">Pressure Principle</span>
+<span class="quick" onclick="askQuick('Manufacture of oxygen')">Oxygen Manufacture</span>
+<span class="quick" onclick="askQuick('What is an acid?')">Acids</span>
+<span class="quick" onclick="askQuick('How to pay?')">Pay</span>
+</div>
+<div id="aiInputRow">
+<input id="aiInput" placeholder="Ask MATS AI anything..." onkeypress="if(event.key==='Enter')sendAI()">
+<button id="aiSend" onclick="sendAI()">Send</button>
+</div>
+</div>
+
+<script>
+function payNow(a,s){alert('💰 PAY '+a+' UGX FOR '+s+'\n\nDial *185# MANUALLY\nNumber: 0747695485\nName: Tumuramye Mathias\nAmount: '+a+'\n\nAfter pay send screenshot to WhatsApp');window.open('https://wa.me/256747695485?text=Hello%20Director%20I%20want%20to%20pay%20'+a+'%20UGX%20for%20'+s,'_blank');}
+function openAI(){document.getElementById('aiBox').style.display='block';document.getElementById('aiInput').focus();}
+function closeAI(){document.getElementById('aiBox').style.display='none';}
+function askQuick(t){document.getElementById('aiInput').value=t;sendAI();}
+function sendAI(){
+  var inp=document.getElementById('aiInput');var txt=inp.value.trim();if(!txt)return;
+  var box=document.getElementById('aiMsgs');
+  box.innerHTML+='<div class="msg userMsg">'+txt+'</div>';
+  inp.value='';box.scrollTop=box.scrollHeight;
+  setTimeout(function(){var ans=getMATSAnswer(txt);box.innerHTML+='<div class="msg botMsg">'+ans+'</div>';box.scrollTop=box.scrollHeight;},700);
+}
+function getMATSAnswer(q){
+  var l=q.toLowerCase();
+
+  if(l.includes('photosynthesis')){
+    return '🧬 WHAT IS PHOTOSYNTHESIS? - MATS AI\n\nDEFINITION: Process by which green plants make their own food using sunlight, carbon dioxide, water and chlorophyll.\n\nEQUATION:\n6CO2 + 6H2O --[Sunlight + Chlorophyll]--> C6H12O6 + 6O2\nCarbon dioxide + Water → Glucose + Oxygen\n\nWHERE: In chloroplast, mainly in mesophyll cells of leaf. Chlorophyll in grana.\n\nREQUIREMENTS:\n1. CO2 from air via stomata\n2. Water from soil via roots/xylem\n3. Sunlight (energy)\n4. Chlorophyll (green pigment)\n\nTWO STAGES:\n• Light stage (in grana): Light splits water → H+ + O2. ATP made.\n• Dark stage (Cal
