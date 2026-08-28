@@ -1,141 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pass With Flying Colors Academy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PWFCA - Pass With Flying Colours Academy - Mbarara</title>
 <style>
-body{font-family:Arial,sans-serif;margin:0;background:#f4f4f9;}
-.header{background:linear-gradient(135deg,#0a3d62,#1e8449);color:white;padding:25px 15px;text-align:center;}
-.header h1{margin:0;font-size:26px;line-height:1.2;}
-/* TABS */
-.tabs{display:flex;overflow-x:auto;background:white;box-shadow:0 2px 5px rgba(0,0,0,0.1);position:sticky;top:0;z-index:10;}
-.tab-btn{flex:1;min-width:90px;padding:14px 10px;border:none;background:white;font-weight:bold;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;}
-.tab-btn.active{border-bottom:3px solid #27ae60;color:#27ae60;background:#f0fff0;}
-.tab-content{display:none;padding:20px;max-width:900px;margin:auto;}
+body{background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:12px;margin:0}
+h1{color:#facc15;font-size:22px;margin:8px 0}
+.profile-pic{width:130px;height:130px;border-radius:50%;border:4px solid #facc15;object-fit:cover;margin:12px auto;display:block;background:#fff}
+.district-badge{background:#16a34a;color:#fff;padding:8px 18px;border-radius:20px;font-size:13px;font-weight:bold;display:inline-block;margin:6px}
+.card{background:#fff;color:#111;border-radius:20px;padding:18px;margin:16px auto;max-width:650px;text-align:left;box-shadow:0 6px 20px rgba(0,0,0,0.4)}
+.pricebox{background:#facc15;color:#000;padding:5px 12px;border-radius:8px;font-weight:bold;font-size:13px;float:right}
+.dlfree{background:#16a34a;color:#fff;padding:13px;border-radius:10px;display:block;text-align:center;text-decoration:none;margin:8px 0;font-weight:bold;font-size:14px}
+.momo{background:#ff0000;color:#fff;border:none;display:block;width:95%;margin:12px auto;padding:15px;text-align:center;border-radius:30px;cursor:pointer;font-weight:bold;font-size:15px}
+.admin{background:#1e293b;color:#facc15;border:2px solid #facc15;padding:12px 25px;border-radius:30px;font-weight:bold;display:inline-block;margin:8px;text-decoration:none}
+.wa{background:#25D366;color:#fff;padding:12px 22px;border-radius:30px;display:inline-block;text-decoration:none;font-weight:bold;margin:8px}
+.paybox{background:#f1f5f9;border:2px dashed #94a3b8;border-radius:12px;padding:10px;margin:10px 0;text-align:center;color:#000;font-size:13px;font-weight:bold}
+.views{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:10px;margin:15px auto;max-width:650px;color:#94a3b8;font-size:12px}
+.trick{background:#fef9c3;border:3px solid #facc15;border-radius:16px;padding:16px;margin:16px auto;max-width:650px;color:#000;text-align:center}
+.trickbtn{background:#25D366;color:#fff;padding:14px 20px;border-radius:30px;display:block;text-decoration:none;font-weight:bold;margin:10px 0;font-size:16px}
+.tabs{display:flex;overflow-x:auto;background:#1e293b;border-radius:12px;max-width:650px;margin:15px auto;}
+.tab-btn{flex:1;min-width:80px;padding:12px 8px;border:none;background:#1e293b;color:#94a3b8;font-weight:bold;cursor:pointer;white-space:nowrap;}
+.tab-btn.active{background:#facc15;color:#000;}
+.tab-content{display:none;}
 .tab-content.active{display:block;}
-.container{background:white;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);margin-bottom:15px;}
-.note-card{border:1px solid #e0e0e0;padding:15px;border-radius:10px;margin-bottom:12px;background:white;}
-.note-card h3{margin:0 0 8px 0;}
-.btn{display:inline-block;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:bold;color:white;margin:5px 0;}
-.btn-green{background:#27ae60;}.btn-wa{background:#25D366;}.btn-blue{background:#0a3d62;}
-.optional-box{background:#e8f5e9;border-left:5px solid #27ae60;padding:12px;border-radius:6px;margin-bottom:15px;}
+/* AI */
+#aiBtn{position:fixed;bottom:20px;right:20px;background:#facc15;color:#000;width:60px;height:60px;border-radius:50%;border:3px solid #fff;font-size:28px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.5);z-index:9999}
+#aiBox{position:fixed;bottom:90px;right:15px;width:320px;max-width:90%;background:#fff;color:#000;border-radius:16px;box-shadow:0 6px 25px rgba(0,0,0,0.5);display:none;z-index:9999;overflow:hidden}
+#aiHeader{background:#0f172a;color:#facc15;padding:12px;font-weight:bold;text-align:left}
+#aiMessages{height:260px;overflow:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
+.msg{margin:8px 0;padding:8px 12px;border-radius:12px;max-width:85%}
+.userMsg{background:#facc15;color:#000;margin-left:auto;text-align:right}
+.botMsg{background:#e2e8f0;color:#111}
+#aiInputArea{display:flex;border-top:1px solid #e2e8f0}
+#aiInput{flex:1;padding:10px;border:none;outline:none;font-size:14px}
+#aiSend{background:#16a34a;color:#fff;border:none;padding:10px 15px;font-weight:bold;cursor:pointer}
 </style>
-</head>
-<body>
-
-<div class="header">
-<h1>Pass With Flying Colors Academy</h1>
-<p>Director Tumuramye Mathias | 0747695485 |<br>Mbarara, Uganda</p>
-</div>
-
-<!-- TABS MENU -->
-<div class="tabs">
-<button class="tab-btn active" onclick="openTab('home')">🏠 Home</button>
-<button class="tab-btn" onclick="openTab('s1s4')">S1-S4</button>
-<button class="tab-btn" onclick="openTab('s5s6')">S5-S6</button>
-<button class="tab-btn" onclick="openTab('papers')">Papers</button>
-<button class="tab-btn" onclick="openTab('signin')" style="color:#0a3d62;">✅ Sign In</button>
-</div>
-
-<!-- HOME TAB -->
-<div id="home" class="tab-content active">
-<div class="optional-box">
-🔔 <b>Want FREE Updates?</b> <a href="#" onclick="openTab('signin')" style="color:#27ae60;font-weight:bold;">Sign In Here (Optional)</a> - Or continue browsing.
-</div>
-
-<div class="container">
-<h2>📚 Access Your Notes Directly - No Sign In Required</h2>
-<p>Choose your level below:</p>
-
-<div class="note-card">
-<h3>S1-S4 Notes</h3>
-<p>All subjects PDF</p>
-<a href="#" class="btn btn-blue" onclick="openTab('s1s4')">📥 Download S1-S4</a>
-</div>
-
-<div class="note-card">
-<h3>S5-S6 Notes</h3>
-<p>A-Level Top Notes</p>
-<a href="#" class="btn btn-blue" onclick="openTab('s5s6')">📥 Download S5-S6</a>
-</div>
-
-<div class="note-card">
-<h3>P7 & UNEB Past Papers</h3>
-<p>Past Papers with Answers</p>
-<a href="#" class="btn btn-blue" onclick="openTab('papers')">📥 View Papers</a>
-</div>
-
-<div style="text-align:center;margin-top:20px;">
-<a href="https://wa.me/256747695485?text=Hello%20Director" target="_blank" class="btn btn-wa">📱 WhatsApp Director</a>
-</div>
-</div>
-</div>
-
-<!-- S1-S4 TAB -->
-<div id="s1s4" class="tab-content">
-<div class="container">
-<h2>S1-S4 Notes</h2>
-<p>All subjects available:</p>
-<div class="note-card"><h3>Mathematics</h3><a href="#">Download PDF</a></div>
-<div class="note-card"><h3>Biology</h3><a href="#">Download PDF</a></div>
-<div class="note-card"><h3>Chemistry, Physics, History...</h3><a href="#">Download All</a></div>
-</div>
-</div>
-
-<!-- S5-S6 TAB -->
-<div id="s5s6" class="tab-content">
-<div class="container">
-<h2>S5-S6 Notes</h2>
-<p>A-Level Top Notes:</p>
-<div class="note-card"><h3>S5 Notes</h3><a href="#">Download</a></div>
-<div class="note-card"><h3>S6 Notes</h3><a href="#">Download</a></div>
-</div>
-</div>
-
-<!-- PAPERS TAB -->
-<div id="papers" class="tab-content">
-<div class="container">
-<h2>UNEB Past Papers</h2>
-<div class="note-card"><h3>P7 PLE Papers</h3><a href="#">Download</a></div>
-<div class="note-card"><h3>S4 UCE Papers</h3><a href="#">Download</a></div>
-<div class="note-card"><h3>S6 UACE Papers</h3><a href="#">Download</a></div>
-</div>
-</div>
-
-<!-- SIGN IN TAB -->
-<div id="signin" class="tab-content">
-<div class="container">
-<h2 style="text-align:center;">✅ Student Sign In (Optional)</h2>
-<p style="text-align:center;color:#666;">Sign in to get new notes automatically on WhatsApp. You can still use notes without signing.</p>
-
-<div style="text-align:center;">
-<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" class="btn btn-green">Open Form In New Page</a>
-</div>
-
-<div style="border:2px solid #27ae60;border-radius:12px;padding:5px;margin-top:15px;">
-<iframe src="https://forms.gle/WG9Mk4i4K3EJfXwB7" width="100%" height="850" frameborder="0">Loading…</iframe>
-</div>
-
-<p style="text-align:center;margin-top:15px;">After signing, send <b>VIEWED</b> to 0747695485</p>
-</div>
-</div>
-
 <script>
-function openTab(tabName){
-  var tabs = document.getElementsByClassName("tab-content");
-  for(var i=0;i<tabs.length;i++){ tabs[i].classList.remove("active"); }
+let views = localStorage.getItem('pwfca_views');
+views = views? parseInt(views) + 1 : 151;
+localStorage.setItem('pwfca_views', views);
+function pay(amount, subject){
+  let msg = "Hello Director, I want to pay " + amount + " UGX for " + subject + ". Airtel: 0747695485";
+  let inst = "💰 PAY " + amount + " UGX for " + subject + "\n\n📱 Dial *185# MANUALLY\nNumber: 0747695485\nName: Tumuramye Mathias\nAmount: " + amount + "\n\nAfter paying send screenshot.\nTap OK for WhatsApp.";
+  if(confirm(inst)){
+    window.open('https://wa.me/256747695485?text=' + encodeURIComponent(msg), '_blank');
+  }
+}
+function openTab(name){
+  var contents = document.getElementsByClassName("tab-content");
+  for(var i=0;i<contents.length;i++) contents[i].classList.remove("active");
   var btns = document.getElementsByClassName("tab-btn");
-  for(var i=0;i<btns.length;i++){ btns[i].classList.remove("active"); }
-  document.getElementById(tabName).classList.add("active");
+  for(var i=0;i<btns.length;i++) btns[i].classList.remove("active");
+  document.getElementById(name).classList.add("active");
   event.currentTarget.classList.add("active");
   window.scrollTo(0,0);
 }
+function toggleAI(){
+  let box = document.getElementById('aiBox');
+  box.style.display = box.style.display === 'block'? 'none' : 'block';
+}
+function sendAI(){
+  let input = document.getElementById('aiInput');
+  let text = input.value.trim();
+  if(!text) return;
+  addMsg(text, 'userMsg');
+  input.value = '';
+  setTimeout(()=>{ let reply = getAIReply(text); addMsg(reply, 'botMsg'); }, 600);
+}
+function addMsg(t, cls){
+  let m = document.getElementById('aiMessages');
+  let d = document.createElement('div');
+  d.className = 'msg ' + cls;
+  d.innerText = t;
+  m.appendChild(d);
+  m.scrollTop = m.scrollHeight;
+}
+function getAIReply(q){
+  q = q.toLowerCase();
+  if(q.includes('sign')) return "✅ Sign In tab available! Tap SIGN IN tab above or use: https://forms.gle/WG9Mk4i4K3EJfXwB7 - Optional to get updates on WhatsApp.";
+  if(q.includes('view') || q.includes('who')) return "👁️ Your website has 150+ views! To know WHO viewed, ask them to send 'VIEWED' to 0747695485 on WhatsApp.";
+  if(q.includes('math')) return "📐 MATHEMATICS S1-S4 available! View free sample. Full set 3,000 UGX.";
+  if(q.includes('pay') || q.includes('price')) return "💰 PRICES: Single 3,000 UGX. ALL 4 subjects 7,000 UGX! Airtel: 0747695485";
+  if(q.includes('hello') || q.includes('hi')) return "Hello! 👋 I'm PWFCA AI Assistant. Ask about Biology, Chemistry, Physics, Math, Prices or Sign In!";
+  return "🤖 I'm PWFCA AI! I can help with:\n- Biology, Chemistry, Physics, Math notes\n- Prices & Payment\n- Sign In for updates\n- Total views tracking\nAsk me anything!";
+}
+window.onload = function(){
+  let el = document.getElementById('viewCount');
+  if(el) el.innerText = views;
+  setTimeout(()=>{ addMsg("👋 Hello! I'm PWFCA AI! Tap SIGN IN tab to register for updates!", 'botMsg'); }, 1000);
+}
 </script>
+</head>
+<body>
 
-<footer style="text-align:center;padding:20px;color:#888;">
-© 2026 PWFCA - Director Tumuramye Mathias - 0747695485
-</footer>
+<img src="director.jpg" class="profile-pic" onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&color=000&size=130&bold=true'">
+<h1>🎓 PWFCA - PASS WITH FLYING COLOURS ACADEMY</h1>
+<p style="font-weight:bold;margin:4px">Director Tumuramye Mathias - 0747695485</p>
+<span class="district-badge">📍 MBARARA DISTRICT - UGANDA</span>
+<br>
+<a class="admin" href="admin.html">🔐 ADMIN</a>
+<a class="wa" href="https://wa.me/256747695485" target="_blank">💬 WhatsApp</a>
+<a class="admin" href="visitors.html">👁️ 150+ VIEWS</a>
 
-</body>
-</html>
+<div class="views">👁️ Total Views: <b id="viewCount" style="color:#facc15">150+</b> | AI Ready 🤖 | <a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" style="color:#facc15;" target="_blank">Sign In</a></div>
+
+<!-- TABS WITH SIGN IN -->
+<div class="tabs">
+<button class="tab-btn active"
