@@ -1,111 +1,90 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PWFCA - MATS AI Fully Activated</title>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PWFCA - MATS AI Activated</title>
 <style>
-body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:10px;padding-bottom:130px}
-.pic{width:135px;height:135px;border-radius:50%;border:4px solid #facc15;margin:12px auto;display:block;background:#fff;object-fit:cover}
-.badge{background:#16a34a;color:#fff;padding:7px 15px;border-radius:20px;font-size:12px;font-weight:bold;display:inline-block}
-.card{background:#fff;color:#111;border-radius:16px;padding:14px;margin:12px auto;max-width:600px;text-align:left}
-.green{background:#16a34a;color:#fff;padding:12px;border-radius:10px;display:block;text-align:center;text-decoration:none;margin:7px 0;font-weight:bold}
-.red{background:#ff0000;color:#fff;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin:7px 0;cursor:pointer}
-.menu{display:flex;gap:5px;background:#fff;padding:6px;border-radius:30px;max-width:600px;margin:10px auto}
-.menu a{flex:1;background:#0f172a;color:#fff;padding:10px 4px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px;text-align:center}
-.menu a.pay{background:#ff0000;animation:blink 1s infinite}
-.menu a.sign{background:#facc15;color:#000}
-.menu a.ai{background:#0f172a;color:#facc15;border:2px solid #facc15}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.6}}
-#aiBtn{position:fixed;bottom:100px;right:20px;background:#facc15;width:72px;height:72px;border-radius:50%;border:4px solid #fff;font-size:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999999;box-shadow:0 4px 20px rgba(0,0,0,0.6);animation:pulse 1.5s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(250,204,21,0.8)}70%{box-shadow:0 0 0 18px rgba(250,204,21,0)}100%{box-shadow:0 0 0 0 rgba(250,204,21,0)}}
-#aiBox{position:fixed;bottom:175px;right:8px;left:8px;margin:auto;max-width:400px;background:#fff;color:#000;border-radius:18px;display:none;z-index:999998;border:3px solid #facc15;overflow:hidden;box-shadow:0 15px 45px rgba(0,0,0,0.8)}
-#aiHead{background:#0f172a;color:#facc15;padding:12px;font-weight:bold;text-align:left;font-size:14px}
-#aiMsgs{height:380px;overflow-y:auto;padding:10px;text-align:left;font-size:13px;background:#f8fafc}
-.msg{margin:8px 0;padding:11px 12px;border-radius:14px;max-width:93%;line-height:1.5;white-space:pre-wrap;word-wrap:break-word}
-.userMsg{background:#facc15;color:#000;margin-left:auto;text-align:right}
-.botMsg{background:#fff;color:#111;border:1px solid #ddd}
-#aiInputRow{display:flex;border-top:3px solid #facc15;background:#fff}
-#aiInput{flex:1;padding:13px;border:none;outline:none;font-size:14px}
-#aiSend{background:#0f172a;color:#facc15;border:none;padding:13px 18px;font-weight:bold;cursor:pointer}
-.quick{display:inline-block;background:#e2e8f0;color:#0f172a;padding:5px 9px;border-radius:15px;font-size:9px;margin:2px;cursor:pointer;border:1px solid #cbd5e1;font-weight:bold}
-</style>
-</head>
-<body>
-
-<img src="director.jpg" class="pic" onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&color=000&size=135'">
-<h1 style="color:#facc15;font-size:20px;margin:5px">🎓 PWFCA - PASS WITH FLYING COLOURS ACADEMY</h1>
-<p style="font-size:13px;font-weight:bold">Director Tumuramye Mathias - 0747695485</p>
+body{margin:0;background:#0f172a;color:#fff;font-family:Arial;text-align:center;padding:10px;padding-bottom:140px}
+.pic{width:130px;height:130px;border-radius:50%;border:4px solid #facc15;margin:10px auto;display:block;background:#fff;object-fit:cover}
+.badge{background:#16a34a;color:#fff;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:bold;display:inline-block}
+.card{background:#fff;color:#111;border-radius:14px;padding:12px;margin:10px auto;max-width:600px;text-align:left}
+.g{background:#16a34a;color:#fff;padding:11px;border-radius:10px;display:block;text-align:center;text-decoration:none;margin:6px 0;font-weight:bold}
+.r{background:#ff0000;color:#fff;border:none;width:100%;padding:12px;border-radius:30px;font-weight:bold;margin:6px 0}
+.m{display:flex;gap:5px;background:#fff;padding:5px;border-radius:30px;max-width:600px;margin:10px auto}
+.m a{flex:1;background:#0f172a;color:#fff;padding:9px 3px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px;text-align:center}
+#aiBtn{position:fixed;bottom:115px;right:18px;background:#facc15;width:68px;height:68px;border-radius:50%;border:4px solid #fff;font-size:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999999}
+#aiBox{position:fixed;bottom:185px;right:5px;left:5px;margin:auto;max-width:390px;background:#fff;color:#000;border-radius:16px;display:none;z-index:999998;border:3px solid #facc15;overflow:hidden}
+#aiHead{background:#0f172a;color:#facc15;padding:10px;font-weight:bold;text-align:left;font-size:13px}
+#aiMsgs{height:340px;overflow:auto;padding:8px;text-align:left;font-size:13px;background:#f8fafc}
+.msg{margin:6px 0;padding:10px;border-radius:12px;max-width:93%;line-height:1.4;white-space:pre-wrap;word-wrap:break-word;font-size:13px}
+.u{background:#facc15;color:#000;margin-left:auto;text-align:right}
+.b{background:#fff;color:#111;border:1px solid #ddd}
+#aiRow{display:flex;border-top:3px solid #facc15;background:#fff}
+#aiIn{flex:1;padding:12px;border:none;outline:none;font-size:14px}
+#aiSend{background:#0f172a;color:#facc15;border:none;padding:12px 15px;font-weight:bold}
+.q{display:inline-block;background:#e2e8f0;color:#000;padding:4px 8px;border-radius:12px;font-size:9px;margin:2px;cursor:pointer;font-weight:bold}
+</style></head><body>
+<img src="director.jpg" class="pic" onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&color=000&size=130'">
+<h1 style="color:#facc15;font-size:19px;margin:5px">🎓 PWFCA - PASS WITH FLYING COLOURS ACADEMY</h1>
+<p style="font-size:12px;font-weight:bold">Director Tumuramye Mathias - 0747695485</p>
 <span class="badge">📍 MBARARA DISTRICT - UGANDA</span>
-
-<div style="margin:10px">
-<a href="admin.html" style="background:#1e293b;color:#facc15;border:2px solid #facc15;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">🔐 ADMIN</a>
-<a href="https://wa.me/256747695485" target="_blank" style="background:#25D366;color:#fff;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">💬 WhatsApp</a>
-<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" style="background:#facc15;color:#000;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">✅ Sign In</a>
-</div>
-
-<p style="color:#94a3b8;font-size:11px">👁️ Total Views: 68+ | 🤖 MATS AI Activated Working</p>
-
-<div class="menu">
-<a href="#notes">📚 Notes</a>
-<a href="#paytab" class="pay">💰 Pay Tab</a>
-<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" class="sign">✅ Sign In</a>
-<a href="#" class="ai" onclick="openAI();return false;">🤖 MATS AI</a>
-</div>
-
-<div style="background:#fef9c3;color:#000;border:3px solid #facc15;border-radius:14px;padding:12px;max-width:600px;margin:12px auto">
-<b>💡 Trick: Send "VIEWED" to 0747695485</b><br>
-<a href="https://wa.me/256747695485?text=VIEWED" target="_blank" style="background:#25D366;color:#fff;padding:10px 15px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:8px">💬 Send VIEWED on WhatsApp</a>
-</div>
-
+<div style="margin:8px"><a href="admin.html" style="background:#1e293b;color:#facc15;border:2px solid #facc15;padding:6px 10px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">🔐 ADMIN</a>
+<a href="https://wa.me/256747695485" style="background:#25D366;color:#fff;padding:6px 10px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">💬 WhatsApp</a>
+<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" style="background:#facc15;color:#000;padding:6px 10px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">✅ Sign In</a></div>
+<p style="color:#94a3b8;font-size:10px">👁️ 68+ | 🤖 MATS AI Activated Working</p>
+<div class="m"><a href="#notes">📚 Notes</a><a href="#paytab" style="background:#ff0000">💰 Pay Tab</a><a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" style="background:#facc15;color:#000">✅ Sign In</a><a href="#" style="border:2px solid #facc15;color:#facc15" onclick="openAI();return false;">🤖 MATS AI</a></div>
+<div style="background:#fef9c3;color:#000;border:3px solid #facc15;border-radius:12px;padding:10px;max-width:600px;margin:10px auto"><b>💡 Trick: Send "VIEWED" to 0747695485</b><br><a href="https://wa.me/256747695485?text=VIEWED" style="background:#25D366;color:#fff;padding:9px 14px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:6px">💬 Send VIEWED</a></div>
 <div id="notes">
-<div class="card"><h3>🧬 BIOLOGY - 3,000 UGX</h3><a class="green" href="biology-items.pdf" target="_blank">👁️ VIEW Biology Sample 1</a><a class="green" href="bilogy.pdf" target="_blank">👁️ VIEW Biology Sample 2</a><a class="green" href="tranport.bio.pdf" target="_blank">👁️ VIEW Biology Transport</a><button class="red" onclick="payNow(3000,'BIOLOGY')">📱 PAY 3K - BIOLOGY</button></div>
-<div class="card"><h3>⚗️ CHEMISTRY - 3,000 UGX</h3><a class="green" href="chemistry.pdf" target="_blank">👁️ VIEW CHEMISTRY FREE</a><button class="red" onclick="payNow(3000,'CHEMISTRY')">📱 PAY 3K - CHEMISTRY</button></div>
-<div class="card"><h3>⚡ PHYSICS - 3,000 UGX</h3><a class="green" href="Physics.pdf" target="_blank">👁️ VIEW PHYSICS FREE</a><button class="red" onclick="payNow(3000,'PHYSICS')">📱 PAY 3K - PHYSICS</button></div>
-<div class="card"><h3>📐 MATH S1-S4 - 3,000 UGX</h3><a class="green" href="mathematics-.pdf" target="_blank">👁️ VIEW MATHEMATICS PDF</a><button class="red" onclick="payNow(3000,'MATHEMATICS')">📱 PAY 3K - MATH</button></div>
+<div class="card"><h3>🧬 BIOLOGY - 3,000 UGX</h3><a class="g" href="biology-items.pdf" target="_blank">👁️ VIEW Biology Sample 1</a><a class="g" href="bilogy.pdf" target="_blank">👁️ VIEW Biology Sample 2</a><a class="g" href="tranport.bio.pdf" target="_blank">👁️ VIEW Transport</a><button class="r" onclick="pay(3000,'BIOLOGY')">📱 PAY 3K - BIOLOGY</button></div>
+<div class="card"><h3>⚗️ CHEMISTRY - 3,000 UGX</h3><a class="g" href="chemistry.pdf" target="_blank">👁️ VIEW CHEMISTRY</a><button class="r" onclick="pay(3000,'CHEMISTRY')">📱 PAY 3K - CHEMISTRY</button></div>
+<div class="card"><h3>⚡ PHYSICS - 3,000 UGX</h3><a class="g" href="Physics.pdf" target="_blank">👁️ VIEW PHYSICS</a><button class="r" onclick="pay(3000,'PHYSICS')">📱 PAY 3K - PHYSICS</button></div>
+<div class="card"><h3>📐 MATH - 3,000 UGX</h3><a class="g" href="mathematics-.pdf" target="_blank">👁️ VIEW MATH</a><button class="r" onclick="pay(3000,'MATH')">📱 PAY 3K - MATH</button></div>
 </div>
-
-<div class="card" id="paytab" style="background:linear-gradient(135deg,#facc15,#eab308);border:4px solid #ff0000;text-align:center">
-<h2 style="text-align:center;color:#000;margin:5px">💰 PAY TAB</h2>
-<p style="color:#000;font-size:11px">Airtel: 0747695485 - *185#</p>
-<div style="background:#fff;border-radius:10px;padding:10px;margin:8px 0;color:#000"><b>Single - 3,000 UGX</b><button class="red" onclick="payNow(3000,'SINGLE')">📱 PAY 3K</button></div>
-<div style="background:#000;color:#facc15;border-radius:10px;padding:10px;margin:8px 0"><b>🔥 ALL 4 - 7,000 UGX Save 5K!</b><button style="background:#facc15;color:#000;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin-top:6px" onclick="payNow(7000,'ALL 4')">💰 PAY 7K - GET ALL</button></div>
-</div>
+<div class="card" id="paytab" style="background:linear-gradient(135deg,#facc15,#eab308);border:4px solid #ff0000;text-align:center"><h2 style="text-align:center;color:#000;margin:5px">💰 PAY TAB</h2><div style="background:#fff;border-radius:10px;padding:8px;margin:6px 0;color:#000"><b>Single 3K</b><button class="r" onclick="pay(3000,'SINGLE')">📱 PAY 3K</button></div><div style="background:#000;color:#facc15;border-radius:10px;padding:8px;margin:6px 0"><b>🔥 ALL 4 - 7K Save 5K!</b><button style="background:#facc15;color:#000;border:none;width:100%;padding:12px;border-radius:30px;font-weight:bold;margin-top:5px" onclick="pay(7000,'ALL 4')">💰 PAY 7K - GET ALL</button></div></div>
 
 <div id="aiBtn" onclick="toggleAI()">🤖</div>
-<div id="aiBox">
-<div id="aiHead">🤖 MATS AI - ACTIVATED<span style="float:right;cursor:pointer;background:#facc15;color:#000;padding:3px 10px;border-radius:12px" onclick="closeAI()">X</span><br><small style="color:#22c55e">● Online - All topics added</small></div>
-<div id="aiMsgs"></div>
-<div style="padding:6px;background:#fff;border-top:1px solid #eee;text-align:left;max-height:95px;overflow:auto">
-<span class="quick" onclick="quickAsk('What is the name of the director?')">Director</span>
-<span class="quick" onclick="quickAsk('What is photosynthesis?')">Photosynthesis</span>
-<span class="quick" onclick="quickAsk('What is the principle of transmission of pressure?')">Pressure Principle</span>
-<span class="quick" onclick="quickAsk('What is the process of manufacturing oxygen?')">Oxygen Manufacture</span>
-<span class="quick" onclick="quickAsk('How is carbon dioxide manufactured?')">CO2</span>
-<span class="quick" onclick="quickAsk('How is ammonium nitrate fertilizer manufactured?')">Fertilizer</span>
-</div>
-<div id="aiInputRow">
-<input id="aiInput" type="text" placeholder="Ask: photosynthesis, oxygen, pressure..." autocomplete="off">
-<button id="aiSend" onclick="doSend()">Send</button>
-</div>
-</div>
+<div id="aiBox"><div id="aiHead">🤖 MATS AI - ACTIVATED <span style="float:right;cursor:pointer;background:#facc15;color:#000;padding:2px 8px;border-radius:10px" onclick="closeAI()">X</span><br><small style="color:#22c55e">● Online</small></div><div id="aiMsgs"></div><div style="padding:5px;background:#fff;border-top:1px solid #eee;max-height:80px;overflow:auto;text-align:left">
+<span class="q" onclick="qa('director')">Director</span><span class="q" onclick="qa('photosynthesis')">Photosynthesis</span><span class="q" onclick="qa('pressure')">Pressure</span><span class="q" onclick="qa('oxygen')">Oxygen</span><span class="q" onclick="qa('co2')">CO2</span><span class="q" onclick="qa('fertilizer')">Fertilizer</span></div><div id="aiRow"><input id="aiIn" placeholder="Ask MATS AI..." autocomplete="off"><button id="aiSend" onclick="send()">Send</button></div></div>
 
 <script>
-var aiOpen=false;
-function payNow(a,s){alert('PAY '+a+' FOR '+s+'\nDial *185#\nNumber:0747695485\nName:Tumuramye Mathias');window.open('https://wa.me/256747695485?text=PAY '+a+' FOR '+s,'_blank');}
-function openAI(){document.getElementById('aiBox').style.display='block';aiOpen=true;}
-function closeAI(){document.getElementById('aiBox').style.display='none';aiOpen=false;}
-function toggleAI(){if(aiOpen)closeAI();else openAI();}
-function quickAsk(t){document.getElementById('aiInput').value=t;doSend();}
-function doSend(){
-  var inp=document.getElementById('aiInput');var txt=inp.value.trim();if(!txt)return;
-  var box=document.getElementById('aiMsgs');var u=document.createElement('div');u.className='msg userMsg';u.textContent=txt;box.appendChild(u);inp.value='';box.scrollTop=box.scrollHeight;
-  setTimeout(function(){var b=document.createElement('div');b.className='msg botMsg';b.textContent=getAnswer(txt);box.appendChild(b);box.scrollTop=box.scrollHeight;},500);
+var open=false;
+function pay(a,s){alert('PAY '+a+' FOR '+s+'\nDial *185#\n0747695485\nTumuramye Mathias');window.open('https://wa.me/256747695485?text=PAY '+a+' FOR '+s,'_blank');}
+function openAI(){document.getElementById('aiBox').style.display='block';open=true;}
+function closeAI(){document.getElementById('aiBox').style.display='none';open=false;}
+function toggleAI(){if(open)closeAI();else openAI();}
+function qa(t){document.getElementById('aiIn').value=t;send();}
+function send(){
+ var inp=document.getElementById('aiIn');var txt=inp.value.trim();if(!txt)return;
+ var box=document.getElementById('aiMsgs');var u=document.createElement('div');u.className='msg u';u.textContent=txt;box.appendChild(u);inp.value='';box.scrollTop=box.scrollHeight;
+ setTimeout(function(){var b=document.createElement('div');b.className='msg b';b.textContent=ans(txt);box.appendChild(b);box.scrollTop=box.scrollHeight;},400);
 }
-function getAnswer(q){
-  var l=q.toLowerCase();
-  if(l.includes('director')||l.includes('name of')||l.includes('tumuramye')||l.includes('mathias')){
-    return "DIRECTOR - PWFCA:\nName: Tumuramye Mathias\nPhone: 0747695485 - Mbarara District, Uganda\n\nAbout: A young innovator who does well in sciences and I inspire young students to get technological skills to build something like mine and I also inspire young youth to start small online ventures.\n\nHe built this website, MATS AI, and digital notes to help S1-S4 pass with flying colours. Science + technology + hard work = success. Contact WhatsApp 0747695485!";
-  }
-  if(l.includes('photosynthesis')){
-    return "WHAT IS PHOTOSYN
+function ans(q){
+ var l=q.toLowerCase();
+ if(l.includes('director')||l.includes('mathias')||l.includes('tumuramye')||l.includes('name')){
+  return "DIRECTOR: Tumuramye Mathias - Mbarara Uganda 0747695485\n\nAbout: A young innovator who does well in sciences and I inspire young students to get technological skills to build something like mine and I also inspire young youth to start small online ventures.\nHe built this website and MATS AI to help S1-S4 pass. Contact WhatsApp 0747695485";
+ }
+ if(l.includes('photosynthesis')){
+  return "PHOTOSYNTHESIS:\nDefinition: Plants make food using sunlight CO2 water chlorophyll.\nEquation: 6CO2 + 6H2O + sunlight -> C6H12O6 + 6O2\nWhere: Chloroplast in mesophyll.\nStages: Light stage in grana splits water O2+H+ATP, Dark stage Calvin in stroma CO2+H+ATP->Glucose.\nNeeds CO2 stomata water xylem light chlorophyll.\nImportance: Food O2 removes CO2 food chain basis.";
+ }
+ if(l.includes('oxygen')||l.includes('o2')){
+  return "MANUFACTURE OF OXYGEN:\nLAB: 2H2O2 --MnO2--> 2H2O + O2. Put MnO2 in flask add H2O2 dropwise collect over water. Test glowing splint relights. Also 2KClO3 --heat MnO2--> 2KCl+3O2.\nINDUSTRIAL: Fractional distillation of liquid air. Filter air compress 200atm cool -200C liquid air. N2 boils -196C O2 -183C. N2 boils first leaves O2 99.5% pure steel cylinders. Also electrolysis 2H2O->2H2+O2.\nUses: Hospitals welding steel rockets.";
+ }
+ if(l.includes('pressure')||l.includes('pascal')){
+  return "PRINCIPLE OF TRANSMISSION OF PRESSURE - PASCAL:\nStatement: Pressure applied to enclosed fluid transmitted equally to all parts and walls.\nBy Blaise Pascal 1653.\nFormula: P=F/A. F1/A1=F2/A2.\nApplications:\n1 Hydraulic Jack: Small force small piston -> large force. Eg A1=2 A2=100 F1=50 -> F2=2500N lifts car!\n2 Hydraulic Brake: Pressure to 4 wheels equally.\n3 Hydraulic Press, Syringe.\nCalc: F1=20 A1=5 Find F2 A2=100? 20/5=F2/100 -> F2=400N.";
+ }
+ if(l.includes('co2')||l.includes('carbon')){
+  return "MANUFACTURE OF CO2:\nLAB: CaCO3 + 2HCl -> CaCl2 + H2O + CO2. Marble chips + HCl flask collect downward delivery heavier than air. Test lime water milky Ca(OH)2+CO2->CaCO3 milky.\nINDUSTRIAL: Heat limestone CaCO3 900C->CaO+CO2, Fermentation C6H12O6->yeast->2C2H5OH+2CO2, Burning C+O2->CO2, Natural wells. Purify water remove HCl dry conc H2SO4 compress dry ice -78C.\nUses: Drinks fire extinguisher dry ice baking greenhouses urea.";
+ }
+ if(l.includes('fertilizer')||l.includes('ammonium')||l.includes('nh4no3')){
+  return "MANUFACTURE AMMONIUM NITRATE NH4NO3 FERTILIZER 35% N:\nSTEP1 HABER: N2+3H2 ->400-500C 200atm Fe->2NH3 N2 from air H2 from CH4+H2O.\nSTEP2 OSTWALD for HNO3: 4NH3+5O2->900C Pt-Rh->4NO+6H2O, 2NO+O2->2NO2, 3NO2+H2O->2HNO3+NO.\nSTEP3: NH3+HNO3->NH4NO3+heat. Evaporate 95% molten prilled spray prilling tower 80m pellets cooled air dried coated clay.\nProperties: White soluble hygroscopic heating 200C->N2O+2H2O laughing gas explodes higher store away heat!\nUses: Fertilizer 35%N, explosives ANFO mining, cold packs. Safety away oil heat can explode.";
+ }
+ if(l.includes('pay')) return "PAY: Single 3K ALL 4 7K Save 5K! Airtel 0747695485 Tumuramye Mathias *185# Then screenshot WhatsApp";
+ return "MATS AI ACTIVATED: Ask:\n- director\n- photosynthesis\n- oxygen\n- pressure principle\n- co2\n- fertilizer\nTap buttons or type!";
+}
+window.onload=function(){
+ var box=document.getElementById('aiMsgs');var d=document.createElement('div');d.className='msg b';
+ d.textContent="Hello! MATS AI FULLY ACTIVATED!\n\nTap:\n- Director\n- Photosynthesis\n- Oxygen manufacture\n- Pressure principle\n- CO2\n- Fertilizer\n\nAll 6 topics added & working!";
+ box.appendChild(d);
+};
+document.getElementById('aiIn').addEventListener('keypress',function(e){if(e.key==='Enter')send();});
+</script>
+<p style="color:#64748b;font-size:10px;margin-top:20px">© 2026 PWFCA | MATS AI Activated All Topics ✅</p>
+</body></html>
