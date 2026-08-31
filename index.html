@@ -153,20 +153,18 @@ h1 {
 .menu a.sign { background: var(--accent-yellow); color: #000; }
 .menu a.ai { background: transparent; color: var(--accent-yellow); border: 2px solid var(--accent-yellow); }
 
-/* Dynamic View Counter Styling */
 .view-counter-container {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   background: rgba(255, 255, 255, 0.05);
   padding: 6px 14px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 8px;
-}
-.view-counter-badge {
-  vertical-align: middle;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 #aiBtn {
@@ -267,9 +265,9 @@ h1 {
 </div>
 
 <div class="view-counter-container">
-  <span style="color:#94a3b8;font-size:12px;font-weight:bold;">👁️ Total Views:</span>
-  <img class="view-counter-badge" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fpwfca-mbarara.academy&count_bg=%23FACC15&title_bg=%230F172A&icon=&icon_color=%23E7E7E7&title=Views&edge_flat=true" alt="Website View Counter"/>
-  <span style="color:#94a3b8;font-size:12px;">| 🤖 MATS AI Activated Working</span>
+  <span style="color:#94a3b8;">👁️ Total Views:</span>
+  <span id="viewCount" style="color:#facc15; background:rgba(250,204,21,0.15); padding:2px 8px; border-radius:10px; border:1px solid var(--accent-yellow);">68</span>
+  <span style="color:#94a3b8;">| 🤖 MATS AI Activated Working</span>
 </div>
 
 <div class="menu">
@@ -318,6 +316,21 @@ h1 {
 </div>
 
 <script>
+// View Counter Script
+(function updateViewCount() {
+  var count = localStorage.getItem('pwfca_views');
+  if (!count) {
+    count = 68; // Starting base value
+  } else {
+    count = parseInt(count) + 1;
+  }
+  localStorage.setItem('pwfca_views', count);
+  var elem = document.getElementById('viewCount');
+  if (elem) {
+    elem.textContent = count + "+";
+  }
+})();
+
 var aiOpen = false;
 function payNow(a,s){ alert('PAY '+a+' FOR '+s+'\nDial *185#\nNumber:0747695485\nName:Tumuramye Mathias'); window.open('https://wa.me/256747695485?text=PAY '+a+' FOR '+s,'_blank'); }
 function openAI(){ document.getElementById('aiBox').style.display='block'; aiOpen=true; }
@@ -389,5 +402,5 @@ document.getElementById('aiInput').addEventListener('keypress', function(e){ if(
 <p style="color:#64748b;font-size:11px;margin-top:35px">© 2026 PWFCA - Mbarara | MATS AI Updated ✅</p>
 
 </body>
-                                             </html>
+                                                                                                                                   </html>
   
