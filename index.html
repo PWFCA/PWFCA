@@ -153,6 +153,22 @@ h1 {
 .menu a.sign { background: var(--accent-yellow); color: #000; }
 .menu a.ai { background: transparent; color: var(--accent-yellow); border: 2px solid var(--accent-yellow); }
 
+/* Dynamic View Counter Styling */
+.view-counter-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 8px;
+}
+.view-counter-badge {
+  vertical-align: middle;
+}
+
 #aiBtn {
   position: fixed;
   bottom: 95px;
@@ -250,7 +266,11 @@ h1 {
 <a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" style="background:#facc15;color:#000;padding:8px 14px;border-radius:20px;text-decoration:none;font-weight:700;font-size:11px;margin:3px;display:inline-block">✅ Sign In</a>
 </div>
 
-<p style="color:#94a3b8;font-size:12px">👁️ Total Views: 68+ | 🤖 MATS AI Activated Working</p>
+<div class="view-counter-container">
+  <span style="color:#94a3b8;font-size:12px;font-weight:bold;">👁️ Total Views:</span>
+  <img class="view-counter-badge" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fpwfca-mbarara.academy&count_bg=%23FACC15&title_bg=%230F172A&icon=&icon_color=%23E7E7E7&title=Views&edge_flat=true" alt="Website View Counter"/>
+  <span style="color:#94a3b8;font-size:12px;">| 🤖 MATS AI Activated Working</span>
+</div>
 
 <div class="menu">
 <a href="#notes">📚 Notes</a>
@@ -369,4 +389,5 @@ document.getElementById('aiInput').addEventListener('keypress', function(e){ if(
 <p style="color:#64748b;font-size:11px;margin-top:35px">© 2026 PWFCA - Mbarara | MATS AI Updated ✅</p>
 
 </body>
-  </html>
+                                             </html>
+  
