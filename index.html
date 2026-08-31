@@ -3,107 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PWFCA - Prince Waiswa Future Champions Academy</title>
+<title>PWFCA & MATS AI | Mathias Tumuramye</title>
 <style>
+  * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; font-family: Arial, sans-serif; background: #f8fafc; color: #111; }
-  header { background: #0b2a4a; color: white; padding: 18px; text-align: center; }
-  header h1 { margin: 0; font-size: 26px; }
-  header p { margin: 6px 0 0; opacity: .9; }
-  .hero { background: linear-gradient(135deg,#0b2a4a,#1565c0); color: white; padding: 50px 20px; text-align: center; }
-  .hero h2 { font-size: 32px; margin: 0 0 10px; }
-  .btn { background: #ff9800; color: white; padding: 12px 22px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; text-decoration: none; display: inline-block; margin: 8px; }
-  .classes { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 16px; padding: 20px; max-width: 1000px; margin: auto; }
-  .card { background: white; border-radius: 12px; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,.08); border-top: 4px solid #1565c0; }
-  .card h3 { margin: 0 0 8px; }
-  .price { font-weight: bold; color: #0b2a4a; margin: 8px 0; }
-  footer { background: #0b2a4a; color: white; text-align: center; padding: 16px; margin-top: 20px; }
-
-  /* Modal Overlay */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
+  body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #f5f7fb; color: #111; line-height: 1.5; }
   
-  /* Modal Box */
-  .modal-content {
-    background: white;
-    padding: 24px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 400px;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  }
-  .modal-content h3 { margin-top: 0; color: #0b2a4a; }
+  header { background: #0b2a4a; color: #fff; padding: 16px; text-align: center; position: sticky; top: 0; z-index: 20; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  
+  .hero { background: linear-gradient(135deg, #0b2a4a, #1e88e5); color: white; padding: 40px 20px; text-align: center; }
+  .hero img { width: 130px; height: 130px; border-radius: 50%; border: 4px solid #ff9800; object-fit: cover; background: white; margin-bottom: 10px; }
+  
+  .btn { background: #ff9800; color: #fff; padding: 11px 20px; border-radius: 10px; text-decoration: none; display: inline-block; margin: 6px; font-weight: bold; border: none; cursor: pointer; transition: transform 0.2s, background 0.2s; }
+  .btn:hover { transform: translateY(-2px); opacity: 0.95; }
+  .btn-blue { background: #1e88e5; } 
+  .btn-green { background: #00c853; }
+  
+  .section { max-width: 1100px; margin: auto; padding: 25px 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  
+  .card { background: white; border-radius: 14px; padding: 18px; box-shadow: 0 6px 18px rgba(0,0,0,.08); border-left: 5px solid #1e88e5; transition: transform 0.2s; }
+  .card:hover { transform: translateY(-4px); }
+  
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
+  .tab { padding: 10px 18px; background: #e3eaf3; border-radius: 20px; cursor: pointer; font-weight: bold; border: 2px solid transparent; transition: 0.2s; }
+  .tab.active { background: #0b2a4a; color: white; border-color: #0b2a4a; }
+  
+  .noteBox { background: white; border-radius: 14px; padding: 20px; box-shadow: 0 6px 18px rgba(0,0,0,.08); min-height: 250px; }
+  .noteBox h3 { margin-top: 0; color: #0b2a4a; }
+  .note { display: none; } 
+  .note.active { display: block; }
+  
+  .mats { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,.12); border-top: 6px solid #ff9800; max-width: 700px; margin: 20px auto; }
+  .mats textarea { width: 100%; height: 90px; padding: 12px; border: 2px solid #ddd; border-radius: 10px; font-family: inherit; font-size: 14px; box-sizing: border-box; }
+  .mats textarea:focus { border-color: #1e88e5; outline: none; }
+  
+  .exchanger { background: white; border-radius: 16px; padding: 18px; max-width: 500px; margin: 20px auto; box-shadow: 0 6px 20px rgba(0,0,0,.1); border-top: 6px solid #00c853; }
+  .exchanger input { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 10px; margin: 6px 0; font-size: 15px; }
+  
+  footer { background: #0b2a4a; color: #fff; text-align: center; padding: 18px; margin-top: 40px; }
+  
+  .wa { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 99; }
+  
+  /* Modal Overlay */
+  .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); justify-content: center; align-items: center; z-index: 1000; }
+  .modal-content { background: white; padding: 24px; border-radius: 14px; width: 90%; max-width: 420px; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.25); }
   .close-btn { position: absolute; top: 12px; right: 16px; font-size: 24px; cursor: pointer; border: none; background: none; }
   .form-group { margin-bottom: 14px; text-align: left; }
   .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
-  .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
-  .submit-btn { width: 100%; background: #25D366; color: white; border: none; padding: 12px; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; }
+  .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>PWFCA</h1>
-  <p>Prince Waiswa Future Champions Academy - Mbarara, Uganda</p>
+  <h1 style="margin:0;font-size:20px">PWFCA & MATS AI</h1>
+  <small>Director: Mathias Tumuramye | Mbarara, Uganda</small>
 </header>
 
 <div class="hero">
-  <h2>Learn. Innovate. Become a Champion.</h2>
-  <p>Offline & Online classes for S1 - S4 | Biology, Chemistry, Math, ICT & Programming</p>
-  <button class="btn" onclick="openModal()">Join on WhatsApp</button>
-  <a class="btn" style="background:white;color:#0b2a4a" href="#classes">View Classes</a>
+  <img src="https://via.placeholder.com/130?text=Mathias" alt="Mathias Tumuramye">
+  <h2 style="margin:8px 0 4px">Mathias Tumuramye</h2>
+  <p style="margin:0 0 14px">Founder PWFCA | Creator MATS AI</p>
+  <a class="btn" href="#notes">View Notes</a>
+  <a class="btn btn-blue" href="#mats">MATS AI</a>
+  <a class="btn btn-green" href="#classes">Join 10K</a>
 </div>
 
-<section id="classes" class="classes">
-  <div class="card">
-    <h3>S1 Science Foundation</h3>
-    <p>Biology, Chemistry, Mathematics basics + computer literacy.</p>
-    <div class="price">10,000 UGX / Month</div>
-    <button class="btn" onclick="openModal('S1 Science Foundation')">Enroll S1</button>
+<div class="section" id="mats">
+  <div class="mats">
+    <h3 style="margin-top:0;text-align:center">🤖 MATS AI Assistant</h3>
+    <textarea id="q" placeholder="Ask e.g: What is photosynthesis? What is an acid?"></textarea>
+    <button class="btn btn-blue" style="width:100%;margin:10px 0 0 0;" onclick="askMats()">Ask MATS AI</button>
+    <div id="ans" style="background:#f8fafc;padding:14px;border-radius:8px;margin-top:12px;min-height:50px;border:1px solid #e2e8f0">
+      <i>Ask any question above to get an instant answer...</i>
+    </div>
   </div>
-  <div class="card">
-    <h3>S2 Champion Level</h3>
-    <p>Intermediate sciences, practical experiments, coding intro.</p>
-    <div class="price">10,000 UGX / Month</div>
-    <button class="btn" onclick="openModal('S2 Champion Level')">Enroll S2</button>
-  </div>
-  <div class="card">
-    <h3>S3 Advanced</h3>
-    <p>UNEB preparation, advanced ICT, innovation projects.</p>
-    <div class="price">10,000 UGX / Month</div>
-    <button class="btn" onclick="openModal('S3 Advanced')">Enroll S3</button>
-  </div>
-  <div class="card">
-    <h3>S4 Finalists</h3>
-    <p>Full UNEB revision, past papers, programming & AI basics.</p>
-    <div class="price">10,000 UGX / Month</div>
-    <button class="btn" onclick="openModal('S4 Finalists')">Enroll S4</button>
-  </div>
-</section>
+</div>
 
-<div style="text-align:center;padding:20px">
-  <h3>How to Pay?</h3>
-  <p>Pay via MTN MoMo / Airtel Money to: <b>07XX XXX XXX - Prince Waiswa</b></p>
-  <p>After payment, send screenshot on WhatsApp to get access.</p>
+<div class="section" id="classes">
+  <h2>🎓 Classes - 10,000 UGX / Month</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>S1 Science Foundation</h3>
+      <p>Biology, Chemistry, Maths & Basic Computing.</p>
+      <div style="font-weight:bold;color:#0b2a4a;margin-bottom:8px">10,000 UGX</div>
+      <button class="btn" onclick="openEnrollModal('S1 Science Foundation')">Enroll S1</button>
+    </div>
+    <div class="card">
+      <h3>S2 Champion Level</h3>
+      <p>Intermediate Sciences, Experiments & Coding Intro.</p>
+      <div style="font-weight:bold;color:#0b2a4a;margin-bottom:8px">10,000 UGX</div>
+      <button class="btn" onclick="openEnrollModal('S2 Champion Level')">Enroll S2</button>
+    </div>
+    <div class="card">
+      <h3>S3 Advanced</h3>
+      <p>UNEB Preparation, Advanced ICT & Projects.</p>
+      <div style="font-weight:bold;color:#0b2a4a;margin-bottom:8px">10,000 UGX</div>
+      <button class="btn" onclick="openEnrollModal('S3 Advanced')">Enroll S3</button>
+    </div>
+    <div class="card">
+      <h3>S4 Finalists</h3>
+      <p>Full UNEB Revision, Past Papers & AI Basics.</p>
+      <div style="font-weight:bold;color:#0b2a4a;margin-bottom:8px">10,000 UGX</div>
+      <button class="btn" onclick="openEnrollModal('S4 Finalists')">Enroll S4</button>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="notes">
+  <h2>📚 View Notes Tab</h2>
+  <div class="tabs">
+    <div class="tab active" onclick="openNote('s1',this)">S1 Notes</div>
+    <div class="tab" onclick="openNote('s2',this)">S2 Notes</div>
+    <div class="tab" onclick="openNote('s3',this)">S3 Notes</div>
+    <div class="tab" onclick="openNote('s4',this)">S4 Notes</div>
+    <div class="tab" onclick="openNote('ict',this)">ICT & Coding</div>
+  </div>
+
+  <div class="noteBox">
+    <div id="s1" class="note active">
+      <h3>S1 Notes - Science Foundation</h3>
+      <p><b>Biology:</b> Introduction to cells - A cell is the basic unit of life. Types: Plant and animal cells.</p>
+      <p><b>Chemistry:</b> States of matter - Solid, Liquid, Gas. Properties and phase changes.</p>
+      <p><b>Maths:</b> Sets, operations, and real number systems.</p>
+      <button class="btn btn-blue" onclick="alert('PDF module requesting... Contact Director Mathias on WhatsApp.')">Download S1 PDF</button>
+    </div>
+    <div id="s2" class="note">
+      <h3>S2 Notes - Champion Level</h3>
+      <p><b>Biology:</b> Nutrition - Carbohydrates, proteins, fats, vitamins, and balanced diets.</p>
+      <p><b>Chemistry:</b> Acids, Bases and Salts - pH scale, indicators, and neutralization.</p>
+      <p><b>Physics:</b> Simple machines - Levers, pulleys, and mechanical advantage.</p>
+      <button class="btn btn-blue" onclick="alert('PDF module requesting... Contact Director Mathias on WhatsApp.')">Download S2 PDF</button>
+    </div>
+    <div id="s3" class="note">
+      <h3>S3 Notes - Advanced</h3>
+      <p><b>Biology:</b> Genetics, DNA structure, and human reproduction.</p>
+      <p><b>Chemistry:</b> Carbon and its compounds, organic chemistry basics.</p>
+      <p><b>ICT:</b> Web Development & HTML basics by Mathias Tumuramye.</p>
+      <button class="btn btn-blue" onclick="alert('PDF module requesting... Contact Director Mathias on WhatsApp.')">Download S3 PDF</button>
+    </div>
+    <div id="s4" class="note">
+      <h3>S4 Notes - Finalist UNEB</h3>
+      <p><b>UNEB Revision:</b> Comprehensive question bank with detailed marking guides.</p>
+      <p><b>Past Papers:</b> Solved UNEB past papers (2020–2025) integrated with MATS AI hints.</p>
+      <button class="btn btn-blue" onclick="alert('PDF module requesting... Contact Director Mathias on WhatsApp.')">Download S4 PDF</button>
+    </div>
+    <div id="ict" class="note">
+      <h3>ICT & Programming - MATS AI Project</h3>
+      <p><b>HTML, CSS, JavaScript, Python:</b> Authored by Director Mathias Tumuramye.</p>
+      <p><b>Lesson 1:</b> How to build and deploy a responsive web portal.</p>
+      <p><b>Lesson 2:</b> Introduction to AI algorithms & building MATS AI assistant.</p>
+      <button class="btn btn-green" onclick="window.open('https://wa.me/256700000000?text=I%20want%20access%20to%20Coding%20Videos','_blank')">View Coding Videos</button>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="exchanger">
+    <h3 style="text-align:center;margin-top:0">💱 UGX → USDT Calculator</h3>
+    <input type="number" id="ugx" placeholder="Enter UGX Amount" oninput="convert('ugx')">
+    <input type="number" id="usdt" placeholder="Enter USDT Amount" oninput="convert('usdt')">
+    <p id="rateInfo" style="text-align:center;font-weight:bold;color:#0b2a4a;margin:10px 0"></p>
+    <button class="btn btn-green" style="width:100%" onclick="requestEx()">Exchange on WhatsApp</button>
+  </div>
 </div>
 
 <footer>
-  <p>© 2026 PWFCA | Mbarara, Uganda | Director: Prince Waiswa</p>
+  © 2026 PWFCA & MATS AI | Mathias Tumuramye | 10K per class | Mbarara, Uganda
 </footer>
+
+<a class="wa" href="https://wa.me/256700000000" target="_blank" title="Chat on WhatsApp">💬</a>
 
 <div id="regModal" class="modal-overlay">
   <div class="modal-content">
     <button class="close-btn" onclick="closeModal()">&times;</button>
-    <h3>Student Registration</h3>
-    <form id="enrollmentForm" onsubmit="sendToWhatsApp(event)">
+    <h3 style="margin-top:0;color:#0b2a4a">Student Registration</h3>
+    <form id="enrollmentForm" onsubmit="submitEnrollment(event)">
       <div class="form-group">
         <label for="fullName">Full Name</label>
         <input type="text" id="fullName" placeholder="Enter full name" required>
@@ -115,22 +191,72 @@
       <div class="form-group">
         <label for="selectedClass">Select Class</label>
         <select id="selectedClass" required>
-          <option value="">-- Choose Class --</option>
+          <option value="">-- Select Class --</option>
           <option value="S1 Science Foundation">S1 Science Foundation</option>
           <option value="S2 Champion Level">S2 Champion Level</option>
           <option value="S3 Advanced">S3 Advanced</option>
           <option value="S4 Finalists">S4 Finalists</option>
         </select>
       </div>
-      <button type="submit" class="submit-btn">Proceed to WhatsApp</button>
+      <button type="submit" class="btn btn-green" style="width:100%;margin:0">Proceed to WhatsApp</button>
     </form>
   </div>
 </div>
 
 <script>
-  const directorWhatsApp = "256700000000"; // Replace with your phone number
+  const DIRECTOR_WA = "256700000000"; // Director's WhatsApp number
+  const RATE = 3850; // Exchange rate: 1 USDT = 3850 UGX
 
-  function openModal(className = '') {
+  // --- TAB NAVIGATION ---
+  function openNote(id, el) {
+    document.querySelectorAll('.note').forEach(n => n.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    el.classList.add('active');
+  }
+
+  // --- CURRENCY CONVERTER ---
+  function convert(source) {
+    let ugxInput = document.getElementById('ugx');
+    let usdtInput = document.getElementById('usdt');
+    let rateInfo = document.getElementById('rateInfo');
+
+    if (source === 'ugx') {
+      let val = parseFloat(ugxInput.value);
+      if (val > 0) {
+        let converted = (val / RATE).toFixed(2);
+        usdtInput.value = converted;
+        rateInfo.innerText = val.toLocaleString() + ' UGX = ' + converted + ' USDT';
+      } else {
+        usdtInput.value = '';
+        rateInfo.innerText = '';
+      }
+    } else {
+      let val = parseFloat(usdtInput.value);
+      if (val > 0) {
+        let converted = Math.round(val * RATE);
+        ugxInput.value = converted;
+        rateInfo.innerText = val + ' USDT = ' + converted.toLocaleString() + ' UGX';
+      } else {
+        ugxInput.value = '';
+        rateInfo.innerText = '';
+      }
+    }
+  }
+
+  function requestEx() {
+    let ugxVal = document.getElementById('ugx').value;
+    let usdtVal = document.getElementById('usdt').value;
+    if (!ugxVal || !usdtVal) {
+      alert("Please enter an amount to convert first.");
+      return;
+    }
+    let msg = `Hello Director Mathias,%0A%0AI would like to exchange currency:%0A*UGX:* ${ugxVal}%0A*USDT:* ${usdtVal}`;
+    window.open(`https://wa.me/${DIRECTOR_WA}?text=${msg}`, '_blank');
+  }
+
+  // --- MODAL & REGISTRATION ---
+  function openEnrollModal(className = '') {
     document.getElementById('regModal').style.display = 'flex';
     if (className) {
       document.getElementById('selectedClass').value = className;
@@ -141,26 +267,55 @@
     document.getElementById('regModal').style.display = 'none';
   }
 
-  // Close modal when clicking outside the box
   window.onclick = function(event) {
     const modal = document.getElementById('regModal');
-    if (event.target === modal) {
-      closeModal();
-    }
+    if (event.target === modal) closeModal();
   };
 
-  function sendToWhatsApp(event) {
+  function submitEnrollment(event) {
     event.preventDefault();
     const name = document.getElementById('fullName').value;
     const phone = document.getElementById('phone').value;
     const classVal = document.getElementById('selectedClass').value;
 
-    const message = `Hello Director Waiswa,%0A%0AI would like to register for PWFCA.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Class:* ${encodeURIComponent(classVal)}`;
-    
-    window.open(`https://wa.me/${directorWhatsApp}?text=${message}`, '_blank');
+    const msg = `Hello Director Mathias,%0A%0AI would like to enroll in PWFCA.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Class:* ${encodeURIComponent(classVal)}`;
+    window.open(`https://wa.me/${DIRECTOR_WA}?text=${msg}`, '_blank');
     closeModal();
   }
-</script>
 
+  // --- MATS AI ENGINE ---
+  const aiKnowledge = {
+    "photosynthesis": "<b>Photosynthesis</b> is the process by which green plants use sunlight, carbon dioxide, and water to synthesize nutrients (glucose) and release oxygen.",
+    "acid": "An <b>Acid</b> is a chemical substance with a pH less than 7 that donates hydrogen ions (H+) in aqueous solutions. Examples include HCl and H2SO4.",
+    "base": "A <b>Base</b> is a substance with a pH greater than 7 that reacts with acids to form salt and water. Examples include Sodium Hydroxide (NaOH).",
+    "cell": "A <b>Cell</b> is the basic structural, functional, and biological unit of all known living organisms.",
+    "html": "<b>HTML</b> (HyperText Markup Language) is the standard markup language used to structure and display pages on the World Wide Web.",
+    "machine": "A <b>Simple Machine</b> is a mechanical device that changes the direction or magnitude of a force (e.g., levers, pulleys, inclined planes)."
+  };
+
+  function askMats() {
+    let query = document.getElementById('q').value.trim();
+    let ansBox = document.getElementById('ans');
+
+    if (!query) {
+      ansBox.innerHTML = '<span style="color:red">Please enter a question first!</span>';
+      return;
+    }
+
+    ansBox.innerHTML = '🤖 <i>MATS AI is analyzing your query...</i>';
+
+    setTimeout(() => {
+      let lowerQ = query.toLowerCase();
+      let matchedKey = Object.keys(aiKnowledge).find(key => lowerQ.includes(key));
+
+      if (matchedKey) {
+        ansBox.innerHTML = `<b>MATS AI:</b> ${aiKnowledge[matchedKey]}`;
+      } else {
+        ansBox.innerHTML = `<b>MATS AI Answer:</b><br>"${query}" is an excellent question! In the full PWFCA syllabus, this topic is covered under our advanced modules. Contact <b>Director Mathias Tumuramye</b> on WhatsApp for step-by-step notes and video guidance.`;
+      }
+    }, 600);
+  }
+</script>
 </body>
-</html>
+      </html>
+                               
