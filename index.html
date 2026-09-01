@@ -30,14 +30,12 @@
       padding-bottom: 100px;
     }
 
-    /* Container */
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* Header & Navigation */
     header {
       background: rgba(15, 23, 42, 0.9);
       backdrop-filter: blur(10px);
@@ -62,10 +60,6 @@
       font-size: 1.1rem;
       color: var(--accent);
       text-decoration: none;
-    }
-
-    .brand-icon {
-      font-size: 1.4rem;
     }
 
     .nav-actions {
@@ -97,7 +91,6 @@
     .btn-whatsapp:hover { background: var(--whatsapp-hover); }
     .btn-danger { background: #ef4444; color: #fff; }
 
-    /* Hero Section */
     .hero {
       text-align: center;
       padding: 40px 0 20px;
@@ -138,7 +131,6 @@
       font-size: 0.95rem;
     }
 
-    /* Sub-bar Stats & Quick Links */
     .quick-bar {
       display: flex;
       flex-wrap: wrap;
@@ -152,7 +144,6 @@
       border: 1px solid #334155;
     }
 
-    /* Trick Banner */
     .banner-trick {
       background: linear-gradient(90deg, #1e293b, #0f172a);
       border: 1px solid var(--accent);
@@ -166,7 +157,6 @@
       gap: 10px;
     }
 
-    /* Grid layouts */
     .section-title {
       font-size: 1.3rem;
       font-weight: 700;
@@ -188,7 +178,6 @@
       gap: 16px;
     }
 
-    /* Cards */
     .card {
       background: var(--card-bg);
       border: 1px solid #334155;
@@ -223,12 +212,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      transition: background 0.2s ease;
     }
 
     .pdf-btn:hover { background: rgba(255, 255, 255, 0.1); }
 
-    /* Pricing Section */
     .pricing-card {
       background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
       border: 2px solid var(--accent);
@@ -261,7 +248,6 @@
       margin: 10px 0;
     }
 
-    /* Floating AI Button & Chat Box */
     #aiBtn {
       position: fixed;
       bottom: 25px;
@@ -404,7 +390,6 @@
       cursor: pointer;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       margin-top: 50px;
@@ -438,9 +423,12 @@
     </section>
 
     <div class="quick-bar">
-      <span style="font-size: 0.85rem; color: var(--text-muted);">👁️ Total Views: <strong>68+</strong></span>
+      <span style="font-size: 0.85rem; color: var(--text-muted);">
+        👁️ Live Website Views: <strong id="viewCounter" style="color: var(--accent);">Loading...</strong>
+      </span>
       <span style="font-size: 0.85rem; color: var(--text-muted);">|</span>
-      <button class="btn btn-outline" onclick="openAI()">🤖 Open MATS AI Assistant</button>
+      <span style="font-size: 0.85rem; color: #4ade80;">🤖 MATS AI: <strong>ONLINE & ACTIVATED</strong></span>
+      <button class="btn btn-outline" onclick="openAI()">🤖 Open MATS AI Chat</button>
       <a href="#paytab" class="btn btn-danger">💰 Pricing Plans</a>
     </div>
 
@@ -527,7 +515,7 @@
     <div id="aiHead">
       <div>
         <strong>🤖 MATS AI Assistant</strong>
-        <small>PWFCA Virtual Teacher</small>
+        <small>PWFCA Virtual Teacher (Activated)</small>
       </div>
       <button class="close-ai" onclick="closeAI()">✕</button>
     </div>
@@ -554,6 +542,25 @@
 
   <script>
     var aiOpen = false;
+
+    // View Counter Logic (Live API + Local Storage fallback)
+    function updateCounter() {
+      var views = localStorage.getItem('pwfca_views') || 68;
+      views = parseInt(views) + 1;
+      localStorage.setItem('pwfca_views', views);
+      document.getElementById('viewCounter').textContent = views + ' views';
+      
+      // Fetch live counter from public API
+      fetch('https://api.countapi.xyz/hit/pwfca-mats-ai/views')
+        .then(response => response.json())
+        .then(data => {
+          if(data && data.value) {
+            document.getElementById('viewCounter').textContent = (data.value + 68) + ' views';
+          }
+        }).catch(err => {
+          // Keep localstorage fallback if offline
+        });
+    }
 
     function payNow(amount, subject) {
       alert('PAY ' + amount + ' FOR ' + subject + '\nDial *185#\nNumber: 0747695485\nName: Tumuramye Mathias');
@@ -617,5 +624,8 @@
       }
 
       if (l.indexOf('oxygen') !== -1) {
-        return "MANUFACTURE OF OXYGEN:\nLAB: 2H2O2 -> MnO2 -> 2H2O + O2. Put MnO2 in flask add H2O2 dropwise O2 bubbles collect over water. Test glowing splint relights.\nAlso 2KClO3 -> heat+MnO2 -> 2KCl + 3O2\nINDUSTRIAL: Fractional distillation of liquid air. Filter air, compress 200 atm cool -200C -> liquid air. N2 boils -196C O2 -183C. N2 boils first leaves O2 99.5% pure in steel cylinders. Also electrolysis 2H2O -> 2H2 + O2\nUses: Hospitals, welding, steel,
-                            
+        return "MANUFACTURE OF OXYGEN:\nLAB: 2H2O2 -> MnO2 -> 2H2O + O2. Put MnO2 in flask add H2O2 dropwise O2 bubbles collect over water. Test glowing splint relights.\nAlso 2KClO3 -> heat+MnO2 -> 2KCl + 3O2\nINDUSTRIAL: Fractional distillation of liquid air. Filter air, compress 200 atm cool -200C -> liquid air. N2 boils -196C O2 -183C. N2 boils first leaves O2 99.5% pure in steel cylinders. Also electrolysis 2H2O -> 2H2 + O2\nUses: Hospitals, welding, steel, rockets.";
+      }
+
+      if (l.indexOf('carbon dioxide') !== -1 || l.indexOf('co2') !== -1 || (l.indexOf('carbon') !== -1 && l.indexOf('dioxide') !== -1)) {
+        return "MANUFACTURE OF CARBON DIOXIDE - MATS AI:\n\nLAB PREPARATION:\nCaCO3 + 2HCl -> CaCl2 + H2O + CO2\nCalcium carbonate (marble chips) + hydrochloric acid -> CO2\nProced
