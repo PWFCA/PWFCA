@@ -7,81 +7,324 @@
 <title>PWFCA - MATS AI Working</title>
 
 <style>
+
+/* =====================================================
+   PWFCA BLUE + YELLOW PROFESSIONAL DESIGN
+   ===================================================== */
+
+:root{
+--blue:#063b8f;
+--darkblue:#031f4f;
+--blue2:#0b5ed7;
+--yellow:#ffd21a;
+--lightyellow:#fff7bf;
+--white:#ffffff;
+--lightblue:#eaf3ff;
+--text:#111827;
+}
+
+/* BODY */
+
 body{
 margin:0;
-background:#0f172a;
+background:
+radial-gradient(circle at 10% 10%,rgba(11,94,215,.25),transparent 25%),
+radial-gradient(circle at 90% 90%,rgba(255,210,26,.18),transparent 25%),
+linear-gradient(135deg,#021633,#063b8f 50%,#031f4f);
 color:#fff;
-font-family:Arial;
+font-family:Arial,sans-serif;
 text-align:center;
 padding:10px;
 padding-bottom:120px;
 overflow-x:hidden;
 }
 
-/* ================= SHINY ADDITIONS ================= */
-
-body:before{
-content:"";
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at 10% 20%,rgba(250,204,21,.12),transparent 25%),
-radial-gradient(circle at 90% 80%,rgba(22,163,74,.12),transparent 25%);
-pointer-events:none;
-z-index:-2;
-}
-
-.glowTitle{
-animation:titleGlow 2s infinite alternate;
-text-shadow:0 0 8px #facc15,0 0 20px rgba(250,204,21,.5);
-}
-
-@keyframes titleGlow{
-from{filter:brightness(1)}
-to{filter:brightness(1.35)}
-}
+/* =====================================================
+   HEADER
+   ===================================================== */
 
 .pic{
 width:135px;
 height:135px;
 border-radius:50%;
-border:4px solid #facc15;
+border:5px solid var(--yellow);
 margin:12px auto;
 display:block;
 background:#fff;
 object-fit:cover;
-box-shadow:0 0 15px #facc15,0 0 35px rgba(250,204,21,.45);
-animation:logoFloat 3s ease-in-out infinite;
+
+box-shadow:
+0 0 10px var(--yellow),
+0 0 30px rgba(255,210,26,.55),
+0 0 60px rgba(11,94,215,.5);
+
+animation:floatLogo 3s ease-in-out infinite;
 }
 
-@keyframes logoFloat{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-7px)}
+@keyframes floatLogo{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-8px);
+}
+}
+
+h1{
+color:var(--yellow)!important;
+text-shadow:
+0 0 8px rgba(255,210,26,.8),
+0 0 20px rgba(255,210,26,.5);
+animation:titleGlow 2s infinite alternate;
+}
+
+@keyframes titleGlow{
+from{
+text-shadow:0 0 5px rgba(255,210,26,.5);
+}
+to{
+text-shadow:
+0 0 10px var(--yellow),
+0 0 30px rgba(255,210,26,.6);
+}
 }
 
 .badge{
-background:#16a34a;
-color:#fff;
-padding:7px 15px;
-border-radius:20px;
+background:var(--yellow);
+color:#001a42;
+padding:8px 16px;
+border-radius:25px;
 font-size:12px;
 font-weight:bold;
 display:inline-block;
-box-shadow:0 0 15px rgba(22,163,74,.55);
+box-shadow:0 0 15px rgba(255,210,26,.45);
 }
 
-.card{
-background:#fff;
-color:#111;
-border-radius:16px;
-padding:14px;
-margin:12px auto;
+/* =====================================================
+   TOP BUTTONS
+   ===================================================== */
+
+.topButton{
+display:inline-block;
+padding:8px 12px;
+border-radius:22px;
+text-decoration:none;
+font-weight:bold;
+font-size:10px;
+margin:2px;
+transition:.25s;
+}
+
+.adminButton{
+background:var(--darkblue);
+color:var(--yellow);
+border:2px solid var(--yellow);
+}
+
+.whatsappButton{
+background:#0b7d3b;
+color:white;
+}
+
+.signButton{
+background:var(--yellow);
+color:#001a42;
+}
+
+.topButton:hover{
+transform:translateY(-3px) scale(1.03);
+box-shadow:0 7px 20px rgba(0,0,0,.3);
+}
+
+/* =====================================================
+   SHINY WELCOME PANEL
+   ===================================================== */
+
+.shinyPanel{
 max-width:600px;
-text-align:left;
-box-shadow:0 8px 25px rgba(0,0,0,.3);
-transition:.3s;
+margin:15px auto;
+padding:20px;
+border-radius:20px;
+
+background:
+linear-gradient(
+135deg,
+rgba(11,94,215,.9),
+rgba(3,31,79,.95)
+);
+
+border:2px solid var(--yellow);
+
+box-shadow:
+0 0 20px rgba(255,210,26,.25),
+0 10px 35px rgba(0,0,0,.35);
+
 position:relative;
 overflow:hidden;
+}
+
+.shinyPanel:after{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:60%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.2),
+transparent
+);
+transform:skewX(-20deg);
+animation:panelShine 4s infinite;
+}
+
+@keyframes panelShine{
+0%{left:-120%}
+55%,100%{left:150%}
+}
+
+.shinyPanel h2{
+margin:3px;
+color:var(--yellow);
+font-size:20px;
+}
+
+.shinyPanel p{
+font-size:12px;
+color:#e5efff;
+line-height:1.5;
+}
+
+.status{
+display:inline-flex;
+align-items:center;
+gap:7px;
+background:#042b19;
+color:#55ef89;
+padding:7px 14px;
+border-radius:20px;
+font-size:10px;
+font-weight:bold;
+}
+
+.statusDot{
+width:9px;
+height:9px;
+background:#22c55e;
+border-radius:50%;
+box-shadow:0 0 12px #22c55e;
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:.3;
+}
+}
+
+/* =====================================================
+   MENU
+   ===================================================== */
+
+.menu{
+display:flex;
+gap:6px;
+background:var(--white);
+padding:7px;
+border-radius:35px;
+max-width:600px;
+margin:12px auto;
+
+box-shadow:
+0 8px 30px rgba(0,0,0,.35),
+0 0 20px rgba(255,210,26,.15);
+}
+
+.menu a{
+flex:1;
+background:var(--blue);
+color:#fff;
+padding:11px 4px;
+border-radius:25px;
+text-decoration:none;
+font-weight:bold;
+font-size:11px;
+text-align:center;
+transition:.25s;
+}
+
+.menu a:hover{
+transform:translateY(-3px);
+box-shadow:0 5px 15px rgba(6,59,143,.5);
+}
+
+.menu a.pay{
+background:var(--yellow);
+color:#001a42;
+}
+
+.menu a.sign{
+background:var(--blue2);
+color:#fff;
+}
+
+.menu a.ai{
+background:var(--darkblue);
+color:var(--yellow);
+border:2px solid var(--yellow);
+}
+
+/* =====================================================
+   NOTICE
+   ===================================================== */
+
+.notice{
+background:var(--lightyellow);
+color:#001a42;
+border:3px solid var(--yellow);
+border-radius:16px;
+padding:14px;
+max-width:600px;
+margin:14px auto;
+
+box-shadow:
+0 8px 25px rgba(0,0,0,.25),
+0 0 15px rgba(255,210,26,.2);
+}
+
+.whatsapp{
+background:#0b7d3b;
+color:#fff;
+padding:10px 15px;
+border-radius:22px;
+text-decoration:none;
+font-weight:bold;
+display:inline-block;
+margin-top:8px;
+}
+
+/* =====================================================
+   SUBJECT CARDS
+   ===================================================== */
+
+.card{
+background:rgba(255,255,255,.98);
+color:var(--text);
+border-radius:18px;
+padding:15px;
+margin:14px auto;
+max-width:600px;
+text-align:left;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.3);
+
+position:relative;
+overflow:hidden;
+
+transition:.3s;
 }
 
 .card:before{
@@ -90,42 +333,61 @@ position:absolute;
 top:0;
 left:-100%;
 width:60%;
-height:3px;
-background:linear-gradient(90deg,transparent,#facc15,transparent);
-animation:shineLine 3s infinite;
+height:4px;
+
+background:linear-gradient(
+90deg,
+transparent,
+var(--yellow),
+transparent
+);
+
+animation:cardShine 3s infinite;
 }
 
-@keyframes shineLine{
+@keyframes cardShine{
 0%{left:-100%}
 60%,100%{left:140%}
 }
 
 .card:hover{
-transform:translateY(-4px);
-box-shadow:0 12px 35px rgba(250,204,21,.25);
+transform:translateY(-5px);
+box-shadow:
+0 15px 35px rgba(0,0,0,.4),
+0 0 15px rgba(255,210,26,.25);
 }
 
+.card h3{
+color:var(--blue);
+margin-top:3px;
+}
+
+/* VIEW BUTTON */
+
 .green{
-background:#16a34a;
-color:#fff;
+background:var(--blue);
+color:white;
 padding:12px;
-border-radius:10px;
+border-radius:11px;
 display:block;
 text-align:center;
 text-decoration:none;
-margin:7px 0;
+margin:8px 0;
 font-weight:bold;
 transition:.25s;
 }
 
 .green:hover{
+background:var(--blue2);
 transform:scale(1.02);
-box-shadow:0 0 15px rgba(22,163,74,.6);
+box-shadow:0 0 15px rgba(11,94,215,.5);
 }
 
+/* PAYMENT BUTTON */
+
 .red{
-background:#ff0000;
-color:#fff;
+background:var(--yellow);
+color:#001a42;
 border:none;
 width:100%;
 padding:13px;
@@ -138,69 +400,144 @@ transition:.25s;
 
 .red:hover{
 transform:scale(1.03);
-box-shadow:0 0 20px rgba(255,0,0,.5);
+box-shadow:
+0 0 15px rgba(255,210,26,.7);
 }
 
-.menu{
-display:flex;
-gap:5px;
-background:rgba(255,255,255,.96);
-padding:6px;
-border-radius:30px;
+/* =====================================================
+   PROGRESS
+   ===================================================== */
+
+.progressBox{
 max-width:600px;
-margin:10px auto;
-box-shadow:0 8px 25px rgba(0,0,0,.3);
+margin:14px auto;
+text-align:left;
 }
 
-.menu a{
-flex:1;
-background:#0f172a;
-color:#fff;
-padding:10px 4px;
-border-radius:20px;
-text-decoration:none;
-font-weight:bold;
+.progressText{
 font-size:11px;
-text-align:center;
-transition:.25s;
+color:#dbeafe;
+margin-bottom:6px;
 }
 
-.menu a:hover{
-transform:translateY(-2px);
-filter:brightness(1.2);
+.progress{
+height:11px;
+background:#102d5b;
+border-radius:20px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.15);
 }
 
-.menu a.pay{background:#ff0000}
-.menu a.sign{background:#facc15;color:#000}
-.menu a.ai{background:#0f172a;color:#facc15;border:2px solid #facc15}
+.progressBar{
+height:100%;
+width:68%;
 
-/* SHINY AI BUTTON */
+background:linear-gradient(
+90deg,
+var(--blue2),
+var(--yellow)
+);
+
+border-radius:20px;
+
+box-shadow:
+0 0 12px rgba(255,210,26,.7);
+
+animation:progressGlow 2s infinite alternate;
+}
+
+@keyframes progressGlow{
+from{
+filter:brightness(.9);
+}
+to{
+filter:brightness(1.3);
+}
+}
+
+/* CLOCK */
+
+#clock{
+font-size:10px;
+color:#c7dcff;
+margin:8px;
+}
+
+/* =====================================================
+   PAY TAB
+   ===================================================== */
+
+.payTab{
+background:
+linear-gradient(
+135deg,
+var(--yellow),
+#ffe978
+);
+
+border:4px solid var(--blue)!important;
+text-align:center!important;
+}
+
+.payTab h2{
+color:#001a42!important;
+}
+
+/* =====================================================
+   AI BUTTON
+   ===================================================== */
+
 #aiBtn{
 position:fixed;
 bottom:95px;
 right:20px;
-background:#facc15;
+
+background:var(--yellow);
+
 width:70px;
 height:70px;
+
 border-radius:50%;
-border:4px solid #fff;
+
+border:4px solid white;
+
 font-size:35px;
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 cursor:pointer;
+
 z-index:999999;
-box-shadow:0 4px 20px rgba(0,0,0,.5),0 0 25px rgba(250,204,21,.7);
+
+box-shadow:
+0 5px 25px rgba(0,0,0,.5),
+0 0 25px rgba(255,210,26,.8);
+
 animation:aiPulse 2s infinite;
 }
 
 @keyframes aiPulse{
-0%{transform:scale(1);box-shadow:0 0 0 0 rgba(250,204,21,.7)}
-70%{transform:scale(1.08);box-shadow:0 0 0 18px rgba(250,204,21,0)}
-100%{transform:scale(1);box-shadow:0 0 0 0 rgba(250,204,21,0)}
+
+0%{
+transform:scale(1);
 }
 
-/* AI WINDOW */
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* =====================================================
+   AI BOX
+   ===================================================== */
+
 #aiBox{
 position:fixed;
 bottom:170px;
@@ -208,28 +545,54 @@ right:8px;
 left:8px;
 margin:auto;
 max-width:380px;
+
 background:#fff;
 color:#000;
-border-radius:18px;
+
+border-radius:20px;
+
 display:none;
+
 z-index:999998;
-border:3px solid #facc15;
+
+border:3px solid var(--yellow);
+
 overflow:hidden;
-box-shadow:0 12px 40px rgba(0,0,0,.7);
+
+box-shadow:
+0 15px 50px rgba(0,0,0,.7);
+
 animation:aiOpen .3s ease;
 }
 
 @keyframes aiOpen{
-from{opacity:0;transform:translateY(20px) scale(.95)}
-to{opacity:1;transform:translateY(0) scale(1)}
+from{
+opacity:0;
+transform:translateY(20px) scale(.95);
+}
+
+to{
+opacity:1;
+transform:translateY(0) scale(1);
+}
 }
 
 #aiHead{
-background:#0f172a;
-color:#facc15;
-padding:12px;
+background:
+linear-gradient(
+135deg,
+var(--darkblue),
+var(--blue)
+);
+
+color:var(--yellow);
+
+padding:13px;
+
 font-weight:bold;
+
 text-align:left;
+
 font-size:14px;
 }
 
@@ -239,7 +602,7 @@ overflow-y:auto;
 padding:10px;
 text-align:left;
 font-size:13px;
-background:#f8fafc;
+background:#f4f8ff;
 }
 
 .msg{
@@ -253,22 +616,22 @@ word-wrap:break-word;
 }
 
 .userMsg{
-background:#facc15;
-color:#000;
+background:var(--yellow);
+color:#001a42;
 margin-left:auto;
 text-align:right;
 }
 
 .botMsg{
-background:#fff;
+background:white;
 color:#111;
-border:1px solid #ddd;
+border:1px solid #cbd5e1;
 }
 
 #aiInputRow{
 display:flex;
-border-top:3px solid #facc15;
-background:#fff;
+border-top:3px solid var(--yellow);
+background:white;
 }
 
 #aiInput{
@@ -280,8 +643,8 @@ font-size:14px;
 }
 
 #aiSend{
-background:#0f172a;
-color:#facc15;
+background:var(--blue);
+color:var(--yellow);
 border:none;
 padding:13px 18px;
 font-weight:bold;
@@ -290,149 +653,123 @@ cursor:pointer;
 
 .quick{
 display:inline-block;
-background:#e2e8f0;
-color:#0f172a;
+
+background:var(--lightblue);
+color:var(--blue);
+
 padding:6px 10px;
+
 border-radius:15px;
+
 font-size:9px;
+
 margin:2px;
+
 cursor:pointer;
-border:1px solid #cbd5e1;
+
+border:1px solid #b8d4ff;
+
 font-weight:bold;
+
 transition:.2s;
 }
 
 .quick:hover{
-background:#facc15;
+background:var(--yellow);
+color:#001a42;
 transform:scale(1.05);
 }
 
-/* NEW SHINY WELCOME PANEL */
-.shinyPanel{
-max-width:600px;
-margin:15px auto;
-padding:18px;
-border-radius:18px;
-background:linear-gradient(135deg,#1e293b,#111827);
-border:2px solid #facc15;
-box-shadow:0 0 25px rgba(250,204,21,.2);
-position:relative;
-overflow:hidden;
-}
+/* =====================================================
+   PARTICLES
+   ===================================================== */
 
-.shinyPanel h2{
-margin:4px;
-color:#facc15;
-font-size:18px;
-}
-
-.shinyPanel p{
-font-size:11px;
-color:#cbd5e1;
-}
-
-.status{
-display:inline-flex;
-align-items:center;
-gap:6px;
-background:#052e16;
-color:#4ade80;
-padding:6px 12px;
-border-radius:20px;
-font-size:10px;
-font-weight:bold;
-}
-
-.statusDot{
-width:8px;
-height:8px;
-background:#22c55e;
-border-radius:50%;
-box-shadow:0 0 10px #22c55e;
-animation:blink 1s infinite;
-}
-
-@keyframes blink{
-50%{opacity:.3}
-}
-
-/* PROGRESS */
-.progressBox{
-max-width:600px;
-margin:12px auto;
-text-align:left;
-}
-
-.progressText{
-font-size:11px;
-color:#cbd5e1;
-margin-bottom:5px;
-}
-
-.progress{
-height:10px;
-background:#334155;
-border-radius:20px;
-overflow:hidden;
-}
-
-.progressBar{
-height:100%;
-width:68%;
-background:linear-gradient(90deg,#16a34a,#facc15);
-border-radius:20px;
-animation:progressGlow 2s infinite alternate;
-}
-
-@keyframes progressGlow{
-from{box-shadow:0 0 3px #facc15}
-to{box-shadow:0 0 14px #facc15}
-}
-
-/* LIVE CLOCK */
-#clock{
-font-size:10px;
-color:#94a3b8;
-margin:8px;
-}
-
-/* FLOATING PARTICLES */
 .particle{
 position:fixed;
+
 width:4px;
 height:4px;
-background:#facc15;
+
+background:var(--yellow);
+
 border-radius:50%;
+
 opacity:.35;
+
 pointer-events:none;
+
 z-index:-1;
+
 animation:floatParticle linear infinite;
 }
 
 @keyframes floatParticle{
-from{transform:translateY(110vh)}
-to{transform:translateY(-10vh)}
+from{
+transform:translateY(110vh);
 }
 
-/* MOBILE */
-@media(max-width:500px){
-h1{font-size:18px!important}
-.menu a{font-size:9px;padding:9px 2px}
-.pic{width:120px;height:120px}
-#aiBtn{width:62px;height:62px;font-size:30px;right:14px}
+to{
+transform:translateY(-10vh);
 }
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media(max-width:500px){
+
+h1{
+font-size:18px!important;
+}
+
+.menu{
+gap:3px;
+}
+
+.menu a{
+font-size:9px;
+padding:9px 2px;
+}
+
+.pic{
+width:120px;
+height:120px;
+}
+
+#aiBtn{
+width:62px;
+height:62px;
+font-size:30px;
+right:14px;
+}
+
+.card{
+margin-left:2px;
+margin-right:2px;
+}
+
+}
+
 </style>
 
 </head>
 
 <body>
 
-<!-- ORIGINAL CONTENT -->
+<!-- =====================================================
+     PWFCA HEADER
+     ===================================================== -->
 
-<img src="director.jpg" class="pic" alt="Director Picture"
-onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&color=000&size=135'">
+<img
+src="director.jpg"
+class="pic"
+alt="Director Picture"
+onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=ffd21a&color=001a42&size=135'"
 
-<h1 class="glowTitle" style="color:#facc15;font-size:20px;margin:5px">
+>
+
+<h1 style="font-size:20px;margin:5px">
 🎓 PWFCA - PASS WITH FLYING COLOURS ACADEMY
 </h1>
 
@@ -440,184 +777,463 @@ onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&co
 Director Tumuramye Mathias - 0747695485
 </p>
 
-<span class="badge">📍 MBARARA DISTRICT - UGANDA</span>
+<span class="badge">
+📍 MBARARA DISTRICT - UGANDA
+</span>
 
 <div style="margin:10px">
-<a href="admin.html" style="background:#1e293b;color:#facc15;border:2px solid #facc15;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">🔐 ADMIN</a>
 
-<a href="https://wa.me/256747695485" target="_blank" style="background:#25D366;color:#fff;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">💬 WhatsApp</a>
+<a href="admin.html" class="topButton adminButton">
+🔐 ADMIN
+</a>
 
-<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" style="background:#facc15;color:#000;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">✅ Sign In</a>
+<a
+href="https://wa.me/256747695485"
+target="_blank"
+class="topButton whatsappButton"
+
+>
+
+💬 WhatsApp </a>
+
+<a
+href="https://forms.gle/WG9Mk4i4K3EJfXwB7"
+target="_blank"
+class="topButton signButton"
+
+>
+
+✅ Sign In </a>
 
 </div>
 
-<p style="color:#94a3b8;font-size:11px">
+<p style="color:#c7dcff;font-size:11px">
 👁️ Total Views: 68+ | 🤖 MATS AI Activated Working
 </p>
 
-<!-- NEW SHINY WELCOME -->
+<!-- =====================================================
+     WELCOME
+     ===================================================== -->
 
 <div class="shinyPanel">
+
 <h2>✨ WELCOME TO PWFCA</h2>
+
 <p>
 Affordable digital learning for S1-S4 students.
+<br>
 Learn smarter • Revise faster • Pass with Flying Colours
 </p>
+
 <div class="status">
 <span class="statusDot"></span>
 MATS AI ONLINE
 </div>
+
 </div>
 
+<!-- =====================================================
+     PROGRESS
+     ===================================================== -->
+
 <div class="progressBox">
-<div class="progressText">🎓 Academy Activity — 68% Active</div>
+
+<div class="progressText">
+🎓 Academy Activity — 68% Active
+</div>
+
 <div class="progress">
 <div class="progressBar"></div>
 </div>
+
 </div>
 
 <div id="clock"></div>
 
+<!-- =====================================================
+     MAIN MENU
+     ===================================================== -->
+
 <div class="menu">
-<a href="#notes">📚 Notes</a>
-<a href="#paytab" class="pay">💰 Pay Tab</a>
-<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" class="sign">✅ Sign In</a>
-<a href="#" class="ai" onclick="openAI();return false;">🤖 MATS AI</a>
-</div>
 
-<div style="background:#fef9c3;color:#000;border:3px solid #facc15;border-radius:14px;padding:12px;max-width:600px;margin:12px auto">
-<b>💡 Trick:</b> Send "VIEWED" to 0747695485<br>
-
-<a href="https://wa.me/256747695485?text=VIEWED" target="_blank" style="background:#25D366;color:#fff;padding:10px 15px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:8px">
-💬 Send VIEWED on WhatsApp
+<a href="#notes">
+📚 Notes
 </a>
+
+<a href="#paytab" class="pay">
+💰 Pay Tab
+</a>
+
+<a
+href="https://forms.gle/WG9Mk4i4K3EJfXwB7"
+target="_blank"
+class="sign"
+
+>
+
+✅ Sign In </a>
+
+<a
+href="#"
+class="ai"
+onclick="openAI();return false;"
+
+>
+
+🤖 MATS AI </a>
+
 </div>
+
+<!-- =====================================================
+     VIEWED NOTICE
+     ===================================================== -->
+
+<div class="notice">
+
+<b>💡 Trick:</b>
+Send "VIEWED" to 0747695485
+
+<br>
+
+<a
+href="https://wa.me/256747695485?text=VIEWED"
+target="_blank"
+class="whatsapp"
+
+>
+
+💬 Send VIEWED on WhatsApp </a>
+
+</div>
+
+<!-- =====================================================
+     NOTES
+     ===================================================== -->
 
 <div id="notes">
 
 <div class="card">
+
 <h3>🧬 BIOLOGY - 3,000 UGX</h3>
-<a class="green" href="biology-items.pdf" target="_blank">👁️ VIEW Biology Sample 1</a>
-<a class="green" href="bilogy.pdf" target="_blank">👁️ VIEW Biology Sample 2</a>
-<a class="green" href="tranport.bio.pdf" target="_blank">👁️ VIEW Biology Transport</a>
-<button class="red" onclick="payNow(3000,'BIOLOGY')">📱 PAY 3K - BIOLOGY</button>
+
+<a class="green" href="biology-items.pdf" target="_blank">
+👁️ VIEW Biology Sample 1
+</a>
+
+<a class="green" href="bilogy.pdf" target="_blank">
+👁️ VIEW Biology Sample 2
+</a>
+
+<a class="green" href="tranport.bio.pdf" target="_blank">
+👁️ VIEW Biology Transport
+</a>
+
+<button class="red" onclick="payNow(3000,'BIOLOGY')">
+📱 PAY 3K - BIOLOGY
+</button>
+
 </div>
 
 <div class="card">
+
 <h3>⚗️ CHEMISTRY - 3,000 UGX</h3>
-<a class="green" href="chemistry.pdf" target="_blank">👁️ VIEW CHEMISTRY FREE</a>
-<button class="red" onclick="payNow(3000,'CHEMISTRY')">📱 PAY 3K - CHEMISTRY</button>
+
+<a class="green" href="chemistry.pdf" target="_blank">
+👁️ VIEW CHEMISTRY FREE
+</a>
+
+<button class="red" onclick="payNow(3000,'CHEMISTRY')">
+📱 PAY 3K - CHEMISTRY
+</button>
+
 </div>
 
 <div class="card">
+
 <h3>⚡ PHYSICS - 3,000 UGX</h3>
-<a class="green" href="Physics.pdf" target="_blank">👁️ VIEW PHYSICS FREE</a>
-<button class="red" onclick="payNow(3000,'PHYSICS')">📱 PAY 3K - PHYSICS</button>
+
+<a class="green" href="Physics.pdf" target="_blank">
+👁️ VIEW PHYSICS FREE
+</a>
+
+<button class="red" onclick="payNow(3000,'PHYSICS')">
+📱 PAY 3K - PHYSICS
+</button>
+
 </div>
 
 <div class="card">
+
 <h3>📐 MATH S1-S4 - 3,000 UGX</h3>
-<a class="green" href="mathematics-.pdf" target="_blank">👁️ VIEW MATHEMATICS PDF</a>
-<button class="red" onclick="payNow(3000,'MATHEMATICS')">📱 PAY 3K - MATH</button>
-</div>
+
+<a class="green" href="mathematics-.pdf" target="_blank">
+👁️ VIEW MATHEMATICS PDF
+</a>
+
+<button class="red" onclick="payNow(3000,'MATHEMATICS')">
+📱 PAY 3K - MATH
+</button>
 
 </div>
 
-<div class="card" id="paytab" style="background:linear-gradient(135deg,#facc15,#eab308);border:4px solid #ff0000;text-align:center">
+</div>
 
-<h2 style="text-align:center;color:#000;margin:5px">
+<!-- =====================================================
+     PAYMENT
+     ===================================================== -->
+
+<div class="card payTab" id="paytab">
+
+<h2 style="margin:5px">
 💰 PAY TAB - CHOOSE PLAN
 </h2>
 
-<p style="color:#000;font-size:11px;text-align:center">
+<p style="color:#001a42;font-size:11px">
 Airtel: 0747695485 - Dial *185#
 </p>
 
-<div style="background:#fff;border-radius:10px;padding:10px;margin:8px 0;color:#000">
+<div style="
+background:#fff;
+border-radius:12px;
+padding:11px;
+margin:8px 0;
+color:#001a42;
+">
+
 <b>Single - 3,000 UGX</b>
-<button class="red" onclick="payNow(3000,'SINGLE')">📱 PAY 3K</button>
-</div>
 
-<div style="background:#000;color:#facc15;border-radius:10px;padding:10px;margin:8px 0">
-<b>🔥 ALL 4 SUBJECTS - 7,000 UGX!</b>
-<button style="background:#facc15;color:#000;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin-top:6px" onclick="payNow(7000,'ALL 4')">
-💰 PAY 7K - GET ALL
+<button class="red" onclick="payNow(3000,'SINGLE')">
+📱 PAY 3K
 </button>
+
+</div>
+
+<div style="
+background:#001a42;
+color:#ffd21a;
+border-radius:12px;
+padding:11px;
+margin:8px 0;
+">
+
+<b>
+🔥 ALL 4 SUBJECTS - 7,000 UGX!
+</b>
+
+<button
+style="
+background:#ffd21a;
+color:#001a42;
+border:none;
+width:100%;
+padding:13px;
+border-radius:30px;
+font-weight:bold;
+margin-top:7px;
+cursor:pointer;
+"
+onclick="payNow(7000,'ALL 4')"
+
+>
+
+💰 PAY 7K - GET ALL
+
+</button>
+
 </div>
 
 </div>
 
-<!-- AI -->
+<!-- =====================================================
+     MATS AI BUTTON
+     ===================================================== -->
 
-<div id="aiBtn" onclick="toggleAI()">🤖</div>
+<div id="aiBtn" onclick="toggleAI()">
+🤖
+</div>
+
+<!-- =====================================================
+     MATS AI WINDOW
+     ===================================================== -->
 
 <div id="aiBox">
 
 <div id="aiHead">
+
 🤖 MATS AI - PWFCA Teacher
 
-<span style="float:right;cursor:pointer;background:#facc15;color:#000;padding:3px 10px;border-radius:12px" onclick="closeAI()">X</span>
+<span
+style="
+float:right;
+cursor:pointer;
+background:#ffd21a;
+color:#001a42;
+padding:3px 10px;
+border-radius:12px;
+"
+onclick="closeAI()"
+
+>
+
+X </span>
 
 <br>
 
-<small style="color:#94a3b8;font-size:10px">
+<small style="color:#c7dcff;font-size:10px">
 Working 100% - Ask anything
 </small>
+
 </div>
 
 <div id="aiMsgs"></div>
 
-<div style="padding:6px;background:#fff;border-top:1px solid #eee;text-align:left;max-height:85px;overflow:auto">
+<div style="
+padding:6px;
+background:#fff;
+border-top:1px solid #eee;
+text-align:left;
+max-height:85px;
+overflow:auto;
+">
 
-<span class="quick" onclick="quickAsk('Who is the director?')">Director</span> <span class="quick" onclick="quickAsk('What is photosynthesis?')">Photosynthesis</span> <span class="quick" onclick="quickAsk('Principle of transmission of pressure')">Pressure</span> <span class="quick" onclick="quickAsk('How is oxygen manufactured?')">Oxygen</span> <span class="quick" onclick="quickAsk('How is carbon dioxide manufactured?')">CO2</span> <span class="quick" onclick="quickAsk('How is ammonium nitrate fertilizer manufactured?')">Fertilizer</span>
+<span
+class="quick"
+onclick="quickAsk('Who is the director?')"
+
+>
+
+Director </span>
+
+<span
+class="quick"
+onclick="quickAsk('What is photosynthesis?')"
+
+>
+
+Photosynthesis </span>
+
+<span
+class="quick"
+onclick="quickAsk('Principle of transmission of pressure')"
+
+>
+
+Pressure </span>
+
+<span
+class="quick"
+onclick="quickAsk('How is oxygen manufactured?')"
+
+>
+
+Oxygen </span>
+
+<span
+class="quick"
+onclick="quickAsk('How is carbon dioxide manufactured?')"
+
+>
+
+CO2 </span>
+
+<span
+class="quick"
+onclick="quickAsk('How is ammonium nitrate fertilizer manufactured?')"
+
+>
+
+Fertilizer </span>
 
 </div>
 
 <div id="aiInputRow">
-<input id="aiInput" type="text" placeholder="Ask director, CO2, fertilizer..." autocomplete="off">
-<button id="aiSend" onclick="doSend()">Send</button>
+
+<input
+id="aiInput"
+type="text"
+placeholder="Ask director, CO2, fertilizer..."
+autocomplete="off"
+
+>
+
+<button id="aiSend" onclick="doSend()">
+Send
+</button>
+
 </div>
 
 </div>
 
 <script>
 
-/* ORIGINAL FUNCTIONS */
+/* =====================================================
+   PAYMENT
+   ===================================================== */
 
-var aiOpen = false;
+var aiOpen=false;
 
 function payNow(a,s){
-alert('PAY '+a+' FOR '+s+'\nDial *185#\nNumber:0747695485\nName:Tumuramye Mathias');
+
+alert(
+'PAY '+a+' FOR '+s+
+'\nDial *185#'+
+'\nNumber: 0747695485'+
+'\nName: Tumuramye Mathias'
+);
 
 window.open(
 'https://wa.me/256747695485?text=PAY '+a+' FOR '+s,
 '_blank'
 );
+
 }
 
+/* =====================================================
+   AI OPEN / CLOSE
+   ===================================================== */
+
 function openAI(){
+
 document.getElementById('aiBox').style.display='block';
+
 aiOpen=true;
+
 }
 
 function closeAI(){
+
 document.getElementById('aiBox').style.display='none';
+
 aiOpen=false;
+
 }
 
 function toggleAI(){
-if(aiOpen){closeAI();}
-else{openAI();}
+
+if(aiOpen){
+closeAI();
+}else{
+openAI();
+}
+
 }
 
 function quickAsk(t){
+
 document.getElementById('aiInput').value=t;
+
 doSend();
+
 }
+
+/* =====================================================
+   AI SEND
+   ===================================================== */
 
 function doSend(){
 
 var inp=document.getElementById('aiInput');
+
 var txt=inp.value.trim();
 
 if(!txt)return;
@@ -625,12 +1241,15 @@ if(!txt)return;
 var box=document.getElementById('aiMsgs');
 
 var u=document.createElement('div');
+
 u.className='msg userMsg';
+
 u.textContent=txt;
 
 box.appendChild(u);
 
 inp.value='';
+
 box.scrollTop=box.scrollHeight;
 
 setTimeout(function(){
@@ -646,7 +1265,12 @@ box.appendChild(b);
 box.scrollTop=box.scrollHeight;
 
 },600);
+
 }
+
+/* =====================================================
+   MATS AI ANSWERS
+   ===================================================== */
 
 function getAnswer(q){
 
@@ -660,135 +1284,19 @@ l.indexOf('name of director')!==-1 ||
 l.indexOf('tumuramye')!==-1
 ){
 
-return "🎓 DIRECTOR OF PWFCA - MATS AI:\n\nName: Tumuramye Mathias\nPhone: 0747695485\nLocation: Mbarara District, Uganda\nAcademy: Pass With Flying Colours Academy (PWFCA)\n\nABOUT HIM:\nMathias is a young innovator who does well in sciences and he inspires young students to get technological skills to build something like mine (this website, MATS AI, digital notes) and he also inspires young youth to start small online ventures to earn and learn.\n\nHe believes science + technology + hard work = success. He built PWFCA to help S1-S4 students pass with flying colours using affordable digital notes (3K per subject, 7K all).\n\nContact him on WhatsApp 0747695485 for notes or business advice!";
+return "🎓 DIRECTOR OF PWFCA - MATS AI:\n\nName: Tumuramye Mathias\nPhone: 0747695485\nLocation: Mbarara District, Uganda\nAcademy: Pass With Flying Colours Academy (PWFCA)\n\nABOUT HIM:\nMathias is a young innovator who does well in sciences and he inspires young students to get technological skills and learn how to build digital projects.\n\nHe believes science + technology + hard work = success.\n\nPWFCA helps S1-S4 students study using affordable digital notes.\n\nContact him on WhatsApp 0747695485 for notes or business advice!";
+
 }
 
 if(l.indexOf('photosynthesis')!==-1){
 
-return "PHOTOSYNTHESIS:\nEquation: 6CO2 + 6H2O + sunlight/chlorophyll -> C6H12O6 + 6O2\nWhere: Chloroplast in mesophyll cells.\nLight stage in grana: Water split -> O2 + H + ATP\nDark stage Calvin in stroma: CO2 + H + ATP -> Glucose\nNeeds CO2 via stomata, water via xylem, light, chlorophyll.\nImportance: Food, O2, removes CO2, basis food chain.";
-}
+return "🌱 PHOTOSYNTHESIS:\n\nEquation:\n6CO2 + 6H2O + sunlight/chlorophyll -> C6H12O6 + 6O2\n\nWhere it occurs:\nChloroplasts in plant cells.\n\nLight stage:\nOccurs mainly in the grana. Water is split and ATP is produced.\n\nDark stage:\nThe Calvin cycle occurs in the stroma and uses CO2 and energy to form glucose.\n\nImportance:\n• Produces food\n• Releases oxygen\n• Removes carbon dioxide\n• Supports food chains";
 
-if(l.indexOf('pressure')!==-1 || l.indexOf('pascal')!==-1){
-
-return "PRINCIPLE OF TRANSMISSION OF PRESSURE - PASCAL'S PRINCIPLE:\nStatement: Pressure applied to enclosed fluid transmitted equally to all parts.\nFormula P=F/A, F1/A1=F2/A2\nApplications: Hydraulic Jack lifts car (A1=2cm2 A2=100cm2 F1=50N -> F2=2500N), Hydraulic Brake, Hydraulic Press, Syringe.\nCalculation: F1=20N A1=5cm2 Find F2 on 100cm2? 20/5=F2/100 -> F2=400N";
-}
-
-if(l.indexOf('oxygen')!==-1){
-
-return "MANUFACTURE OF OXYGEN:\nLAB: 2H2O2 -> MnO2 -> 2H2O + O2. Put MnO2 in flask add H2O2 dropwise O2 bubbles collect over water. Test glowing splint relights.\nAlso 2KClO3 -> heat+MnO2 -> 2KCl + 3O2\nINDUSTRIAL: Fractional distillation of liquid air. Filter air, compress 200 atm cool -200C -> liquid air. N2 boils -196C O2 -183C. N2 boils first leaves O2 99.5% pure in steel cylinders. Also electrolysis 2H2O -> 2H2 + O2\nUses: Hospitals, welding, steel, rockets.";
 }
 
 if(
-l.indexOf('carbon dioxide')!==-1 ||
-l.indexOf('co2')!==-1 ||
-(l.indexOf('carbon')!==-1 && l.indexOf('dioxide')!==-1)
+l.indexOf('pressure')!==-1 ||
+l.indexOf('pascal')!==-1
 ){
 
-return "MANUFACTURE OF CARBON DIOXIDE - MATS AI:\n\nLAB PREPARATION:\nCaCO3 + 2HCl -> CaCl2 + H2O + CO2\n\nCalcium carbonate (marble chips) + hydrochloric acid -> CO2.\n\nTest: Lime water turns milky.\nCO2 + Ca(OH)2 -> CaCO3 + H2O\n\nINDUSTRIAL MANUFACTURE:\n1. Limestone: CaCO3 -> heat -> CaO + CO2\n2. Fermentation: C6H12O6 -> 2C2H5OH + 2CO2\n3. Burning carbon: C + O2 -> CO2\n\nUSES:\nFizzy drinks, fire extinguishers, dry ice, baking, greenhouse plant growth and making urea.\n\nFull notes in Chemistry PDF 3K!";
-}
-
-if(
-l.indexOf('ammonium nitrate')!==-1 ||
-l.indexOf('fertilizer')!==-1 ||
-l.indexOf('nh4no3')!==-1
-){
-
-return "MANUFACTURE OF AMMONIUM NITRATE FERTILIZER:\n\nSTEP 1 - HABER PROCESS:\nN2 + 3H2 <-> 2NH3\n\nSTEP 2 - OSTWALD PROCESS:\nAmmonia is oxidised to nitric acid.\n\nSTEP 3 - NEUTRALIZATION:\nNH3 + HNO3 -> NH4NO3 + heat\n\nAmmonium nitrate is used as a nitrogen fertilizer. It contains about 35% nitrogen.\n\nIMPORTANT: Industrial manufacture requires controlled conditions and proper safety procedures because ammonium nitrate can present serious fire/explosion hazards.";
-}
-
-if(l.indexOf('pay')!==-1){
-
-return "PAY TAB:\nSingle 3K\nALL 4 subjects 7K\n\nAirtel Money:\n0747695485\nName: Tumuramye Mathias\nDial *185# MANUALLY, then send payment confirmation to WhatsApp.";
-}
-
-if(
-l.indexOf('hello')!==-1 ||
-l.indexOf('hi')!==-1 ||
-q.length<4
-){
-
-return "Hello! MATS AI WORKING! Ask:\n- Who is the director?\n- What is photosynthesis?\n- Principle of transmission of pressure?\n- How is oxygen manufactured?\n- How is carbon dioxide manufactured?\n- How is ammonium nitrate fertilizer manufactured?";
-}
-
-return "MATS AI: You asked '"+q+"'\n\nTry asking about:\n- The director\n- Photosynthesis\n- Pascal's principle\n- Oxygen manufacture\n- Carbon dioxide manufacture\n- Ammonium nitrate fertilizer\n- PWFCA payments";
-}
-
-/* ================= NEW SHINY FEATURES ================= */
-
-/* LIVE CLOCK */
-
-function updateClock(){
-
-var now=new Date();
-
-document.getElementById('clock').textContent=
-"🕒 PWFCA LIVE • "+now.toLocaleTimeString();
-
-}
-
-setInterval(updateClock,1000);
-updateClock();
-
-
-/* FLOATING PARTICLES */
-
-for(var i=0;i<18;i++){
-
-var p=document.createElement('div');
-
-p.className='particle';
-
-p.style.left=Math.random()*100+'%';
-
-p.style.animationDuration=(7+Math.random()*10)+'s';
-
-p.style.animationDelay=(-Math.random()*10)+'s';
-
-p.style.opacity=.15+Math.random()*.35;
-
-document.body.appendChild(p);
-
-}
-
-
-/* WELCOME AI MESSAGE */
-
-window.addEventListener('load',function(){
-
-var box=document.getElementById('aiMsgs');
-
-var d=document.createElement('div');
-
-d.className='msg botMsg';
-
-d.textContent=
-"👋 Hello! Welcome to MATS AI.\n\n"+
-"🤖 I am your PWFCA digital teacher.\n\n"+
-"✨ Ask me a science question and let's learn together!\n\n"+
-"Try: What is photosynthesis?";
-
-box.appendChild(d);
-
-});
-
-
-/* ENTER KEY */
-
-document.getElementById('aiInput').addEventListener(
-'keypress',
-function(e){
-if(e.key==='Enter'){
-doSend();
-}
-}
-);
-
-</script>
-
-<p style="color:#64748b;font-size:11px;margin-top:25px">
-© 2026 PWFCA - Mbarara | MATS AI Updated ✅
-</p>
-
-</body>
-  </html>
-  
+return "⚙️ PASCAL'S PRINCIPLE:\n\nPressure applied to an enclosed fluid is transmitted equally in all directions.\n\nFormula:\nP = F/A\n\nFor hydraulic systems:\nF1/A1 = F2/A2\n\nApplications:\n• Hydraulic jack\n• Hydraulic brakes
