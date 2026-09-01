@@ -4,446 +4,238 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>PWFCA - MATS AI Working</title>
 
 <style>
-:root{
-    --blue:#063b8f;
-    --blue2:#0b5ed7;
-    --darkblue:#031f4f;
-    --yellow:#ffd21a;
-    --lightyellow:#fff7b2;
-    --white:#ffffff;
-    --green:#16a34a;
-    --red:#dc2626;
-    --gray:#e5e7eb;
-}
-
-*{
-    box-sizing:border-box;
-}
-
 body{
     margin:0;
-    background:linear-gradient(135deg,#021536,#063b8f,#0b5ed7);
-    color:white;
-    font-family:Arial,Helvetica,sans-serif;
+    background:#0f172a;
+    color:#fff;
+    font-family:Arial,sans-serif;
     text-align:center;
-    padding:15px;
-    padding-bottom:130px;
-    min-height:100vh;
+    padding:10px;
+    padding-bottom:120px;
 }
 
-/* TOP HEADER */
-.header{
-    background:linear-gradient(135deg,var(--darkblue),var(--blue));
-    border:2px solid var(--yellow);
-    border-radius:25px;
-    padding:20px 12px;
-    box-shadow:0 0 25px rgba(255,210,26,.35);
-    margin-bottom:18px;
-}
-
-.logo{
+.pic{
     width:135px;
     height:135px;
     border-radius:50%;
+    border:4px solid #facc15;
+    margin:12px auto;
+    display:block;
+    background:#fff;
     object-fit:cover;
-    border:5px solid var(--yellow);
-    box-shadow:0 0 25px rgba(255,210,26,.8);
-    background:white;
 }
 
-.title{
-    color:var(--yellow);
-    font-size:27px;
-    font-weight:bold;
-    margin:15px 0 8px;
-    text-shadow:0 0 12px rgba(255,210,26,.7);
-}
-
-.subtitle{
-    font-size:16px;
-    margin:5px 0;
-}
-
-.director{
-    font-size:17px;
-    font-weight:bold;
-    margin:10px 0;
-}
-
-.location{
-    display:inline-block;
-    background:var(--yellow);
-    color:var(--darkblue);
-    padding:9px 16px;
-    border-radius:25px;
-    font-weight:bold;
-    margin-top:8px;
-}
-
-/* DIRECTOR */
-.director-card{
-    background:rgba(255,255,255,.1);
-    border:1px solid rgba(255,255,255,.25);
+.badge{
+    background:#16a34a;
+    color:#fff;
+    padding:7px 15px;
     border-radius:20px;
-    padding:18px;
-    margin:18px auto;
-    max-width:700px;
-    backdrop-filter:blur(8px);
-}
-
-.director-photo{
-    width:110px;
-    height:110px;
-    border-radius:50%;
-    object-fit:cover;
-    border:4px solid var(--yellow);
-}
-
-/* BUTTONS */
-.buttons{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
-    margin:18px 0;
-}
-
-button,
-.link-button{
-    border:none;
-    text-decoration:none;
-    cursor:pointer;
-    padding:12px 18px;
-    border-radius:30px;
+    font-size:12px;
     font-weight:bold;
-    font-size:14px;
-    transition:.25s;
     display:inline-block;
 }
 
-button:hover,
-.link-button:hover{
-    transform:translateY(-3px) scale(1.02);
-}
-
-.blue-btn{
-    background:var(--blue2);
-    color:white;
-    box-shadow:0 5px 15px rgba(0,0,0,.25);
-}
-
-.yellow-btn{
-    background:var(--yellow);
-    color:var(--darkblue);
-    box-shadow:0 5px 15px rgba(255,210,26,.35);
-}
-
-.green-btn{
-    background:var(--green);
-    color:white;
-}
-
-.red-btn{
-    background:var(--red);
-    color:white;
-}
-
-/* WELCOME */
-.welcome{
-    max-width:800px;
-    margin:20px auto;
-    padding:22px;
-    border-radius:22px;
-    background:linear-gradient(135deg,#ffffff,#fff9c7);
-    color:var(--darkblue);
-    border:3px solid var(--yellow);
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-
-.welcome h2{
-    margin-top:0;
-    color:var(--blue);
-}
-
-/* PROGRESS */
-.progress-container{
-    max-width:650px;
-    margin:20px auto;
-}
-
-.progress-text{
-    margin-bottom:7px;
-    font-weight:bold;
-}
-
-.progress{
-    height:13px;
-    background:rgba(255,255,255,.2);
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.progress-bar{
-    height:100%;
-    width:0%;
-    background:var(--yellow);
-    border-radius:20px;
-    transition:width 1s;
-}
-
-/* SUBJECTS */
-.section-title{
-    color:var(--yellow);
-    margin-top:30px;
-    font-size:25px;
-}
-
-.subjects{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:16px;
-    max-width:1000px;
-    margin:20px auto;
-}
-
-.subject{
-    background:white;
-    color:var(--darkblue);
-    border-radius:20px;
-    padding:20px;
-    border-top:7px solid var(--yellow);
-    box-shadow:0 8px 20px rgba(0,0,0,.25);
-}
-
-.subject h3{
-    color:var(--blue);
-    margin-top:0;
-}
-
-.subject p{
-    line-height:1.5;
-}
-
-.pdf-btn{
-    background:var(--blue);
-    color:white;
-    margin-top:8px;
-}
-
-/* PAYMENT */
-.payment{
-    max-width:700px;
-    margin:30px auto;
-    background:linear-gradient(135deg,#fff,#fff5a6);
-    color:var(--darkblue);
-    padding:24px;
-    border-radius:25px;
-    border:4px solid var(--yellow);
-    box-shadow:0 0 30px rgba(255,210,26,.35);
-}
-
-.payment h2{
-    color:var(--blue);
-}
-
-.price{
-    font-size:20px;
-    font-weight:bold;
-    margin:10px;
-}
-
-/* CLOCK */
-.clock{
-    margin:15px auto;
-    color:var(--yellow);
-    font-weight:bold;
-}
-
-/* MATS AI FLOATING BUTTON */
-#aiButton{
-    position:fixed;
-    right:18px;
-    bottom:20px;
-    width:65px;
-    height:65px;
-    border-radius:50%;
-    background:var(--yellow);
-    color:var(--darkblue);
-    border:4px solid white;
-    font-size:25px;
-    font-weight:bold;
-    z-index:9998;
-    box-shadow:0 0 25px rgba(255,210,26,.8);
-    animation:pulse 1.8s infinite;
-}
-
-@keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(255,210,26,.7);}
-    70%{box-shadow:0 0 0 18px rgba(255,210,26,0);}
-    100%{box-shadow:0 0 0 0 rgba(255,210,26,0);}
-}
-
-/* AI WINDOW */
-#aiBox{
-    display:none;
-    position:fixed;
-    right:15px;
-    bottom:95px;
-    width:350px;
-    max-width:calc(100% - 30px);
-    height:520px;
-    background:white;
-    color:#111827;
-    border-radius:22px;
-    overflow:hidden;
-    z-index:9999;
-    box-shadow:0 15px 45px rgba(0,0,0,.5);
-    border:3px solid var(--yellow);
+.card{
+    background:#fff;
+    color:#111;
+    border-radius:16px;
+    padding:14px;
+    margin:12px auto;
+    max-width:600px;
     text-align:left;
 }
 
-.ai-header{
-    background:linear-gradient(135deg,var(--darkblue),var(--blue2));
-    color:white;
-    padding:15px;
+.green{
+    background:#16a34a;
+    color:#fff;
+    padding:12px;
+    border-radius:10px;
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    margin:7px 0;
+    font-weight:bold;
+}
+
+.red{
+    background:#ff0000;
+    color:#fff;
+    border:none;
+    width:100%;
+    padding:13px;
+    border-radius:30px;
+    font-weight:bold;
+    margin:7px 0;
+    cursor:pointer;
+}
+
+.menu{
+    display:flex;
+    gap:5px;
+    background:#fff;
+    padding:6px;
+    border-radius:30px;
+    max-width:600px;
+    margin:10px auto;
+}
+
+.menu a{
+    flex:1;
+    background:#0f172a;
+    color:#fff;
+    padding:10px 4px;
+    border-radius:20px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:11px;
+    text-align:center;
+}
+
+.menu a.pay{
+    background:#ff0000;
+}
+
+.menu a.sign{
+    background:#facc15;
+    color:#000;
+}
+
+.menu a.ai{
+    background:#0f172a;
+    color:#facc15;
+    border:2px solid #facc15;
+}
+
+/* MATS AI BUTTON */
+#aiBtn{
+    position:fixed;
+    bottom:95px;
+    right:20px;
+    background:#facc15;
+    color:#0f172a;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:4px solid #fff;
+    font-size:35px;
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    justify-content:center;
+    cursor:pointer;
+    z-index:999999;
+    box-shadow:0 4px 20px rgba(0,0,0,0.5);
 }
 
-.ai-title{
-    font-weight:bold;
-    font-size:18px;
+/* MATS AI BOX */
+#aiBox{
+    position:fixed;
+    bottom:170px;
+    right:8px;
+    left:8px;
+    margin:auto;
+    max-width:380px;
+    background:#fff;
+    color:#000;
+    border-radius:18px;
+    display:none;
+    z-index:999998;
+    border:3px solid #facc15;
+    overflow:hidden;
+    box-shadow:0 12px 40px rgba(0,0,0,0.7);
 }
 
-.ai-status{
-    color:#86efac;
-    font-size:12px;
-    margin-top:3px;
-}
-
-.ai-close{
-    background:transparent;
-    color:white;
-    padding:4px 8px;
-    font-size:22px;
-}
-
-#chatMessages{
-    height:360px;
-    overflow-y:auto;
+#aiHead{
+    background:#0f172a;
+    color:#facc15;
     padding:12px;
+    font-weight:bold;
+    text-align:left;
+    font-size:14px;
+}
+
+#aiMsgs{
+    height:340px;
+    overflow-y:auto;
+    padding:10px;
+    text-align:left;
+    font-size:13px;
     background:#f8fafc;
 }
 
-.message{
-    margin:9px 0;
-    padding:10px 12px;
-    border-radius:15px;
-    max-width:88%;
-    line-height:1.4;
-    font-size:14px;
+.msg{
+    margin:8px 0;
+    padding:11px 12px;
+    border-radius:14px;
+    max-width:92%;
+    line-height:1.5;
     white-space:pre-wrap;
+    word-wrap:break-word;
 }
 
-.bot{
-    background:#e0ecff;
-    color:#06285f;
-    margin-right:auto;
-}
-
-.user{
-    background:var(--blue2);
-    color:white;
+.userMsg{
+    background:#facc15;
+    color:#000;
     margin-left:auto;
+    text-align:right;
 }
 
-.typing{
-    font-style:italic;
-    opacity:.7;
+.botMsg{
+    background:#fff;
+    color:#111;
+    border:1px solid #ddd;
 }
 
-.quick-buttons{
+#aiInputRow{
     display:flex;
-    gap:5px;
-    padding:7px;
-    overflow-x:auto;
-    background:#eef2ff;
-}
-
-.quick-buttons button{
-    padding:7px 10px;
-    font-size:11px;
-    white-space:nowrap;
-    background:var(--yellow);
-    color:var(--darkblue);
-}
-
-.ai-input-area{
-    display:flex;
-    padding:8px;
-    gap:6px;
-    border-top:1px solid #ddd;
-    background:white;
+    border-top:3px solid #facc15;
+    background:#fff;
 }
 
 #aiInput{
     flex:1;
-    border:2px solid #cbd5e1;
-    border-radius:20px;
-    padding:10px 12px;
+    padding:13px;
+    border:none;
     outline:none;
     font-size:14px;
 }
 
-#aiInput:focus{
-    border-color:var(--blue2);
+#aiSend{
+    background:#0f172a;
+    color:#facc15;
+    border:none;
+    padding:13px 18px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-#sendBtn{
-    background:var(--blue2);
-    color:white;
-    padding:10px 14px;
+.quick{
+    display:inline-block;
+    background:#e2e8f0;
+    color:#0f172a;
+    padding:6px 10px;
+    border-radius:15px;
+    font-size:9px;
+    margin:2px;
+    cursor:pointer;
+    border:1px solid #cbd5e1;
+    font-weight:bold;
 }
 
-/* FOOTER */
-footer{
-    margin-top:40px;
-    padding:20px;
-    border-top:1px solid rgba(255,255,255,.2);
-    font-size:13px;
-    opacity:.9;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-
-    .title{
-        font-size:22px;
-    }
-
-    .logo{
-        width:115px;
-        height:115px;
-    }
-
+@media(max-width:500px){
     #aiBox{
-        right:8px;
-        bottom:90px;
-        width:calc(100% - 16px);
-        height:500px;
+        bottom:160px;
+        max-width:95%;
     }
 
-    #chatMessages{
-        height:340px;
+    .menu{
+        flex-wrap:wrap;
     }
 
-    .subjects{
-        grid-template-columns:1fr;
+    .menu a{
+        min-width:42%;
     }
 }
 </style>
@@ -451,499 +243,625 @@ footer{
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
+<!-- PWFCA LOGO / DIRECTOR PHOTO -->
+<img
+    src="director.jpg"
+    class="pic"
+    alt="PWFCA Director"
+    onerror="this.src='https://ui-avatars.com/api/?name=Mathias&background=facc15&color=000&size=135'"
+>
 
-    <!-- Change director.jpg to your actual logo/photo file if needed -->
-    <img
-        src="director.jpg"
-        class="logo"
-        alt="PWFCA Logo"
-        onerror="this.src='https://ui-avatars.com/api/?name=PWFCA&background=063b8f&color=ffd21a&size=300';"
-    >
+<h1 style="color:#facc15;font-size:20px;margin:5px">
+🎓 PWFCA - PASS WITH FLYING COLOURS ACADEMY
+</h1>
 
-    <div class="title">
-        🎓 PWFCA - PASS WITH FLYING COLOURS ACADEMY
-    </div>
+<p style="font-size:13px;font-weight:bold">
+Director Tumuramye Mathias - 0747695485
+</p>
 
-    <div class="subtitle">
-        Online Learning • Notes • Revision • MATS AI
-    </div>
-
-    <div class="director">
-        Director: Tumuramye Mathias - 0747695485
-    </div>
-
-    <div class="location">
-        📍 MBARARA DISTRICT - UGANDA
-    </div>
-
-</div>
+<span class="badge">
+📍 MBARARA DISTRICT - UGANDA
+</span>
 
 
-<!-- DIRECTOR CARD -->
-<div class="director-card">
+<!-- TOP LINKS -->
+<div style="margin:10px">
 
-    <img
-        src="director.jpg"
-        class="director-photo"
-        alt="Director"
-        onerror="this.src='https://ui-avatars.com/api/?name=Tumuramye+Mathias&background=063b8f&color=ffd21a&size=200';"
-    >
+<a
+    href="admin.html"
+    style="background:#1e293b;color:#facc15;border:2px solid #facc15;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px"
+>
+🔐 ADMIN
+</a>
 
-    <h3>Welcome to PWFCA</h3>
+<a
+    href="https://wa.me/256747695485"
+    target="_blank"
+    style="background:#25D366;color:#fff;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px"
+>
+💬 WhatsApp
+</a>
 
-    <p>
-        Learn, revise and prepare for your examinations
-        with Pass With Flying Colours Academy.
-    </p>
-
-</div>
-
-
-<!-- MAIN BUTTONS -->
-<div class="buttons">
-
-    <a class="link-button yellow-btn" href="admin.html">
-        🔐 ADMIN
-    </a>
-
-    <a
-        class="link-button green-btn"
-        href="https://wa.me/256747695485"
-        target="_blank"
-    >
-        💬 WHATSAPP
-    </a>
-
-    <a
-        class="link-button blue-btn"
-        href="https://forms.gle/WG9Mk4i4K3EJfXwB7"
-        target="_blank"
-    >
-        📝 SIGN IN
-    </a>
-
-    <button class="yellow-btn" onclick="openAI()">
-        🤖 MATS AI
-    </button>
+<a
+    href="https://forms.gle/WG9Mk4i4K3EJfXwB7"
+    target="_blank"
+    style="background:#facc15;color:#000;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px"
+>
+✅ Sign In
+</a>
 
 </div>
 
 
-<!-- WELCOME -->
-<div class="welcome">
+<p style="color:#94a3b8;font-size:11px">
+👁️ Total Views: 68+ | 🤖 MATS AI Activated
+</p>
 
-    <h2>🌟 Welcome to PWFCA</h2>
 
-    <p>
-        Your learning journey starts here.
-        Access notes, revise your subjects and ask
-        MATS AI questions about your studies.
-    </p>
+<!-- MENU -->
+<div class="menu">
 
-    <p>
-        <strong>Study today. Understand tomorrow. Pass with flying colours!</strong>
-    </p>
+<a href="#notes">
+📚 Notes
+</a>
+
+<a href="#paytab" class="pay">
+💰 Pay Tab
+</a>
+
+<a
+    href="https://forms.gle/WG9Mk4i4K3EJfXwB7"
+    target="_blank"
+    class="sign"
+>
+✅ Sign In
+</a>
+
+<a
+    href="#"
+    class="ai"
+    onclick="openAI();return false;"
+>
+🤖 MATS AI
+</a>
 
 </div>
 
 
-<!-- PROGRESS -->
-<div class="progress-container">
+<!-- VIEWED -->
+<div style="background:#fef9c3;color:#000;border:3px solid #facc15;border-radius:14px;padding:12px;max-width:600px;margin:12px auto">
 
-    <div class="progress-text">
-        📚 Learning Progress: <span id="progressNumber">0%</span>
-    </div>
+<b>💡 Trick:</b>
+Send "VIEWED" to 0747695485
 
-    <div class="progress">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
+<br>
+
+<a
+    href="https://wa.me/256747695485?text=VIEWED"
+    target="_blank"
+    style="background:#25D366;color:#fff;padding:10px 15px;border-radius:20px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:8px"
+>
+💬 Send VIEWED on WhatsApp
+</a>
 
 </div>
 
 
-<!-- CLOCK -->
-<div class="clock">
-    🕐 <span id="clock">Loading time...</span>
+<!-- NOTES -->
+<div id="notes">
+
+<div class="card">
+
+<h3>🧬 BIOLOGY - 3,000 UGX</h3>
+
+<a
+    class="green"
+    href="biology-items.pdf"
+    target="_blank"
+>
+👁️ VIEW Biology Sample 1
+</a>
+
+<a
+    class="green"
+    href="bilogy.pdf"
+    target="_blank"
+>
+👁️ VIEW Biology Sample 2
+</a>
+
+<a
+    class="green"
+    href="tranport.bio.pdf"
+    target="_blank"
+>
+👁️ VIEW Biology Transport
+</a>
+
+<button
+    class="red"
+    onclick="payNow(3000,'BIOLOGY')"
+>
+📱 PAY 3K - BIOLOGY
+</button>
+
 </div>
 
 
-<!-- SUBJECTS -->
-<h2 class="section-title">
-    📚 SUBJECT NOTES
-</h2>
+<div class="card">
 
-<div class="subjects">
+<h3>⚗️ CHEMISTRY - 3,000 UGX</h3>
 
-    <!-- BIOLOGY -->
-    <div class="subject">
+<a
+    class="green"
+    href="chemistry.pdf"
+    target="_blank"
+>
+👁️ VIEW CHEMISTRY FREE
+</a>
 
-        <h3>🧬 BIOLOGY</h3>
+<button
+    class="red"
+    onclick="payNow(3000,'CHEMISTRY')"
+>
+📱 PAY 3K - CHEMISTRY
+</button>
 
-        <p>
-            Biology revision materials and examination notes.
-        </p>
-
-        <a
-            href="biology-items.pdf"
-            target="_blank"
-            class="link-button pdf-btn"
-        >
-            📖 Biology Items
-        </a>
-
-        <a
-            href="bilogy.pdf"
-            target="_blank"
-            class="link-button pdf-btn"
-        >
-            📄 Biology Notes
-        </a>
-
-        <a
-            href="tranport.bio.pdf"
-            target="_blank"
-            class="link-button pdf-btn"
-        >
-            🚗 Transport in Biology
-        </a>
-
-    </div>
+</div>
 
 
-    <!-- CHEMISTRY -->
-    <div class="subject">
+<div class="card">
 
-        <h3>⚗️ CHEMISTRY</h3>
+<h3>⚡ PHYSICS - 3,000 UGX</h3>
 
-        <p>
-            Chemistry notes and revision materials.
-        </p>
+<a
+    class="green"
+    href="Physics.pdf"
+    target="_blank"
+>
+👁️ VIEW PHYSICS FREE
+</a>
 
-        <a
-            href="chemistry.pdf"
-            target="_blank"
-            class="link-button pdf-btn"
-        >
-            📄 Chemistry Notes
-        </a>
+<button
+    class="red"
+    onclick="payNow(3000,'PHYSICS')"
+>
+📱 PAY 3K - PHYSICS
+</button>
 
-    </div>
-
-
-    <!-- PHYSICS -->
-    <div class="subject">
-
-        <h3>⚡ PHYSICS</h3>
-
-        <p>
-            Physics revision notes and learning materials.
-        </p>
-
-        <a
-            href="Physics.pdf"
-            target="_blank"
-            class="link-button pdf-btn"
-        >
-            📄 Physics Notes
-        </a>
-
-    </div>
+</div>
 
 
-    <!-- MATHEMATICS -->
-    <div class="subject">
+<div class="card">
 
-        <h3>📐 MATHEMATICS</h3>
+<h3>📐 MATH S1-S4 - 3,000 UGX</h3>
 
-        <p>
-            Mathematics notes for learning and revision.
-        </p>
+<a
+    class="green"
+    href="mathematics-.pdf"
+    target="_blank"
+>
+👁️ VIEW MATHEMATICS PDF
+</a>
 
-        <a
-            href="mathematics-.pdf"
-            target="_blank"
-            class="link-button pdf-btn"
-        >
-            📄 Mathematics Notes
-        </a>
+<button
+    class="red"
+    onclick="payNow(3000,'MATHEMATICS')"
+>
+📱 PAY 3K - MATH
+</button>
 
-    </div>
+</div>
 
 </div>
 
 
 <!-- PAYMENT -->
-<div class="payment">
+<div
+    class="card"
+    id="paytab"
+    style="background:linear-gradient(135deg,#facc15,#eab308);border:4px solid #ff0000;text-align:center"
+>
 
-    <h2>💳 PWFCA PAYMENT</h2>
+<h2 style="text-align:center;color:#000;margin:5px">
+💰 PAY TAB - CHOOSE PLAN
+</h2>
 
-    <p class="price">
-        Individual Subject: UGX 3,000
-    </p>
+<p style="color:#000;font-size:11px;text-align:center">
+Airtel: 0747695485 - Dial *185#
+</p>
 
-    <p class="price">
-        All 4 Subjects: UGX 7,000
-    </p>
 
-    <p>
-        📱 Airtel Money:
-        <strong>0747695485</strong>
-    </p>
+<div
+    style="background:#fff;border-radius:10px;padding:10px;margin:8px 0;color:#000"
+>
 
-    <p>
-        Dial <strong>*185#</strong>
-    </p>
+<b>Single - 3,000 UGX</b>
 
-    <button class="yellow-btn" onclick="payNow()">
-        💰 PAYMENT INFORMATION
-    </button>
-
-    <br><br>
-
-    <a
-        class="link-button green-btn"
-        href="https://wa.me/256747695485?text=VIEWED"
-        target="_blank"
-    >
-        ✅ VIEWED
-    </a>
+<button
+    class="red"
+    onclick="payNow(3000,'SINGLE')"
+>
+📱 PAY 3K
+</button>
 
 </div>
 
 
-<!-- FOOTER -->
-<footer>
+<div
+    style="background:#000;color:#facc15;border-radius:10px;padding:10px;margin:8px 0"
+>
 
-    <strong>PWFCA - Pass With Flying Colours Academy</strong>
+<b>
+🔥 ALL 4 SUBJECTS - 7,000 UGX!
+</b>
 
-    <br><br>
-
-    MATS AI Learning Assistant
-
-    <br><br>
-
-    © 2026 PWFCA. All Rights Reserved.
-
-</footer>
-
-
-<!-- MATS AI FLOATING BUTTON -->
-<button id="aiButton" onclick="toggleAI()" title="Open MATS AI">
-    🤖
+<button
+    style="background:#facc15;color:#000;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin-top:6px"
+    onclick="payNow(7000,'ALL 4')"
+>
+💰 PAY 7K - GET ALL
 </button>
 
+</div>
 
-<!-- MATS AI CHAT BOX -->
+</div>
+
+
+<!-- =====================================================
+     MATS AI BUTTON
+===================================================== -->
+
+<div id="aiBtn" onclick="toggleAI()">
+🤖
+</div>
+
+
+<!-- =====================================================
+     MATS AI CHAT WINDOW
+===================================================== -->
+
 <div id="aiBox">
 
-    <div class="ai-header">
+<div id="aiHead">
 
-        <div>
-            <div class="ai-title">
-                🤖 MATS AI
-            </div>
+🤖 MATS AI - PWFCA Teacher
 
-            <div class="ai-status">
-                ● Online Learning Assistant
-            </div>
-        </div>
+<span
+    style="float:right;cursor:pointer;background:#facc15;color:#000;padding:3px 10px;border-radius:12px"
+    onclick="closeAI()"
+>
+X
+</span>
 
-        <button class="ai-close" onclick="closeAI()">
-            ×
-        </button>
+<br>
 
-    </div>
+<small style="color:#94a3b8;font-size:10px">
+🟢 ONLINE - READY TO HELP
+</small>
 
-
-    <!-- CHAT MESSAGES -->
-    <div id="chatMessages"></div>
+</div>
 
 
-    <!-- QUICK QUESTIONS -->
-    <div class="quick-buttons">
+<!-- CHAT MESSAGES -->
 
-        <button onclick="quickAsk('Who is the director of PWFCA?')">
-            Director
-        </button>
-
-        <button onclick="quickAsk('Explain photosynthesis')">
-            Photosynthesis
-        </button>
-
-        <button onclick="quickAsk('Explain Pascal principle')">
-            Pascal
-        </button>
-
-        <button onclick="quickAsk('How can I pay?')">
-            Payment
-        </button>
-
-    </div>
+<div id="aiMsgs"></div>
 
 
-    <!-- INPUT -->
-    <div class="ai-input-area">
+<!-- QUICK QUESTIONS -->
 
-        <input
-            id="aiInput"
-            type="text"
-            placeholder="Ask MATS AI..."
-            autocomplete="off"
-        >
+<div
+    style="padding:6px;background:#fff;border-top:1px solid #eee;text-align:left;max-height:85px;overflow:auto"
+>
 
-        <button id="sendBtn" onclick="doSend()">
-            Send
-        </button>
+<span
+    class="quick"
+    onclick="quickAsk('Who is the director?')"
+>
+Director
+</span>
 
-    </div>
+<span
+    class="quick"
+    onclick="quickAsk('What is photosynthesis?')"
+>
+Photosynthesis
+</span>
+
+<span
+    class="quick"
+    onclick="quickAsk('Explain Pascal principle')"
+>
+Pressure
+</span>
+
+<span
+    class="quick"
+    onclick="quickAsk('How is oxygen manufactured?')"
+>
+Oxygen
+</span>
+
+<span
+    class="quick"
+    onclick="quickAsk('How is carbon dioxide manufactured?')"
+>
+CO2
+</span>
+
+<span
+    class="quick"
+    onclick="quickAsk('How is ammonium nitrate fertilizer manufactured?')"
+>
+Fertilizer
+</span>
+
+</div>
+
+
+<!-- INPUT -->
+
+<div id="aiInputRow">
+
+<input
+    id="aiInput"
+    type="text"
+    placeholder="Ask MATS AI..."
+    autocomplete="off"
+>
+
+<button id="aiSend" onclick="doSend()">
+Send
+</button>
+
+</div>
 
 </div>
 
 
 <script>
 
-/* =========================================================
-   PWFCA - MATS AI
-   CORRECTED JAVASCRIPT
-   ========================================================= */
+/* =====================================================
+   MATS AI - WORKING JAVASCRIPT
+===================================================== */
+
+var aiOpen = false;
 
 
-/* OPEN AI */
+/* =========================
+   PAYMENT
+========================= */
+
+function payNow(amount, subject){
+
+    alert(
+        "PWFCA PAYMENT\n\n" +
+        "Amount: UGX " + amount + "\n" +
+        "Subject: " + subject + "\n\n" +
+        "Airtel Money: 0747695485\n" +
+        "Name: Tumuramye Mathias\n\n" +
+        "Dial *185# to make payment."
+    );
+
+    var message =
+        "Hello PWFCA, I want to pay UGX " +
+        amount +
+        " for " +
+        subject +
+        ".";
+
+    window.open(
+        "https://wa.me/256747695485?text=" +
+        encodeURIComponent(message),
+        "_blank"
+    );
+}
+
+
+/* =========================
+   OPEN AI
+========================= */
+
 function openAI(){
 
-    const box = document.getElementById("aiBox");
+    var box = document.getElementById("aiBox");
 
     if(box){
+
         box.style.display = "block";
 
-        setTimeout(function(){
+        aiOpen = true;
 
-            const input = document.getElementById("aiInput");
+        var input =
+            document.getElementById("aiInput");
 
-            if(input){
+        if(input){
+
+            setTimeout(function(){
+
                 input.focus();
-            }
 
-        },100);
+            },100);
+
+        }
+
     }
 }
 
 
-/* CLOSE AI */
+/* =========================
+   CLOSE AI
+========================= */
+
 function closeAI(){
 
-    const box = document.getElementById("aiBox");
+    var box = document.getElementById("aiBox");
 
     if(box){
+
         box.style.display = "none";
+
+        aiOpen = false;
+
     }
 }
 
 
-/* TOGGLE AI */
+/* =========================
+   TOGGLE AI
+========================= */
+
 function toggleAI(){
 
-    const box = document.getElementById("aiBox");
+    if(aiOpen){
 
-    if(!box){
-        return;
-    }
-
-    if(box.style.display === "block"){
         closeAI();
+
     }else{
+
         openAI();
+
     }
 }
 
 
-/* ADD MESSAGE */
-function addMessage(text,type){
+/* =========================
+   ADD MESSAGE
+========================= */
 
-    const messages = document.getElementById("chatMessages");
+function addMessage(text, type){
 
-    if(!messages){
+    var box =
+        document.getElementById("aiMsgs");
+
+    if(!box){
+
         return;
+
     }
 
-    const message = document.createElement("div");
+    var message =
+        document.createElement("div");
 
-    message.className = "message " + type;
+    message.className =
+        "msg " + type;
 
     message.textContent = text;
 
-    messages.appendChild(message);
+    box.appendChild(message);
 
-    messages.scrollTop = messages.scrollHeight;
+    box.scrollTop =
+        box.scrollHeight;
 
-    return message;
 }
 
 
-/* QUICK QUESTION */
-function quickAsk(question){
+/* =========================
+   QUICK QUESTIONS
+========================= */
+
+function quickAsk(text){
 
     openAI();
 
-    addMessage(question,"user");
+    var input =
+        document.getElementById("aiInput");
 
-    showAnswer(question);
+    if(input){
+
+        input.value = text;
+
+        doSend();
+
+    }
+
 }
 
 
-/* SEND MESSAGE */
+/* =========================
+   SEND MESSAGE
+========================= */
+
 function doSend(){
 
-    const input = document.getElementById("aiInput");
+    var input =
+        document.getElementById("aiInput");
 
-    if(!input){
+    var messages =
+        document.getElementById("aiMsgs");
+
+    if(!input || !messages){
+
         return;
+
     }
 
-    const question = input.value.trim();
+    var text =
+        input.value.trim();
 
-    if(question === ""){
+    if(text === ""){
+
         return;
+
     }
 
-    addMessage(question,"user");
+
+    /* USER MESSAGE */
+
+    addMessage(text,"userMsg");
 
     input.value = "";
 
-    showAnswer(question);
-}
+
+    /* THINKING MESSAGE */
+
+    var thinking =
+        document.createElement("div");
+
+    thinking.className =
+        "msg botMsg";
+
+    thinking.textContent =
+        "🤖 MATS AI is thinking...";
+
+    messages.appendChild(thinking);
+
+    messages.scrollTop =
+        messages.scrollHeight;
 
 
-/* SHOW ANSWER */
-function showAnswer(question){
-
-    const typing = addMessage("MATS AI is thinking...","bot typing");
+    /* AI RESPONSE */
 
     setTimeout(function(){
 
-        if(typing){
-            typing.remove();
+        if(thinking){
+
+            thinking.remove();
+
         }
 
-        const answer = getAnswer(question);
+        var answer =
+            getAnswer(text);
 
-        addMessage(answer,"bot");
+        addMessage(answer,"botMsg");
 
     },500);
+
 }
 
 
-/* =========================================================
+/* =====================================================
    MATS AI KNOWLEDGE
-   ========================================================= */
+===================================================== */
+
 function getAnswer(question){
 
-    const q = question.toLowerCase().trim();
+    var q =
+        question.toLowerCase().trim();
 
 
-    /* GREETINGS */
+    /* GREETING */
+
     if(
         q.includes("hello") ||
         q.includes("hi") ||
@@ -953,123 +871,255 @@ function getAnswer(question){
         q.includes("good evening")
     ){
 
-        return "Hello! 👋 I am MATS AI, your PWFCA learning assistant. Ask me about Biology, Chemistry, Physics, Mathematics, payment or PWFCA.";
+        return (
+            "👋 Hello! I am MATS AI, your PWFCA " +
+            "learning assistant.\n\n" +
+            "You can ask me about Biology, Chemistry, " +
+            "Physics, Mathematics, PWFCA or payment."
+        );
+
     }
 
 
     /* DIRECTOR */
+
     if(
         q.includes("director") ||
-        q.includes("who runs pwfca") ||
-        q.includes("who is in charge")
+        q.includes("mathias") ||
+        q.includes("tumuramye") ||
+        q.includes("who is the director")
     ){
 
-        return "The Director of PWFCA is Tumuramye Mathias. 📚 You can contact him on 0747695485.";
+        return (
+            "🎓 PWFCA DIRECTOR\n\n" +
+            "Name: Tumuramye Mathias\n" +
+            "Phone: 0747695485\n" +
+            "Location: Mbarara District, Uganda\n\n" +
+            "He is the Director of Pass With Flying " +
+            "Colours Academy (PWFCA)."
+        );
+
     }
 
 
     /* PWFCA */
+
     if(
         q.includes("what is pwfca") ||
-        q.includes("what does pwfca mean") ||
-        q.includes("pwfca")
+        q.includes("pwfca mean") ||
+        q === "pwfca"
     ){
 
-        return "PWFCA stands for Pass With Flying Colours Academy. 🎓 It provides learning materials, revision notes and educational support.";
+        return (
+            "🎓 PWFCA stands for:\n\n" +
+            "PASS WITH FLYING COLOURS ACADEMY.\n\n" +
+            "PWFCA provides learning materials and " +
+            "revision support for students."
+        );
+
     }
 
 
     /* PHOTOSYNTHESIS */
+
     if(
         q.includes("photosynthesis") ||
         q.includes("photo synthesis")
     ){
 
-        return "Photosynthesis is the process by which green plants make food using carbon dioxide and water in the presence of sunlight and chlorophyll. 🌱\n\nWord equation:\nCarbon dioxide + Water → Glucose + Oxygen.";
+        return (
+            "🌱 PHOTOSYNTHESIS\n\n" +
+
+            "Photosynthesis is the process by which " +
+            "green plants manufacture food using " +
+            "carbon dioxide and water in the presence " +
+            "of sunlight and chlorophyll.\n\n" +
+
+            "Word equation:\n" +
+            "Carbon dioxide + Water → Glucose + Oxygen.\n\n" +
+
+            "It mainly takes place in chloroplasts."
+        );
+
     }
 
 
     /* PASCAL */
+
     if(
+        q.includes("pressure") ||
         q.includes("pascal") ||
-        q.includes("pascal's principle") ||
-        q.includes("pascal principle")
+        q.includes("transmission of pressure")
     ){
 
-        return "Pascal's principle states that pressure applied to an enclosed fluid is transmitted equally in all directions throughout the fluid. It is used in hydraulic machines such as hydraulic brakes and hydraulic jacks.";
+        return (
+            "⚙️ PASCAL'S PRINCIPLE\n\n" +
+
+            "Pressure applied to an enclosed fluid is " +
+            "transmitted equally in all directions " +
+            "throughout the fluid.\n\n" +
+
+            "Formula:\n" +
+            "P = F / A\n\n" +
+
+            "Applications include hydraulic brakes, " +
+            "hydraulic jacks and hydraulic presses."
+        );
+
     }
 
 
     /* OXYGEN */
+
     if(
         q.includes("oxygen") ||
         q.includes("manufacture oxygen") ||
-        q.includes("preparation of oxygen")
+        q.includes("manufactured oxygen")
     ){
 
-        return "Oxygen can be prepared in the laboratory by decomposing hydrogen peroxide using manganese(IV) oxide as a catalyst.\n\nHydrogen peroxide → Water + Oxygen.";
+        return (
+            "🧪 MANUFACTURE OF OXYGEN\n\n" +
+
+            "Laboratory preparation:\n\n" +
+
+            "Hydrogen peroxide is decomposed using " +
+            "manganese(IV) oxide as a catalyst.\n\n" +
+
+            "2H₂O₂ → 2H₂O + O₂\n\n" +
+
+            "The oxygen can be tested using a glowing " +
+            "splint, which relights in oxygen.\n\n" +
+
+            "Industrially, oxygen is mainly obtained " +
+            "by fractional distillation of liquid air."
+        );
+
     }
 
 
     /* CARBON DIOXIDE */
+
     if(
         q.includes("carbon dioxide") ||
         q.includes("co2")
     ){
 
-        return "Carbon dioxide can be prepared in the laboratory by reacting calcium carbonate, such as marble chips, with dilute hydrochloric acid.\n\nCalcium carbonate + Hydrochloric acid → Calcium chloride + Water + Carbon dioxide.";
+        return (
+            "🧪 CARBON DIOXIDE\n\n" +
+
+            "Laboratory preparation commonly involves " +
+            "reacting calcium carbonate with dilute " +
+            "hydrochloric acid.\n\n" +
+
+            "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂\n\n" +
+
+            "The gas turns limewater milky.\n\n" +
+
+            "Industrially, carbon dioxide can also be " +
+            "obtained as a by-product during limestone " +
+            "processing and other industrial processes."
+        );
+
     }
 
 
     /* AMMONIUM NITRATE */
+
     if(
         q.includes("ammonium nitrate") ||
-        q.includes("fertilizer")
+        q.includes("fertilizer") ||
+        q.includes("nh4no3")
     ){
 
-        return "Ammonium nitrate is a nitrogen-containing fertilizer. It supplies nitrogen needed by plants for healthy growth and production of proteins.";
-    }
+        return (
+            "🌱 AMMONIUM NITRATE FERTILIZER\n\n" +
 
+            "Ammonium nitrate is a nitrogen-containing " +
+            "fertilizer.\n\n" +
 
-    /* CHEMISTRY */
-    if(
-        q.includes("chemistry")
-    ){
+            "It is produced by neutralising ammonia " +
+            "with nitric acid:\n\n" +
 
-        return "Chemistry is the study of matter, its properties, composition and the changes it undergoes. ⚗️ Ask me a specific Chemistry question and I will try to explain it.";
+            "NH₃ + HNO₃ → NH₄NO₃\n\n" +
+
+            "The reaction is exothermic.\n\n" +
+
+            "Industrial ammonia is commonly produced " +
+            "using the Haber process, while nitric acid " +
+            "is produced through the Ostwald process.\n\n" +
+
+            "Ammonium nitrate is used as a nitrogen " +
+            "fertilizer. It must be stored and handled " +
+            "according to appropriate safety requirements."
+        );
+
     }
 
 
     /* BIOLOGY */
-    if(
-        q.includes("biology")
-    ){
 
-        return "Biology is the study of living organisms. 🧬 You can open the Biology notes in the PWFCA subject section for revision.";
+    if(q.includes("biology")){
+
+        return (
+            "🧬 BIOLOGY\n\n" +
+            "Biology is the study of living organisms.\n\n" +
+            "You can open the Biology notes in the " +
+            "PWFCA Notes section for revision."
+        );
+
+    }
+
+
+    /* CHEMISTRY */
+
+    if(q.includes("chemistry")){
+
+        return (
+            "⚗️ CHEMISTRY\n\n" +
+            "Chemistry is the study of matter, its " +
+            "properties, composition and the changes " +
+            "it undergoes.\n\n" +
+            "You can also open the PWFCA Chemistry notes."
+        );
+
     }
 
 
     /* PHYSICS */
-    if(
-        q.includes("physics")
-    ){
 
-        return "Physics is the study of matter, energy, forces and how they interact. ⚡ Ask me a specific Physics question.";
+    if(q.includes("physics")){
+
+        return (
+            "⚡ PHYSICS\n\n" +
+            "Physics studies matter, energy, forces " +
+            "and their interactions.\n\n" +
+            "Ask me about a specific Physics topic."
+        );
+
     }
 
 
     /* MATHEMATICS */
+
     if(
         q.includes("mathematics") ||
         q.includes("math") ||
         q.includes("calculate")
     ){
 
-        return "I can help explain Mathematics concepts. 📐 Try asking about algebra, equations, geometry, percentages, ratios or another specific topic.";
+        return (
+            "📐 MATHEMATICS\n\n" +
+            "I can help explain Mathematics topics " +
+            "such as algebra, equations, geometry, " +
+            "ratios and percentages.\n\n" +
+            "Ask me a specific Mathematics question."
+        );
+
     }
 
 
     /* PAYMENT */
+
     if(
         q.includes("payment") ||
         q.includes("pay") ||
@@ -1078,4 +1128,40 @@ function getAnswer(question){
         q.includes("fees")
     ){
 
-        return "PWFCA payment information:\n\n📱 Airtel Money: 0747695485\n💰 One subject: UGX 3,000\n📚 All 4 subjects: UGX 7,000\n\nDial *185# on
+        return (
+            "💰 PWFCA PAYMENT\n\n" +
+            "Single subject: UGX 3,000\n" +
+            "All 4 subjects: UGX 7,000\n\n" +
+            "Airtel Money: 0747695485\n" +
+            "Dial *185# to make payment.\n\n" +
+            "You can also use the Pay Tab on this website."
+        );
+
+    }
+
+
+    /* CONTACT */
+
+    if(
+        q.includes("contact") ||
+        q.includes("phone number") ||
+        q.includes("whatsapp")
+    ){
+
+        return (
+            "📞 PWFCA CONTACT\n\n" +
+            "Tumuramye Mathias\n" +
+            "Phone/WhatsApp: 0747695485"
+        );
+
+    }
+
+
+    /* HELP */
+
+    if(
+        q.includes("help") ||
+        q.includes("what can you do")
+    ){
+
+ 
