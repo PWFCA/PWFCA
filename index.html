@@ -17,6 +17,18 @@ padding-bottom:120px;
 overflow-x:hidden;
 }
 
+.page-shell{
+max-width:680px;
+margin:18px auto 40px;
+background:rgba(15,23,42,.72);
+border:2px solid rgba(250,204,21,.35);
+border-radius:18px;
+box-shadow:0 18px 50px rgba(15,23,42,.45);
+position:relative;
+padding:18px 18px 28px;
+backdrop-filter:blur(3px);
+}
+
 /* ================= SHINY ADDITIONS ================= */
 
 body:before{
@@ -62,7 +74,7 @@ animation:logoFloat 3s ease-in-out infinite;
 background:#16a34a;
 color:#fff;
 padding:7px 15px;
-border-radius:20px;
+border-radius:16px;
 font-size:12px;
 font-weight:bold;
 display:inline-block;
@@ -72,7 +84,7 @@ box-shadow:0 0 15px rgba(22,163,74,.55);
 .card{
 background:#fff;
 color:#111;
-border-radius:16px;
+border-radius:12px;
 padding:14px;
 margin:12px auto;
 max-width:600px;
@@ -128,7 +140,7 @@ color:#fff;
 border:none;
 width:100%;
 padding:13px;
-border-radius:30px;
+border-radius:12px;
 font-weight:bold;
 margin:7px 0;
 cursor:pointer;
@@ -145,7 +157,7 @@ display:flex;
 gap:5px;
 background:rgba(255,255,255,.96);
 padding:6px;
-border-radius:30px;
+border-radius:16px;
 max-width:600px;
 margin:10px auto;
 box-shadow:0 8px 25px rgba(0,0,0,.3);
@@ -156,7 +168,7 @@ flex:1;
 background:#0f172a;
 color:#fff;
 padding:10px 4px;
-border-radius:20px;
+border-radius:12px;
 text-decoration:none;
 font-weight:bold;
 font-size:11px;
@@ -311,7 +323,7 @@ transform:scale(1.05);
 max-width:600px;
 margin:15px auto;
 padding:18px;
-border-radius:18px;
+border-radius:14px;
 background:linear-gradient(135deg,#1e293b,#111827);
 border:2px solid #facc15;
 box-shadow:0 0 25px rgba(250,204,21,.2);
@@ -419,12 +431,15 @@ h1{font-size:18px!important}
 .menu a{font-size:9px;padding:9px 2px}
 .pic{width:120px;height:120px}
 #aiBtn{width:62px;height:62px;font-size:30px;right:14px}
+.page-shell{padding:14px 12px 24px;margin:10px auto 30px}
 }
 </style>
 
 </head>
 
 <body>
+
+<div class="page-shell">
 
 <!-- ORIGINAL CONTENT -->
 
@@ -443,11 +458,8 @@ Director Tumuramye Mathias - 0759180636
 
 <div style="margin:10px">
 <a href="admin.html" style="background:#1e293b;color:#facc15;border:2px solid #facc15;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">🔐 ADMIN</a>
-
-<a href="https://wa.me/256759180636" target="_blank" style="background:#25D366;color:#fff;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">💬 WhatsApp</a>
-
-<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" style="background:#facc15;color:#000;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">✅ Sign In</a>
-
+<a href="https://wa.me/256759180636" target="_blank" style="background:#25D366;color:#fff;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">💬 WHATSAPP</a>
+<a href="https://forms.gle/WG9Mk4i4K3EJfXwB7" target="_blank" style="background:#facc15;color:#000;padding:7px 11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:10px;margin:2px">✅ SIGN IN</a>
 </div>
 
 <p style="color:#94a3b8;font-size:11px">
@@ -539,7 +551,7 @@ Airtel: 0759180636 - Dial *185#
 
 <div style="background:#000;color:#facc15;border-radius:10px;padding:10px;margin:8px 0">
 <b>🔥 ALL 4 SUBJECTS - 7,000 UGX!</b>
-<button style="background:#facc15;color:#000;border:none;width:100%;padding:13px;border-radius:30px;font-weight:bold;margin-top:6px" onclick="payNow(7000,'ALL 4')">
+<button style="background:#facc15;color:#000;border:none;width:100%;padding:13px;border-radius:12px;font-weight:bold;margin-top:6px" onclick="payNow(7000,'ALL 4')">
 💰 PAY 7K - GET ALL
 </button>
 </div>
@@ -568,7 +580,7 @@ Working 100% - Ask anything
 
 <div style="padding:6px;background:#fff;border-top:1px solid #eee;text-align:left;max-height:85px;overflow:auto">
 
-<span class="quick" onclick="quickAsk('Who is the director?')">Director</span> <span class="quick" onclick="quickAsk('What is photosynthesis?')">Photosynthesis</span> <span class="quick" onclick="quickAsk('Principle of transmission of pressure')">Pressure</span> <span class="quick" onclick="quickAsk('How is oxygen manufactured?')">Oxygen</span> <span class="quick" onclick="quickAsk('How is carbon dioxide manufactured?')">CO2</span> <span class="quick" onclick="quickAsk('How is ammonium nitrate fertilizer manufactured?')">Fertilizer</span>
+<span class="quick" onclick="quickAsk('Who is the director?')">Director</span> <span class="quick" onclick="quickAsk('What is photosynthesis?')">Photosynthesis</span> <span class="quick" onclick="quickAsk('How is carbon dioxide manufactured?')">CO2</span> <span class="quick" onclick="quickAsk('How is oxygen manufactured?')">Oxygen</span>
 
 </div>
 
@@ -659,22 +671,22 @@ l.indexOf('name of director')!==-1 ||
 l.indexOf('tumuramye')!==-1
 ){
 
-return "🎓 DIRECTOR OF PWFCA - MATS AI:\n\nName: Tumuramye Mathias\nPhone: 0759180636\nLocation: Mbarara District, Uganda\nAcademy: Pass With Flying Colours Academy (PWFCA)\n\nABOUT HIM:\nMathias is a young innovator who does well in sciences and he inspires young students to get technological skills to build something like mine (this website, MATS AI, digital notes) and he also inspires young youth to start small online ventures to earn and learn.\n\nHe believes science + technology + hard work = success. He built PWFCA to help S1-S4 students pass with flying colours using affordable digital notes (3K per subject, 7K all).\n\nContact him on WhatsApp 0759180636 for notes or business advice!";
+return "🎓 DIRECTOR OF PWFCA - MATS AI:\n\nName: Tumuramye Mathias\nPhone: 0759180636\nLocation: Mbarara District, Uganda\nAcademy: Pass With Flying Colours Academy (PWFCA)\n\nABOUT HIM:\nMathias is the founder and director of PWFCA and guides students in academic excellence and digital learning.";
 }
 
 if(l.indexOf('photosynthesis')!==-1){
 
-return "PHOTOSYNTHESIS:\nEquation: 6CO2 + 6H2O + sunlight/chlorophyll -> C6H12O6 + 6O2\nWhere: Chloroplast in mesophyll cells.\nLight stage in grana: Water split -> O2 + H + ATP\nDark stage Calvin in stroma: CO2 + H + ATP -> Glucose\nNeeds CO2 via stomata, water via xylem, light, chlorophyll.\nImportance: Food, O2, removes CO2, basis food chain.";
+return "PHOTOSYNTHESIS:\nEquation: 6CO2 + 6H2O + sunlight/chlorophyll -> C6H12O6 + 6O2\nWhere: Chloroplast in mesophyll cells.\nLight stage in grana: Water split -> O2 + H + ATP\nDark stage Calvin cycle uses CO2 to form glucose.";
 }
 
 if(l.indexOf('pressure')!==-1 || l.indexOf('pascal')!==-1){
 
-return "PRINCIPLE OF TRANSMISSION OF PRESSURE - PASCAL'S PRINCIPLE:\nStatement: Pressure applied to enclosed fluid transmitted equally to all parts.\nFormula P=F/A, F1/A1=F2/A2\nApplications: Hydraulic Jack lifts car (A1=2cm2 A2=100cm2 F1=50N -> F2=2500N), Hydraulic Brake, Hydraulic Press, Syringe.\nCalculation: F1=20N A1=5cm2 Find F2 on 100cm2? 20/5=F2/100 -> F2=400N";
+return "PRINCIPLE OF TRANSMISSION OF PRESSURE - PASCAL'S PRINCIPLE:\nStatement: Pressure applied to enclosed fluid transmitted equally to all parts.\nFormula P=F/A, F1/A1=F2/A2\nApplications: Hydraulic press, brakes, lifts.";
 }
 
 if(l.indexOf('oxygen')!==-1){
 
-return "MANUFACTURE OF OXYGEN:\nLAB: 2H2O2 -> MnO2 -> 2H2O + O2. Put MnO2 in flask add H2O2 dropwise O2 bubbles collect over water. Test glowing splint relights.\nAlso 2KClO3 -> heat+MnO2 -> 2KCl + 3O2\nINDUSTRIAL: Fractional distillation of liquid air. Filter air, compress 200 atm cool -200C -> liquid air. N2 boils -196C O2 -183C. N2 boils first leaves O2 99.5% pure in steel cylinders. Also electrolysis 2H2O -> 2H2 + O2\nUses: Hospitals, welding, steel, rockets.";
+return "MANUFACTURE OF OXYGEN:\nLAB: 2H2O2 -> MnO2 -> 2H2O + O2. Put MnO2 in flask add H2O2 dropwise O2 bubbles collect over water. Test glowing splint relights.";
 }
 
 if(
@@ -683,7 +695,7 @@ l.indexOf('co2')!==-1 ||
 (l.indexOf('carbon')!==-1 && l.indexOf('dioxide')!==-1)
 ){
 
-return "MANUFACTURE OF CARBON DIOXIDE - MATS AI:\n\nLAB PREPARATION:\nCaCO3 + 2HCl -> CaCl2 + H2O + CO2\n\nCalcium carbonate (marble chips) + hydrochloric acid -> CO2.\n\nTest: Lime water turns milky.\nCO2 + Ca(OH)2 -> CaCO3 + H2O\n\nINDUSTRIAL MANUFACTURE:\n1. Limestone: CaCO3 -> heat -> CaO + CO2\n2. Fermentation: C6H12O6 -> 2C2H5OH + 2CO2\n3. Burning carbon: C + O2 -> CO2\n\nUSES:\nFizzy drinks, fire extinguishers, dry ice, baking, greenhouse plant growth and making urea.\n\nFull notes in Chemistry PDF 3K!";
+return "MANUFACTURE OF CARBON DIOXIDE - MATS AI:\n\nLAB PREPARATION:\nCaCO3 + 2HCl -> CaCl2 + H2O + CO2\n\nCalcium carbonate (marble chips) + hydrochloric acid -> CO2.\n\nTest: Lime water turns milky.";
 }
 
 if(
@@ -692,7 +704,7 @@ l.indexOf('fertilizer')!==-1 ||
 l.indexOf('nh4no3')!==-1
 ){
 
-return "MANUFACTURE OF AMMONIUM NITRATE FERTILIZER:\n\nSTEP 1 - HABER PROCESS:\nN2 + 3H2 <-> 2NH3\n\nSTEP 2 - OSTWALD PROCESS:\nAmmonia is oxidised to nitric acid.\n\nSTEP 3 - NEUTRALIZATION:\nNH3 + HNO3 -> NH4NO3 + heat\n\nAmmonium nitrate is used as a nitrogen fertilizer. It contains about 35% nitrogen.\n\nIMPORTANT: Industrial manufacture requires controlled conditions and proper safety procedures because ammonium nitrate can present serious fire/explosion hazards.";
+return "MANUFACTURE OF AMMONIUM NITRATE FERTILIZER:\n\nSTEP 1 - HABER PROCESS:\nN2 + 3H2 <-> 2NH3\n\nSTEP 2 - OSTWALD PROCESS:\nAmmonia is oxidised to nitric acid.\n\nSTEP 3 - NEUTRALIZATION:\nNH3 + HNO3 -> NH4NO3\nThis forms ammonium nitrate fertilizer.";
 }
 
 if(l.indexOf('pay')!==-1){
@@ -706,10 +718,10 @@ l.indexOf('hi')!==-1 ||
 q.length<4
 ){
 
-return "Hello! MATS AI WORKING! Ask:\n- Who is the director?\n- What is photosynthesis?\n- Principle of transmission of pressure?\n- How is oxygen manufactured?\n- How is carbon dioxide manufactured?\n- How is ammonium nitrate fertilizer manufactured?";
+return "Hello! MATS AI WORKING! Ask:\n- Who is the director?\n- What is photosynthesis?\n- Principle of transmission of pressure?\n- How is oxygen manufactured?\n- How is carbon dioxide manufactured?\n- How is ammonium nitrate fertilizer made?";
 }
 
-return "MATS AI: You asked '"+q+"'\n\nTry asking about:\n- The director\n- Photosynthesis\n- Pascal's principle\n- Oxygen manufacture\n- Carbon dioxide manufacture\n- Ammonium nitrate fertilizer\n- PWFCA payments";
+return "MATS AI: You asked '"+q+"'\n\nTry asking about:\n- The director\n- Photosynthesis\n- Pascal's principle\n- Oxygen manufacture\n- Carbon dioxide manufacture\n- Ammonium nitrate fertilizer";
 }
 
 /* ================= NEW SHINY FEATURES ================= */
@@ -787,6 +799,8 @@ doSend();
 <p style="color:#64748b;font-size:11px;margin-top:25px">
 © 2026 PWFCA - Mbarara | MATS AI Updated ✅
 </p>
+
+</div>
 
 </body>
 </html>
